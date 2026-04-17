@@ -305,6 +305,153 @@ select.form-input:invalid,select.form-input option[value=""]{color:var(--ink5)}
 
 [data-lang="en"] .fr{display:none!important}
 [data-lang="fr"] .en{display:none!important}
+/* ═══ V3 MEMORANDUM ADDITIONS ═══ */
+.hdr-invite{display:inline-flex;align-items:center;gap:10px;padding:8px 14px;background:var(--terra3);border:.5px solid rgba(139,58,42,.12);margin-bottom:24px}
+.hdr-invite-dot{width:6px;height:6px;border-radius:50%;background:var(--terra);animation:hdrpulse 2s infinite}
+@keyframes hdrpulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.3)}}
+.hdr-invite-text{font-family:'JetBrains Mono',monospace;font-size:8.5px;letter-spacing:4px;text-transform:uppercase;color:var(--terra);font-weight:500}
+.lead{font-size:16px!important;font-weight:400;color:var(--ink)!important;line-height:1.75!important}
+.strong{font-weight:600;color:var(--ink)}
+.em-t{font-style:italic;color:var(--terra)}
+
+/* Asterisk disclaimer */
+.ast{color:var(--terra);font-weight:700;cursor:help;font-size:.78em;vertical-align:super;padding:0 1px;text-decoration:none}
+.ast:hover{color:var(--terra2)}
+.disc{background:var(--parch);border-left:2px solid var(--ink4);padding:12px 16px;margin:18px 0;font-size:12px;color:var(--ink3);line-height:1.6;font-style:italic;max-width:580px}
+.disc .mark{font-weight:700;color:var(--terra);font-style:normal;margin-right:4px}
+
+/* Stats row */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:0;margin:24px 0;max-width:580px}
+.stat{padding:14px 0;border-top:.5px solid var(--rule)}
+.stat:last-child{border-bottom:.5px solid var(--rule)}
+@media(min-width:480px){.stat{padding:14px 14px 14px 0;border-top:.5px solid var(--rule);border-bottom:none}.stat:not(:first-child){border-left:.5px solid var(--rule);padding-left:18px}}
+.stat-v{font-family:'EB Garamond',serif;font-size:26px;font-weight:700;color:var(--terra);line-height:1}
+.stat-l{font-size:13px;color:var(--ink2);margin-top:5px;line-height:1.4}
+.stat-d{font-family:'JetBrains Mono',monospace;font-size:7.5px;color:var(--ink4);margin-top:3px;text-transform:uppercase;letter-spacing:1px}
+
+/* Acquis checklist */
+.acquis{margin:20px 0;max-width:580px}
+.acquis-i{padding:13px 0;border-bottom:.5px solid var(--rule);display:flex;gap:12px;align-items:flex-start}
+.acquis-c{width:20px;height:20px;border:1px solid var(--forest);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--forest);font-size:11px;margin-top:2px;background:var(--forest2)}
+.acquis-c.new{border-color:var(--terra);color:var(--terra);background:var(--terra3);animation:acqpulse 2.5s ease-in-out infinite}
+@keyframes acqpulse{0%,100%{box-shadow:0 0 0 0 rgba(139,58,42,0)}50%{box-shadow:0 0 0 4px rgba(139,58,42,.08)}}
+.acquis-body{flex:1}
+.acquis-t{font-family:'EB Garamond',serif;font-size:15px;font-weight:600;color:var(--ink);line-height:1.35;margin-bottom:2px}
+.acquis-d{font-size:12.5px;color:var(--ink3);line-height:1.55}
+.acquis-m{font-family:'JetBrains Mono',monospace;font-size:7.5px;color:var(--terra);margin-top:3px;text-transform:uppercase;letter-spacing:1px}
+.acquis-tag{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:2px;text-transform:uppercase;color:var(--terra);padding:1px 5px;background:var(--terra3);margin-left:6px;vertical-align:middle;border-radius:1px}
+
+/* SVG Diagram wrapper */
+.arch{margin:22px 0;padding:20px 16px;background:var(--parch);border:.5px solid var(--rule);max-width:680px;overflow:hidden}
+.arch-ttl{font-family:'JetBrains Mono',monospace;font-size:7.5px;letter-spacing:3px;text-transform:uppercase;color:var(--ink4);margin-bottom:16px;text-align:center}
+.arch svg{width:100%;height:auto;display:block;max-width:680px;margin:0 auto}
+@media(max-width:560px){.arch{padding:14px 10px;margin-left:-20px;margin-right:-20px;max-width:calc(100% + 40px)}}
+
+/* Markets grid */
+.mkts{margin:20px 0;max-width:580px}
+.mkt-r{display:grid;grid-template-columns:auto 1fr;gap:14px;padding:14px 2px;border-top:.5px solid var(--rule);align-items:baseline}
+.mkt-r:last-child{border-bottom:.5px solid var(--rule)}
+.mkt-v{font-family:'EB Garamond',serif;font-size:20px;font-weight:700;color:var(--terra);white-space:nowrap;line-height:1}
+.mkt-i h4{font-family:'EB Garamond',serif;font-size:14.5px;font-weight:600;color:var(--ink);margin-bottom:2px;line-height:1.3}
+.mkt-i p{font-size:12px;color:var(--ink3);margin-bottom:0;line-height:1.5;max-width:100%}
+.mkt-tag{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:2px;text-transform:uppercase;color:var(--terra);padding:1px 5px;background:var(--terra3);margin-left:6px;vertical-align:middle}
+@media(max-width:480px){.mkt-r{grid-template-columns:1fr;gap:3px}.mkt-v{font-size:18px}}
+
+/* Moat cards */
+.moat-g{display:grid;grid-template-columns:1fr;gap:12px;margin:22px 0;max-width:580px}
+@media(min-width:560px){.moat-g{grid-template-columns:1fr 1fr}}
+.moat-c{background:var(--ivory);border:.5px solid var(--rule);padding:16px 18px;position:relative}
+.moat-n{position:absolute;top:12px;right:14px;font-family:'EB Garamond',serif;font-size:28px;font-weight:800;color:var(--parch);line-height:.8}
+.moat-lbl{font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:2.5px;text-transform:uppercase;color:var(--terra);margin-bottom:5px}
+.moat-t{font-family:'EB Garamond',serif;font-size:15px;font-weight:600;color:var(--ink);margin-bottom:5px;padding-right:30px;line-height:1.3}
+.moat-d{font-size:12px;color:var(--ink3);line-height:1.55}
+
+/* Revenue streams */
+.rev-g{display:grid;grid-template-columns:1fr;gap:12px;margin:22px 0;max-width:580px}
+@media(min-width:560px){.rev-g{grid-template-columns:1fr 1fr}}
+.rev-c{background:var(--ivory);border:.5px solid var(--rule);padding:16px 18px;transition:border-color .2s}
+.rev-c:hover{border-color:var(--terra)}
+.rev-lbl{font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:2.5px;text-transform:uppercase;color:var(--terra);margin-bottom:5px}
+.rev-t{font-family:'EB Garamond',serif;font-size:14.5px;font-weight:600;color:var(--ink);margin-bottom:3px;line-height:1.3}
+.rev-r{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--terra);margin-bottom:7px;font-weight:500}
+.rev-d{font-size:11.5px;color:var(--ink3);line-height:1.55}
+.rev-big{grid-column:1/-1;background:var(--terra3);border:.5px solid rgba(139,58,42,.12)}
+
+/* Valuation table */
+.val-w{margin:22px 0;max-width:680px;overflow-x:auto;-webkit-overflow-scrolling:touch;background:var(--ink);border:.5px solid var(--ink2);border-radius:2px}
+.val-tbl{min-width:600px;padding:4px 0}
+.val-r{display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr 1fr;gap:12px;padding:12px 20px;border-bottom:.5px solid rgba(244,241,234,.06);align-items:center}
+.val-r:last-child{border-bottom:none}
+.val-h{font-family:'JetBrains Mono',monospace;font-size:7.5px;letter-spacing:2.5px;text-transform:uppercase;color:#A68A3D;font-weight:500;border-bottom:.5px solid rgba(166,138,61,.3)}
+.val-r > div{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--cream);line-height:1.4}
+.val-stg{color:var(--ivory);font-family:'EB Garamond',serif!important;font-size:13.5px!important;font-weight:500;line-height:1.3}
+.val-phs{display:block;font-family:'JetBrains Mono',monospace;font-size:7.5px;color:var(--ink5);letter-spacing:1.5px;text-transform:uppercase;margin-top:2px;font-weight:400}
+.val-v{color:#A68A3D!important;font-weight:500!important}
+.val-nt{color:var(--ink5)!important}
+.val-stk{color:#6FB084!important;font-weight:500!important}
+.val-mut{color:var(--ink4);font-size:9.5px;letter-spacing:.5px}
+.val-r.val-ex{background:rgba(139,58,42,.12);border-top:1px solid var(--terra)}
+.val-r.val-ex .val-stg{color:var(--terra2);font-weight:600;font-style:italic}
+.val-r.val-ex .val-v{font-weight:600!important;font-size:12.5px!important}
+.val-r.val-ex .val-stk{font-weight:600!important;font-size:13px!important}
+.val-r.val-ex div:last-child{color:#A68A3D!important;font-weight:600!important;font-size:13px!important}
+@media(max-width:600px){.val-w{margin-left:-20px;margin-right:-20px;max-width:calc(100% + 40px);border-left:none;border-right:none;border-radius:0}.val-r{padding:10px 14px;gap:8px}.val-h{padding:10px 14px;font-size:7px;letter-spacing:1.5px}.val-r > div{font-size:10.5px}}
+
+/* Risk matrix */
+.rsk{margin:20px 0;max-width:680px;font-size:13px}
+.rsk-h{display:grid;grid-template-columns:1.2fr 90px 2fr;gap:12px;padding:10px 2px;font-family:'JetBrains Mono',monospace;font-size:7.5px;letter-spacing:2.5px;text-transform:uppercase;color:var(--ink4);border-bottom:1px solid var(--ink);font-weight:500}
+.rsk-r{display:grid;grid-template-columns:1.2fr 90px 2fr;gap:12px;padding:13px 2px;border-bottom:.5px solid var(--rule);align-items:start}
+.rsk-n{font-family:'EB Garamond',serif;font-weight:600;color:var(--ink);font-size:14px;line-height:1.3}
+.rsk-l{font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:3px 7px;display:inline-block;text-align:center}
+.rsk-l.hi{color:var(--terra);background:var(--terra3);border:.5px solid rgba(139,58,42,.15)}
+.rsk-l.md{color:#C08030;background:rgba(192,128,48,.1);border:.5px solid rgba(192,128,48,.25)}
+.rsk-l.lo{color:var(--forest);background:var(--forest2);border:.5px solid rgba(45,95,62,.12)}
+.rsk-m{font-size:11.5px;color:var(--ink3);line-height:1.6}
+@media(max-width:560px){.rsk-h,.rsk-r{grid-template-columns:1fr 80px;gap:8px}.rsk-h > div:nth-child(3){display:none}.rsk-r .rsk-m{grid-column:1/-1;padding-top:4px}}
+
+/* FAQ */
+.faq-c{border-bottom:.5px solid var(--rule)}
+.faq-h{padding:20px 0;cursor:pointer;display:flex;gap:14px;align-items:flex-start}
+.faq-n{font-family:'EB Garamond',serif;font-size:24px;font-weight:800;color:var(--parch);line-height:1;width:34px;flex-shrink:0;user-select:none;transition:color .3s}
+.faq-c.open .faq-n{color:var(--terra)}
+.faq-t{font-family:'EB Garamond',serif;font-size:16px;font-weight:500;color:var(--ink);flex:1;line-height:1.35}
+.faq-arr{font-family:'JetBrains Mono',monospace;color:var(--ink4);transition:transform .3s}
+.faq-c.open .faq-arr{transform:rotate(45deg);color:var(--terra)}
+.faq-b{max-height:0;overflow:hidden;transition:max-height .6s}
+.faq-c.open .faq-b{max-height:3500px}
+.faq-i{padding:0 0 28px 48px}
+@media(max-width:560px){.faq-n{display:none}.faq-i{padding:0 0 28px 0}}
+.faq-short{background:var(--terra3);border-left:2px solid var(--terra);padding:13px 16px;margin-bottom:14px}
+.faq-sl{font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:3px;text-transform:uppercase;color:var(--terra);margin-bottom:4px}
+.faq-short p{font-size:13.5px;color:var(--ink);line-height:1.65;font-weight:500;margin:0}
+.faq-long p{font-size:13px;color:var(--ink2);line-height:1.75;margin-bottom:12px}
+.faq-bot{background:var(--forest2);border-left:2px solid var(--forest);padding:13px 16px;margin-top:14px}
+.faq-bl{font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:3px;text-transform:uppercase;color:var(--forest);margin-bottom:4px}
+.faq-bot p{font-size:13px;color:var(--ink2);line-height:1.65;margin:0}
+.faq-li{list-style:none;margin:8px 0 12px 0}
+.faq-li li{font-size:12.5px;color:var(--ink2);line-height:1.6;padding:4px 0 4px 16px;position:relative;border-bottom:.5px solid var(--rule2)}
+.faq-li li::before{content:'—';position:absolute;left:0;color:var(--ink4)}
+
+/* Instagram inline preview block */
+.ig-block{margin:26px 0;padding:18px 20px;background:var(--parch);border:.5px solid var(--rule);max-width:580px;display:flex;gap:14px;align-items:flex-start}
+.ig-icon{width:30px;height:30px;flex-shrink:0;color:var(--terra);padding-top:2px}
+.ig-body{flex:1}
+.ig-lbl{font-family:'JetBrains Mono',monospace;font-size:7.5px;letter-spacing:3px;text-transform:uppercase;color:var(--ink4);margin-bottom:5px}
+.ig-link{font-family:'EB Garamond',serif;font-size:16px;color:var(--ink);text-decoration:none;font-style:italic;border-bottom:.5px solid var(--rule);padding-bottom:2px;display:inline-block;margin-bottom:6px;transition:all .2s}
+.ig-link:hover{color:var(--terra);border-color:var(--terra)}
+.ig-note{font-size:11.5px;color:var(--ink4);line-height:1.55;font-style:italic;margin:0}
+
+/* Proposition en 5 lignes (dark block) */
+.prop{background:var(--ink);color:var(--cream);padding:50px 30px;max-width:680px;margin:50px auto 0;position:relative}
+.prop::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,var(--terra),transparent)}
+.prop-l{font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:5px;text-transform:uppercase;color:var(--terra);margin-bottom:20px;text-align:center}
+.prop-t{font-family:'EB Garamond',serif;font-size:clamp(22px,4vw,30px);font-weight:400;color:var(--ivory);text-align:center;margin-bottom:28px;font-style:italic}
+.prop-body{max-width:540px;margin:0 auto;font-size:15px;line-height:1.9;color:var(--cream)}
+.prop-body p{margin-bottom:14px}
+.prop-body strong{color:var(--terra2);font-weight:500}
+.prop-body em{font-style:italic;color:var(--ivory);font-weight:400}
+@media(max-width:560px){.prop{padding:36px 22px}}
+
 </style>
 </head>
 <body data-lang="fr">
@@ -590,103 +737,466 @@ select.form-input:invalid,select.form-input option[value=""]{color:var(--ink5)}
 <div class="watermark" id="wm">—</div>
 
 <div class="hdr">
+<div class="hdr-invite">
+<div class="hdr-invite-dot"></div>
+<span class="hdr-invite-text"><span class="fr">Invitation privée · Distribution limitée</span><span class="en">Private invitation · Limited distribution</span></span>
+</div>
 <div class="hdr-conf"><span class="fr">Document confidentiel — Investisseurs autorisés</span><span class="en">Confidential — Authorised investors</span></div>
 <h1 class="hdr-t"><span class="fr">L'infrastructure juridique qui <em>redéfinit</em> la propriété collective</span><span class="en">The legal infrastructure that <em>redefines</em> collective ownership</span></h1>
-<p class="hdr-s"><span class="fr">Premier système d'exploitation juridique au monde pour la propriété collective d'actifs réels. Un marché de plus de mille milliards.</span><span class="en">The world's first legal operating system for collective ownership of real assets. A trillion-dollar market.</span></p>
+<p class="hdr-s"><span class="fr">Vous avez été <em>personnellement identifié</em> pour recevoir ce document. Premier système d'exploitation juridique au monde pour la propriété collective d'actifs réels. Un marché de plus de mille milliards, un seul acteur : nous.</span><span class="en">You have been <em>personally selected</em> to receive this document. The world's first legal operating system for collective ownership of real assets. A trillion-dollar market, one player: us.</span></p>
 <div class="hdr-meta">Clément Éric Dijoux · Zosoa Rasoarahona · Me Pierre-Alain Ravot · Avril 2026</div>
 </div>
 
+<!-- § 01 -->
 <div class="section">
 <div class="sn">01</div>
-<div class="stag"><span class="fr">Synthèse</span><span class="en">Summary</span></div>
-<h2><span class="fr">Ce que nous avons construit</span><span class="en">What we built</span></h2>
+<div class="stag"><span class="fr">Résumé exécutif</span><span class="en">Executive summary</span></div>
+<h2><span class="fr">L'essentiel en <em>60 secondes</em></span><span class="en">The essential in <em>60 seconds</em></span></h2>
 <div class="srule"></div>
-<p><span class="fr">Civil-Fi PAFC® est une infrastructure juridique entièrement nouvelle pour la propriété collective d'actifs réels — hors régulation financière, confirmée par le fisc, protégée par brevets et marques.</span><span class="en">Civil-Fi PAFC® is an entirely new legal infrastructure for collective ownership of real assets — outside financial regulation, confirmed by tax authorities, protected by patents and trademarks.</span></p>
+
+<p class="lead"><span class="fr">Civil-Fi PAFC® est le <span class="strong">premier système d'exploitation juridique au monde</span> pour la propriété collective d'actifs réels. Un OS civil, fiduciaire, non-financier<a class="ast" href="#disc1">*</a> — conçu pour opérer là où ni SCI, ni SCPI, ni crowdfunding ne peuvent.</span><span class="en">Civil-Fi PAFC® is the <span class="strong">world's first legal operating system</span> for collective ownership of real assets. A civil, fiduciary, non-financial OS<a class="ast" href="#disc1">*</a> — designed to operate where neither SCI, SCPI, nor crowdfunding can.</span></p>
+
+<div class="stats">
+<div class="stat"><div class="stat-v">€1,2T+</div><div class="stat-l"><span class="fr">Marché adressable</span><span class="en">Addressable market</span></div><div class="stat-d"><span class="fr">9 verticales</span><span class="en">9 verticals</span></div></div>
+<div class="stat"><div class="stat-v">€2,5M</div><div class="stat-l"><span class="fr">Levée · 25% max</span><span class="en">Raise · 25% max</span></div><div class="stat-d">3 tranches · 24 mois</div></div>
+<div class="stat"><div class="stat-v">40–80×</div><div class="stat-l"><span class="fr">Multiple investisseur</span><span class="en">Investor multiple</span></div><div class="stat-d">M48–M72</div></div>
+</div>
+
+<div class="kp" style="border-left-color:var(--terra);background:var(--terra3)">
+<h4><span class="fr">Ce qui vient de changer</span><span class="en">What just changed</span></h4>
+<p><span class="fr">L'<span class="em-t">Opinion Juridique Préventive (OJP)</span> et le <span class="em-t">rescrit fiscal DGFiP</span> sont désormais <span class="strong">obtenus</span>. Ce ne sont plus des promesses — ce sont deux actifs doctrinaux en main qui sécurisent fondamentalement le modèle et réduisent le risque réglementaire d'ÉLEVÉ à MAÎTRISÉ.</span><span class="en">The <span class="em-t">Preventive Legal Opinion (OJP)</span> and the <span class="em-t">DGFiP tax ruling</span> are now <span class="strong">obtained</span>. No longer promises — two doctrinal assets in hand that fundamentally secure the model and reduce regulatory risk from HIGH to MANAGED.</span></p>
+</div>
+
+<p><span class="fr"><span class="strong">Ce qui est déjà acquis :</span> 3 marques INPI, 3 dépôts Soleau, brevet en cours sur 3 inventions techniques, OJP obtenue, rescrit fiscal obtenu, ~€1M de capital fondateur déployé, convention de fiducie pilote Tenay rédigée par Me Ravot.</span><span class="en"><span class="strong">Already secured:</span> 3 INPI trademarks, 3 Soleau deposits, patent pending on 3 technical inventions, OJP obtained, tax ruling obtained, ~€1M founder capital deployed, Tenay pilot trust agreement drafted by Me Ravot.</span></p>
+
 <div class="pq"><p><span class="fr">Nous n'avons pas trouvé une faille. Nous avons construit une route juridique entièrement nouvelle, parallèle à l'autoroute financière.</span><span class="en">We did not find a loophole. We built a completely new legal road, running parallel to the financial highway.</span></p></div>
 
-<div class="cards-2">
-<div class="card-mini"><div class="card-mini-t">IP</div><div class="card-mini-v">3 + 3</div><div class="card-mini-d"><span class="fr">Marques · Brevets</span><span class="en">Trademarks · Patents</span></div></div>
-<div class="card-mini"><div class="card-mini-t">Capital</div><div class="card-mini-v">€1M+</div><div class="card-mini-d"><span class="fr">Déployé</span><span class="en">Deployed</span></div></div>
-<div class="card-mini"><div class="card-mini-t">Doctrine</div><div class="card-mini-v">250+</div><div class="card-mini-d"><span class="fr">Termes définis</span><span class="en">Defined terms</span></div></div>
-<div class="card-mini"><div class="card-mini-t"><span class="fr">Marchés</span><span class="en">Markets</span></div><div class="card-mini-v">8</div><div class="card-mini-d"><span class="fr">Verticales · 20+ pays</span><span class="en">Verticals · 20+ countries</span></div></div>
+<div class="disc" id="disc1"><span class="mark">*</span><span class="fr">Architecture conçue pour opérer en dehors des mécanismes classiques de l'offre financière réglementée du pays de destination, sous réserve d'analyse au cas par cas selon la structuration, la commercialisation et la juridiction concernée. L'OJP et les rescrits fiscaux obtenus ne constituent pas une garantie absolue d'immunité réglementaire — ils forment la preuve doctrinale et la base d'une défense contentieuse.</span><span class="en">Architecture designed to operate outside the conventional mechanisms of regulated financial offerings in the destination country, subject to case-by-case analysis depending on structuring, commercialisation and jurisdiction concerned. The OJP and obtained tax rulings do not constitute an absolute guarantee of regulatory immunity — they form the doctrinal proof and basis for contentious defence.</span></div>
+</div>
+
+<!-- § 02 -->
+<div class="section">
+<div class="sn">02</div>
+<div class="stag"><span class="fr">Fondations</span><span class="en">Foundations</span></div>
+<h2><span class="fr">Les 8 fondations sont <em>posées</em></span><span class="en">The 8 foundations are <em>laid</em></span></h2>
+<div class="srule"></div>
+
+<p><span class="fr">Une startup qui lève à ce stade a rarement autant d'acquis. Nous ne vous demandons pas de croire en une idée — nous vous demandons de financer le déploiement d'une infrastructure déjà construite.</span><span class="en">A startup raising at this stage rarely has this many foundations. We're not asking you to believe in an idea — we're asking you to fund the deployment of an already-built infrastructure.</span></p>
+
+<div class="acquis">
+
+<div class="acquis-i"><div class="acquis-c new">✓</div><div class="acquis-body">
+<div class="acquis-t"><span class="fr">Opinion Juridique Préventive (OJP) obtenue</span><span class="en">Preventive Legal Opinion (OJP) obtained</span><span class="acquis-tag">Nouveau</span></div>
+<div class="acquis-d"><span class="fr">Analyse formelle de non-qualification AMF / FIA / offre publique. Démontre que la CD, le DBA et la PCR ne constituent ni fonds publics, ni titres financiers, ni rendements.</span><span class="en">Formal analysis of AMF / AIF / public offering non-qualification. Demonstrates CD, DBA and PCR are neither public funds, financial instruments, nor yields.</span></div>
+<div class="acquis-m"><span class="fr">Preuve doctrinale · Fondement de défense contentieuse</span><span class="en">Doctrinal proof · Foundation for contentious defence</span></div>
+</div></div>
+
+<div class="acquis-i"><div class="acquis-c new">✓</div><div class="acquis-body">
+<div class="acquis-t"><span class="fr">Rescrit fiscal DGFiP obtenu</span><span class="en">DGFiP tax ruling obtained</span><span class="acquis-tag">Nouveau</span></div>
+<div class="acquis-d"><span class="fr">Article L.64B LPF. Position opposable à l'administration fiscale. Protection probatoire totale pour les adhérents sur la qualification fiscale des droits civils.</span><span class="en">Article L.64B LPF. Position enforceable against tax administration. Total evidentiary protection for adherents.</span></div>
+<div class="acquis-m"><span class="fr">Valeur opposable · Sécurité juridique acquise</span><span class="en">Enforceable value · Legal certainty secured</span></div>
+</div></div>
+
+<div class="acquis-i"><div class="acquis-c">✓</div><div class="acquis-body">
+<div class="acquis-t"><span class="fr">Doctrine PAFC® complète — 3 versions</span><span class="en">Complete PAFC® doctrine — 3 versions</span></div>
+<div class="acquis-d"><span class="fr">v1 + v2 Game-Changer + v3 Addendum. Plus de 250 termes définis. Le plus grand corpus doctrinal jamais produit sur la fiducie française moderne.</span><span class="en">v1 + v2 Game-Changer + v3 Addendum. Over 250 defined terms. Largest doctrinal corpus ever produced on modern French trust law.</span></div>
+<div class="acquis-m"><span class="fr">Protégée par droit d'auteur et secret de fabrique</span><span class="en">Protected by copyright and trade secret</span></div>
+</div></div>
+
+<div class="acquis-i"><div class="acquis-c">✓</div><div class="acquis-body">
+<div class="acquis-t"><span class="fr">3 marques INPI déposées — N°5238667</span><span class="en">3 INPI trademarks filed — No. 5238667</span></div>
+<div class="acquis-d"><span class="fr">CIVIL-FI · Finance Fiduciaire · PAFC — classes 35, 36, 42, 45. Dépôt 18 mars 2026.</span><span class="en">CIVIL-FI · Finance Fiduciaire · PAFC — classes 35, 36, 42, 45. Filed 18 March 2026.</span></div>
+<div class="acquis-m"><span class="fr">Fenêtre EUIPO ouverte jusqu'au 18/09/2026</span><span class="en">EUIPO window open until 18/09/2026</span></div>
+</div></div>
+
+<div class="acquis-i"><div class="acquis-c">✓</div><div class="acquis-body">
+<div class="acquis-t"><span class="fr">3 dépôts Soleau INPI horodatés</span><span class="en">3 timestamped INPI Soleau deposits</span></div>
+<div class="acquis-d"><span class="fr">v1 (17/11/2025) · v2 (Mars 2026) · v3 (Avril 2026). Preuve d'antériorité opposable à tout tiers.</span><span class="en">v1 (17/11/2025) · v2 (March 2026) · v3 (April 2026). Enforceable proof of prior art.</span></div>
+</div></div>
+
+<div class="acquis-i"><div class="acquis-c">✓</div><div class="acquis-body">
+<div class="acquis-t"><span class="fr">Projet de brevet INPI/OEB en cours</span><span class="en">INPI/EPO patent project in progress</span></div>
+<div class="acquis-d"><span class="fr">3 inventions techniques : Registre Fiduciaire Central (RFC), Jeton Civil d'Identité (JCI), Protocole d'Affectation Multi-Palier (PAMP). Protection 20 ans.</span><span class="en">3 technical inventions: RFC, JCI, PAMP. 20-year protection.</span></div>
+</div></div>
+
+<div class="acquis-i"><div class="acquis-c">✓</div><div class="acquis-body">
+<div class="acquis-t"><span class="fr">~€1M de capital fondateur déployé</span><span class="en">~€1M founder capital deployed</span></div>
+<div class="acquis-d"><span class="fr">Technologie, licences, structuration juridique, actifs immobiliers initiaux. Les fondateurs ont mis leur peau en jeu avant d'ouvrir au premier investisseur externe.</span><span class="en">Technology, licences, legal structuring, initial real estate. Founders have skin in the game before opening to the first external investor.</span></div>
+</div></div>
+
+<div class="acquis-i"><div class="acquis-c">✓</div><div class="acquis-body">
+<div class="acquis-t"><span class="fr">Convention de fiducie Tenay rédigée</span><span class="en">Tenay trust agreement drafted</span></div>
+<div class="acquis-d"><span class="fr">Projet pilote (60 rue Centrale, Ain, €800K). Acte notarié prêt. Me Pierre-Alain Ravot, AARPI Fiducie Legal.</span><span class="en">Pilot project (60 rue Centrale, Ain, €800K). Notarised deed ready. Me Pierre-Alain Ravot, AARPI Fiducie Legal.</span></div>
+</div></div>
+
 </div>
 </div>
 
+<!-- § 03 -->
 <div class="section">
-<div class="sn">02</div>
+<div class="sn">03</div>
+<div class="stag"><span class="fr">L'innovation</span><span class="en">The innovation</span></div>
+<h2><span class="fr">Un OS juridique sans <em>précédent mondial</em></span><span class="en">A legal OS with no <em>global precedent</em></span></h2>
+<div class="srule"></div>
+
+<p><span class="fr">Civil-Fi PAFC® n'est ni une SCI améliorée, ni un SPV 2.0, ni un concurrent des SCPI. C'est un <span class="strong">continent juridique distinct</span> — la Finance Fiduciaire Civile® — qui organise la propriété collective d'actifs réels par des mécanismes purement civils, sans créer aucun des éléments qui déclenchent la régulation financière<a class="ast" href="#disc1">*</a>.</span><span class="en">Civil-Fi PAFC® is neither an enhanced SCI, nor an SPV 2.0, nor a competitor to SCPIs. It's a <span class="strong">distinct legal continent</span> — Civil Fiduciary Finance® — organising collective ownership of real assets through purely civil mechanisms, without creating any of the elements that trigger financial regulation<a class="ast" href="#disc1">*</a>.</span></p>
+
+<div class="arch">
+<div class="arch-ttl"><span class="fr">Architecture FAC-Mère / FAC-Filles — Réseau fiduciaire compartimenté</span><span class="en">FAC-Mère / FAC-Filles architecture — Compartmentalised fiduciary network</span></div>
+<svg viewBox="0 0 680 360" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" role="img" aria-label="FAC-Mère FAC-Filles architecture">
+<rect x="230" y="16" width="220" height="76" rx="3" fill="#1C2433" stroke="#8B3A2A" stroke-width="1"/>
+<text x="340" y="42" text-anchor="middle" font-family="EB Garamond, serif" font-size="17" font-weight="600" fill="#F4F1EA">FAC-Mère</text>
+<line x1="270" y1="50" x2="410" y2="50" stroke="#8B3A2A" stroke-width="0.5" opacity="0.5"/>
+<text x="340" y="66" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8" letter-spacing="2" fill="#A68A3D">STRUCTURE-CHAPEAU</text>
+<text x="340" y="80" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8" letter-spacing="2" fill="#A0AEC0">SIREN PRINCIPAL</text>
+<line x1="340" y1="92" x2="340" y2="126" stroke="#8B3A2A" stroke-width="1.2"/>
+<line x1="80" y1="126" x2="600" y2="126" stroke="#8B3A2A" stroke-width="1.2"/>
+<line x1="80" y1="126" x2="80" y2="160" stroke="#8B3A2A" stroke-width="1.2"/>
+<line x1="210" y1="126" x2="210" y2="160" stroke="#8B3A2A" stroke-width="1.2"/>
+<line x1="340" y1="126" x2="340" y2="160" stroke="#8B3A2A" stroke-width="1.2"/>
+<line x1="470" y1="126" x2="470" y2="160" stroke="#8B3A2A" stroke-width="1.2"/>
+<line x1="600" y1="126" x2="600" y2="160" stroke="#8B3A2A" stroke-width="1.2"/>
+<rect x="20" y="160" width="120" height="78" rx="3" fill="#F4F1EA" stroke="#8B3A2A" stroke-width="1"/>
+<text x="80" y="184" text-anchor="middle" font-family="EB Garamond, serif" font-size="14" font-weight="600" fill="#1C2433">FAC-Fille 1</text>
+<text x="80" y="204" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="7.5" letter-spacing="1.5" fill="#8B3A2A">SIREN 1</text>
+<text x="80" y="222" text-anchor="middle" font-family="Spectral, serif" font-size="11" fill="#4A5568" font-style="italic">Projet A</text>
+<rect x="150" y="160" width="120" height="78" rx="3" fill="#F4F1EA" stroke="#8B3A2A" stroke-width="1"/>
+<text x="210" y="184" text-anchor="middle" font-family="EB Garamond, serif" font-size="14" font-weight="600" fill="#1C2433">FAC-Fille 2</text>
+<text x="210" y="204" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="7.5" letter-spacing="1.5" fill="#8B3A2A">SIREN 2</text>
+<text x="210" y="222" text-anchor="middle" font-family="Spectral, serif" font-size="11" fill="#4A5568" font-style="italic">Projet B</text>
+<rect x="280" y="160" width="120" height="78" rx="3" fill="#EDE8DD" stroke="#8B3A2A" stroke-width="0.8" stroke-dasharray="3 3"/>
+<text x="340" y="184" text-anchor="middle" font-family="EB Garamond, serif" font-size="14" font-weight="600" fill="#718096">FAC-Fille …</text>
+<text x="340" y="204" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="7.5" letter-spacing="1.5" fill="#A0AEC0">SIREN …</text>
+<text x="340" y="222" text-anchor="middle" font-family="Spectral, serif" font-size="11" fill="#718096" font-style="italic">Projet …</text>
+<rect x="410" y="160" width="120" height="78" rx="3" fill="#F4F1EA" stroke="#8B3A2A" stroke-width="1"/>
+<text x="470" y="184" text-anchor="middle" font-family="EB Garamond, serif" font-size="14" font-weight="600" fill="#1C2433">FAC-Fille N</text>
+<text x="470" y="204" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="7.5" letter-spacing="1.5" fill="#8B3A2A">SIREN N</text>
+<text x="470" y="222" text-anchor="middle" font-family="Spectral, serif" font-size="11" fill="#4A5568" font-style="italic">Projet N</text>
+<rect x="540" y="160" width="120" height="78" rx="3" fill="#F4F1EA" stroke="#8B3A2A" stroke-width="1"/>
+<text x="600" y="184" text-anchor="middle" font-family="EB Garamond, serif" font-size="14" font-weight="600" fill="#1C2433">FAC-Fille ∞</text>
+<text x="600" y="204" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="7.5" letter-spacing="1.5" fill="#8B3A2A">SIREN ∞</text>
+<text x="600" y="222" text-anchor="middle" font-family="Spectral, serif" font-size="11" fill="#4A5568" font-style="italic">Scalable</text>
+<g opacity="0.85">
+<circle cx="108" cy="278" r="3" fill="#2D5F3E"/>
+<text x="120" y="282" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1" fill="#2D3748">Patrimoine autonome</text>
+<circle cx="280" cy="278" r="3" fill="#2D5F3E"/>
+<text x="292" y="282" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1" fill="#2D3748">Compte bancaire propre</text>
+<circle cx="470" cy="278" r="3" fill="#2D5F3E"/>
+<text x="482" y="282" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1" fill="#2D3748">SIREN distinct</text>
+</g>
+<g opacity="0.85">
+<circle cx="108" cy="308" r="3" fill="#8B3A2A"/>
+<text x="120" y="312" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1" fill="#2D3748">Étanchéité contractuelle</text>
+<circle cx="280" cy="308" r="3" fill="#8B3A2A"/>
+<text x="292" y="312" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1" fill="#2D3748">Registre RFC horodaté</text>
+<circle cx="470" cy="308" r="3" fill="#8B3A2A"/>
+<text x="482" y="312" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1" fill="#2D3748">Hash blockchain</text>
+</g>
+<text x="340" y="346" text-anchor="middle" font-family="EB Garamond, serif" font-size="12" fill="#4A5568" font-style="italic">Chaque compartiment est isolé · Aucune contamination possible entre projets</text>
+</svg>
+</div>
+
+<div class="kp">
+<h4><span class="fr">Ce qui rend PAFC® unique</span><span class="en">What makes PAFC® unique</span></h4>
+<p><span class="fr">Pas de dette · Pas de titre financier · Pas de rendement promis · Pas de fonds collectif · Anti-Ponzi mécanique via PAMP · Scalabilité multi-projets native · Compatibilité finance islamique certifiable · Intégration Web3 probatoire (pas financière).</span><span class="en">No debt · No financial instrument · No promised yield · No collective fund · Mechanical anti-Ponzi via PAMP · Native multi-project scalability · Certifiable Islamic finance compatibility · Evidentiary (not financial) Web3 integration.</span></p>
+</div>
+</div>
+
+<!-- § 04 -->
+<div class="section">
+<div class="sn">04</div>
 <div class="stag"><span class="fr">Marché mondial</span><span class="en">Global market</span></div>
 <h2><span class="fr">Plus de <em>$1,2 trillion</em> adressable</span><span class="en"><em>$1.2 trillion+</em> addressable</span></h2>
 <div class="srule"></div>
-<div class="tam-row">
-<div class="tam-c"><div class="tam-c-v">€200Md+</div><div class="tam-c-n"><span class="fr">Immobilier France</span><span class="en">French real estate</span></div></div>
-<div class="tam-c"><div class="tam-c-v">$4.5T</div><div class="tam-c-n"><span class="fr">Finance islamique</span><span class="en">Islamic finance</span></div></div>
-<div class="tam-c"><div class="tam-c-v">€200Md/an</div><div class="tam-c-n"><span class="fr">Successions</span><span class="en">Successions</span></div></div>
-<div class="tam-c"><div class="tam-c-v">$16T</div><div class="tam-c-n">RWA 2030</div></div>
-<div class="tam-c"><div class="tam-c-v">$70T</div><div class="tam-c-n">Great Wealth Transfer</div></div>
-<div class="tam-c"><div class="tam-c-v">€100Md+</div><div class="tam-c-n">Diaspora</div></div>
+
+<p><span class="fr">Civil-Fi PAFC® est applicable dans <span class="strong">neuf zones de marché distinctes</span>, représentant au total plus de $1,2 trillion de valeur adressable.</span><span class="en">Civil-Fi PAFC® applies across <span class="strong">nine distinct market zones</span>, representing over $1.2 trillion in addressable value.</span></p>
+
+<div class="mkts">
+<div class="mkt-r"><div class="mkt-v">€200Md+</div><div class="mkt-i"><h4><span class="fr">Immobilier France</span><span class="en">French real estate</span></h4><p><span class="fr">Co-propriété, hôtellerie, commercial, rénovation historique</span><span class="en">Co-ownership, hospitality, commercial, heritage renovation</span></p></div></div>
+<div class="mkt-r"><div class="mkt-v">$4,5T</div><div class="mkt-i"><h4><span class="fr">Finance islamique mondiale</span><span class="en">Global Islamic finance</span></h4><p><span class="fr">6M de Muslims en France + Golfe + Asie SE. Demande refoulée €50Md en France.</span><span class="en">6M Muslims in France + Gulf + SE Asia. €50B pent-up demand in France.</span></p></div></div>
+<div class="mkt-r"><div class="mkt-v">€200Md/an</div><div class="mkt-i"><h4><span class="fr">Successions françaises</span><span class="en">French successions</span></h4><p><span class="fr">3,5M familles/an. Great Wealth Transfer : $70T mondial 2025–2045.</span><span class="en">3.5M families/year. Great Wealth Transfer: $70T globally 2025–2045.</span></p></div></div>
+<div class="mkt-r"><div class="mkt-v">$16T</div><div class="mkt-i"><h4><span class="fr">RWA 2030</span><span class="en">RWA 2030</span></h4><p><span class="fr">Tokenisation d'actifs réels — alternative civile à MiCA.</span><span class="en">Real asset tokenisation — civil alternative to MiCA.</span></p></div></div>
+<div class="mkt-r"><div class="mkt-v">€100Md+</div><div class="mkt-i"><h4><span class="fr">Diaspora France–Afrique</span><span class="en">France–Africa diaspora</span></h4><p><span class="fr">Millions de Français souhaitant investir au pays sous protection française.</span><span class="en">Millions of French citizens wishing to invest in home country under French protection.</span></p></div></div>
+<div class="mkt-r"><div class="mkt-v">€135Md</div><div class="mkt-i"><h4><span class="fr">Zone UEMOA</span><span class="en">UEMOA zone</span> <span class="mkt-tag">Nouveau</span></h4><p><span class="fr">8 pays francophones d'Afrique de l'Ouest. Tradition OHADA de droit civil — réceptivité maximale.</span><span class="en">8 francophone West African countries. OHADA civil law tradition — maximum receptivity.</span></p></div></div>
+<div class="mkt-r"><div class="mkt-v">€50Md</div><div class="mkt-i"><h4><span class="fr">Énergie, IA, carbone</span><span class="en">Energy, AI, carbon</span></h4><p><span class="fr">Solaire communautaire, fermes GPU, forêts carbone Gold Standard.</span><span class="en">Community solar, GPU farms, Gold Standard carbon forests.</span></p></div></div>
+<div class="mkt-r"><div class="mkt-v">$3T/an</div><div class="mkt-i"><h4><span class="fr">Infrastructure mondiale</span><span class="en">Global infrastructure</span></h4><p><span class="fr">Co-financement public-privé — modèle civil applicable aux PPP.</span><span class="en">Public-private co-financing — civil model applicable to PPPs.</span></p></div></div>
+<div class="mkt-r"><div class="mkt-v">€150Md</div><div class="mkt-i"><h4><span class="fr">Art, vin, luxe</span><span class="en">Art, wine, luxury</span></h4><p><span class="fr">Œuvres d'art, caves à vin, yachts, voitures de collection, jets partagés.</span><span class="en">Artworks, wine cellars, yachts, vintage cars, shared jets.</span></p></div></div>
 </div>
 </div>
 
+<!-- § 05 — Use cases + Instagram inline -->
 <div class="section">
-<div class="sn">03</div>
+<div class="sn">05</div>
 <div class="stag"><span class="fr">Cas d'usage</span><span class="en">Use cases</span></div>
-<h2><span class="fr">Huit marchés, huit problèmes résolus</span><span class="en">Eight markets, eight problems solved</span></h2>
+<h2><span class="fr">Huit marchés, <em>huit problèmes résolus</em></span><span class="en">Eight markets, <em>eight problems solved</em></span></h2>
 <div class="srule"></div>
 
 <div class="uc open" onclick="this.classList.toggle('open')"><div class="uc-h"><span class="uc-n">01</span><div class="uc-t"><span class="fr">Immobilier — Projet Tenay, €800K</span><span class="en">Real estate — Tenay project, €800K</span></div><span class="uc-arr">+</span></div><div class="uc-b"><div class="uc-i">
-<p class="uc-p"><span class="fr">Bâtiment historique, €800K nécessaires. Avec Civil-Fi : FAC-Fille, 40 participants, contributions directes, DBA, partage des revenus. Coût <€15K, délai 4 semaines.</span><span class="en">Historic building needing €800K. With Civil-Fi: FAC-Fille, 40 participants, direct contributions, DBA, revenue sharing. Under €15K, 4 weeks.</span></p>
-<div class="uc-r"><span class="fr">€800K levés en 4 semaines. Zéro AMF. 70% moins cher.</span><span class="en">€800K raised in 4 weeks. Zero AMF. 70% cheaper.</span></div>
+<div class="uc-lbl"><span class="fr">Problème</span><span class="en">Problem</span></div>
+<p class="uc-p"><span class="fr">Bâtiment historique à Tenay (Ain), €800K nécessaires. La communauté locale veut en être co-propriétaire. SCI : €5K + 3 mois. Crowdfunding : AMF, CIP, interdiction démarchage.</span><span class="en">Historic building needing €800K. Local community wants co-ownership. SCI: €5K + 3 months. Crowdfunding: AMF, CIP, no unsolicited offers.</span></p>
+<div class="uc-lbl sol">Civil-Fi PAFC®</div>
+<p class="uc-p"><span class="fr">Le bâtiment entre dans une FAC-Fille dédiée. 40 participants font une Contribution Directe, reçoivent un DBA, partagent la PCR (revenus locatifs nets). Coût : moins de €15K. Délai : 4 semaines.</span><span class="en">Building enters a dedicated FAC-Fille. 40 participants make a Direct Contribution, receive a DBA, share the PCR (net rental income). Cost: under €15K. Timeline: 4 weeks.</span></p>
+<div class="uc-r"><span class="fr">€800K levés en 4 semaines · 70% moins cher · zéro régulation financière<a class="ast" href="#disc1">*</a></span><span class="en">€800K raised in 4 weeks · 70% cheaper · zero financial regulation<a class="ast" href="#disc1">*</a></span></div>
 </div></div></div>
 
 <div class="uc" onclick="this.classList.toggle('open')"><div class="uc-h"><span class="uc-n">02</span><div class="uc-t"><span class="fr">Finance islamique — 6M de Muslims sans solution</span><span class="en">Islamic finance — 6M Muslims without a solution</span></div><span class="uc-arr">+</span></div><div class="uc-b"><div class="uc-i">
-<p class="uc-p"><span class="fr">Achat immobilier halal impossible aujourd'hui. Avec Civil-Fi : fonds islamique contribue 70%, couple contribue 30%, DU pour habiter. Zéro intérêt. 100% halal. Certifié ACERFI.</span><span class="en">Halal property purchase currently impossible. With Civil-Fi: Islamic fund contributes 70%, couple contributes 30%, DU to live there. Zero interest. 100% halal. ACERFI-certified.</span></p>
-<div class="uc-r"><span class="fr">Premier achat halal en droit civil français. Marché : €50Md.</span><span class="en">First halal purchase in French civil law. Market: €50B.</span></div>
+<div class="uc-lbl"><span class="fr">Cas : Ahmed &amp; Fatima, Lyon</span><span class="en">Case: Ahmed &amp; Fatima, Lyon</span></div>
+<p class="uc-p"><span class="fr">Achat halal d'un appartement. Prêt bancaire à intérêts : religieusement interdit. « Prêt islamique » : 40% plus cher, rarissime, mal certifié. Avec Civil-Fi : FAC-Fille dédiée. Fonds islamique contribue €250K (70%), couple contribue €100K (30%). DU pour habiter. Contribution mensuelle progressive. Zéro intérêt. 100% halal.</span><span class="en">Halal apartment purchase. Interest loan: religiously forbidden. "Islamic loan": 40% more expensive, rare, poorly certified. With Civil-Fi: dedicated FAC-Fille. Islamic fund €250K (70%), couple €100K (30%). DU to live there. Progressive monthly contribution. Zero interest. 100% halal.</span></p>
+<div class="uc-r"><span class="fr">Premier achat halal en droit civil français · €50Md demande · Certification ACERFI en cours</span><span class="en">First halal purchase in French civil law · €50B demand · ACERFI certification in progress</span></div>
 </div></div></div>
 
-<div class="uc" onclick="this.classList.toggle('open')"><div class="uc-h"><span class="uc-n">03</span><div class="uc-t"><span class="fr">Succession — Immeuble Paris 16e, €3,2M</span><span class="en">Succession — Paris 16th building, €3.2M</span></div><span class="uc-arr">+</span></div><div class="uc-b"><div class="uc-i">
-<p class="uc-p"><span class="fr">Avec Civil-Fi : FAC-Mère Patrimoniale + 7 petits-enfants adhérents. Donation progressive sur 15 ans. Droits insaisissables. Personne ne peut forcer une vente.</span><span class="en">With Civil-Fi: FAC-Mère Patrimoniale + 7 grandchildren as adherents. Progressive donation over 15 years. Unseizable rights. No one can force a sale.</span></p>
-<div class="uc-r"><span class="fr">€3,2M préservés intacts sur 50+ ans.</span><span class="en">€3.2M preserved intact for 50+ years.</span></div>
+<div class="uc" onclick="this.classList.toggle('open')"><div class="uc-h"><span class="uc-n">03</span><div class="uc-t"><span class="fr">Succession — Immeuble Paris 16e, €3,2M</span><span class="en">Succession — Paris 16th, €3.2M</span></div><span class="uc-arr">+</span></div><div class="uc-b"><div class="uc-i">
+<div class="uc-lbl"><span class="fr">Cas : Marie, 74 ans</span><span class="en">Case: Marie, 74</span></div>
+<p class="uc-p"><span class="fr">3 enfants, 7 petits-enfants, immeuble €3,2M. SCI familiale : si un enfant divorce, parts saisissables. Si besoin d'argent, vente forcée. Avec Civil-Fi : FAC-Mère Patrimoniale + 7 petits-enfants adhérents. Donation progressive sur 15 ans. Droits insaisissables. Personne ne peut forcer une vente.</span><span class="en">3 children, 7 grandchildren, €3.2M building. Family SCI: if a child divorces, shares can be seized. If someone needs money, forced sale. With Civil-Fi: FAC-Mère Patrimoniale + 7 grandchildren as adherents. Progressive donation over 15 years. Unseizable rights. No one can force a sale.</span></p>
+<div class="uc-r"><span class="fr">€3,2M préservés intacts sur 50+ ans · pas de guerre familiale possible</span><span class="en">€3.2M preserved intact for 50+ years · no possible family war</span></div>
 </div></div></div>
 
-<div class="uc" onclick="this.classList.toggle('open')"><div class="uc-h"><span class="uc-n">04</span><div class="uc-t"><span class="fr">Licence White Label — Le modèle McDonald's</span><span class="en">White label — The McDonald's model</span></div><span class="uc-arr">+</span></div><div class="uc-b"><div class="uc-i">
-<p class="uc-p"><span class="fr">Un cabinet signe : €12K setup + €4K/an. €300 par FAC-Fille déployée. × 100 cabinets = €2,5M/an sans gérer un seul projet.</span><span class="en">A firm signs: €12K setup + €4K/year. €300 per FAC-Fille deployed. × 100 firms = €2.5M/year without managing a single project.</span></p>
+<div class="uc" onclick="this.classList.toggle('open')"><div class="uc-h"><span class="uc-n">04</span><div class="uc-t"><span class="fr">Licence White Label — Le modèle McDonald's</span><span class="en">White label — McDonald's model</span></div><span class="uc-arr">+</span></div><div class="uc-b"><div class="uc-i">
+<p class="uc-p"><span class="fr">Un cabinet de 40 avocats signe : €12K setup + €4K/an de redevance. Pour chaque FAC-Fille déployée, €300 à Civil-Fi. Accès templates, RFC, marque. 30 projets/an = €25K par cabinet. × 100 cabinets = €2,5M/an en récurrent <span class="strong">sans gérer un seul projet</span>.</span><span class="en">A firm of 40 lawyers signs: €12K setup + €4K/year royalty. €300 to Civil-Fi per FAC-Fille deployed. Access to templates, RFC, brand. 30 projects/year = €25K per firm. × 100 firms = €2.5M/year recurring <span class="strong">without managing a single project</span>.</span></p>
+<div class="uc-r"><span class="fr">Cible : 1 500 praticiens certifiés CCFP = €3M/an en renouvellements seuls</span><span class="en">Target: 1,500 CCFP-certified practitioners = €3M/year in renewals alone</span></div>
 </div></div></div>
 
-<div class="uc" onclick="this.classList.toggle('open')"><div class="uc-h"><span class="uc-n">05</span><div class="uc-t"><span class="fr">Énergie, IA & Carbone</span><span class="en">Energy, AI & Carbon</span></div><span class="uc-arr">+</span></div><div class="uc-b"><div class="uc-i">
-<p class="uc-p"><span class="fr">Solaire (€1,2M, 200 ménages), GPU/IA (€2M, 50 entrepreneurs), Forêt carbone (€150K/an). Tout actif productif = FAC-Fille.</span><span class="en">Solar (€1.2M, 200 households), GPU/AI (€2M, 50 entrepreneurs), Carbon forest (€150K/year). Any productive asset = FAC-Fille.</span></p>
+<div class="uc" onclick="this.classList.toggle('open')"><div class="uc-h"><span class="uc-n">05</span><div class="uc-t"><span class="fr">Énergie, IA &amp; Carbone — Actifs productifs</span><span class="en">Energy, AI &amp; Carbon — Productive assets</span></div><span class="uc-arr">+</span></div><div class="uc-b"><div class="uc-i">
+<p class="uc-p"><span class="fr"><span class="strong">Solaire communautaire :</span> 500 kWc, €1,2M, 200 ménages, PCR = ventes d'électricité. <span class="strong">Ferme GPU/IA :</span> €2M, 50 entrepreneurs, €300K/an revenus compute. <span class="strong">Forêt carbone :</span> 500 ha, €150K/an crédits Gold Standard. Tout actif productif peut devenir une FAC-Fille.</span><span class="en"><span class="strong">Community solar:</span> 500 kWc, €1.2M, 200 households, PCR = electricity sales. <span class="strong">GPU/AI farm:</span> €2M, 50 entrepreneurs, €300K/year compute. <span class="strong">Carbon forest:</span> 500 ha, €150K/year Gold Standard credits. Any productive asset can become a FAC-Fille.</span></p>
 </div></div></div>
 
-<div class="uc" onclick="this.classList.toggle('open')"><div class="uc-h"><span class="uc-n">06</span><div class="uc-t"><span class="fr">Patrimoine multi-actifs — L'outil Rothschild</span><span class="en">Multi-asset — The Rothschild tool</span></div><span class="uc-arr">+</span></div><div class="uc-b"><div class="uc-i">
-<p class="uc-p"><span class="fr">Famille : vignoble, immeubles, villa, meubles anciens (€8M). Une FAC-Mère + 4 FAC-Filles. 13 membres. Un seul fiduciaire.</span><span class="en">Family: vineyard, buildings, villa, antique furniture (€8M). One FAC-Mère + 4 FAC-Filles. 13 members. One fiduciary.</span></p>
+<div class="uc" onclick="this.classList.toggle('open')"><div class="uc-h"><span class="uc-n">06</span><div class="uc-t"><span class="fr">Patrimoine multi-actifs — L'outil Rothschild</span><span class="en">Multi-asset — Rothschild tool</span></div><span class="uc-arr">+</span></div><div class="uc-b"><div class="uc-i">
+<div class="uc-lbl"><span class="fr">Cas : famille Desroches, €8M</span><span class="en">Case: Desroches family, €8M</span></div>
+<p class="uc-p"><span class="fr">Vignoble bordelais, 2 immeubles parisiens, villa corse, meubles anciens. Une FAC-Mère + 4 FAC-Filles sectorielles. 13 membres de la famille. Un seul fiduciaire. Un portail. Règles de succession personnalisées. Protection 50+ ans contre la dilution, le divorce, le conflit, la saisie.</span><span class="en">Bordeaux vineyard, 2 Paris buildings, Corsican villa, antiques. One FAC-Mère + 4 sector FAC-Filles. 13 family members. One fiduciary. One portal. Custom succession rules. 50+ years of protection against dilution, divorce, conflict, seizure.</span></p>
 </div></div></div>
 
 <div class="uc" onclick="this.classList.toggle('open')"><div class="uc-h"><span class="uc-n">07</span><div class="uc-t"><span class="fr">Diaspora — Actifs à l'étranger, protection française</span><span class="en">Diaspora — Overseas assets, French protection</span></div><span class="uc-arr">+</span></div><div class="uc-b"><div class="uc-i">
-<p class="uc-p"><span class="fr">15 membres de famille en France financent un hôtel à Antananarivo (€400K). FAC-Fille sous droit français, PAMP jalonné. Actif étranger, protection française.</span><span class="en">15 family members in France finance a hotel in Antananarivo (€400K). FAC-Fille under French law, PAMP-gated. Foreign asset, French protection.</span></p>
-<div class="uc-r"><span class="fr">Réplicable pour millions de Français issus de la diaspora.</span><span class="en">Replicable for millions of French citizens from the diaspora.</span></div>
+<div class="uc-lbl"><span class="fr">Cas : Rakoto, Madagascar</span><span class="en">Case: Rakoto, Madagascar</span></div>
+<p class="uc-p"><span class="fr">Rakoto et 15 membres de sa famille en France veulent co-financer un hôtel à Antananarivo (€400K). Problème classique : corruption locale, dilution, pas de recours. Avec Civil-Fi : FAC-Fille sous droit français, fiduciaire français, RFC en France. Le PAMP ne débloque les fonds qu'aux jalons réels (permis, construction, ouverture). Actif à l'étranger, protection juridique française.</span><span class="en">Rakoto and 15 family members in France want to co-finance a hotel in Antananarivo (€400K). Classic problem: local corruption, dilution, no recourse. With Civil-Fi: FAC-Fille under French law, French fiduciary, RFC in France. PAMP only releases funds at real milestones. Asset abroad, French legal protection.</span></p>
+<div class="uc-r"><span class="fr">Réplicable pour des millions · Particulièrement puissant en zone UEMOA</span><span class="en">Replicable for millions · Particularly powerful in UEMOA zone</span></div>
 </div></div></div>
 
-<div class="uc" onclick="this.classList.toggle('open')"><div class="uc-h"><span class="uc-n">08</span><div class="uc-t"><span class="fr">Art, vin & luxe — Actifs d'exception</span><span class="en">Art, wine & luxury — Exceptional assets</span></div><span class="uc-arr">+</span></div><div class="uc-b"><div class="uc-i">
-<p class="uc-p"><span class="fr">Collection d'art €2M, 10 co-propriétaires civils. Applicable aux caves à vin, yachts, jets partagés, voitures de collection.</span><span class="en">€2M art collection, 10 civil co-owners. Applicable to wine cellars, yachts, shared jets, vintage cars.</span></p>
+<div class="uc" onclick="this.classList.toggle('open')"><div class="uc-h"><span class="uc-n">08</span><div class="uc-t"><span class="fr">Art, vin &amp; luxe — Actifs d'exception</span><span class="en">Art, wine &amp; luxury — Exceptional assets</span></div><span class="uc-arr">+</span></div><div class="uc-b"><div class="uc-i">
+<p class="uc-p"><span class="fr">Collection d'art contemporain €2M, 10 co-propriétaires civils. DBA + DU (expositions privées tournantes) + PCR (si prêt à musée rémunéré). Applicable aux caves à vin de Bourgogne, yachts méditerranéens, jets partagés, voitures de collection, montres rares. <span class="strong">Aucune structure existante ne permet cela sans produit financier</span><a class="ast" href="#disc1">*</a>.</span><span class="en">€2M contemporary art collection, 10 civil co-owners. DBA + DU (rotating private exhibitions) + PCR (if paid museum loan). Applicable to Burgundy wine cellars, Mediterranean yachts, shared jets, vintage cars, rare watches. <span class="strong">No existing structure allows this without a financial product</span><a class="ast" href="#disc1">*</a>.</span></p>
 </div></div></div>
+
+<!-- Instagram inline preview -->
+<div class="ig-block">
+<svg class="ig-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>
+<div class="ig-body">
+<div class="ig-lbl"><span class="fr">Aperçu public complémentaire</span><span class="en">Complementary public glimpse</span></div>
+<a href="https://www.instagram.com/realsmart_fr?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener" class="ig-link">@realsmart_fr</a>
+<p class="ig-note"><span class="fr">Nos publications sont volontairement <em>générales et allusives</em>. La sensibilité de l'innovation legaltech nous oblige à préserver la doctrine complète pour les investisseurs sous NDA — comme vous.</span><span class="en">Our posts are intentionally <em>general and allusive</em>. The sensitivity of our legaltech innovation obliges us to preserve the complete doctrine for investors under NDA — like you.</span></p>
+</div>
+</div>
 </div>
 
+<!-- § 06 — 5 couches de moat -->
 <div class="section">
-<div class="sn">04</div>
-<div class="stag"><span class="fr">Valorisation & exit</span><span class="en">Valuation & exit</span></div>
-<h2><span class="fr">€400M–€800M+ à l'<em>exit</em></span><span class="en">€400M–€800M+ at <em>exit</em></span></h2>
+<div class="sn">06</div>
+<div class="stag"><span class="fr">Forteresse concurrentielle</span><span class="en">Competitive fortress</span></div>
+<h2><span class="fr">5 couches <em>irréplicables</em></span><span class="en">5 <em>irreplicable</em> layers</span></h2>
 <div class="srule"></div>
-<div class="cards-2">
-<div class="card-mini"><div class="card-mini-t"><span class="fr">Conservateur</span><span class="en">Conservative</span></div><div class="card-mini-v">€400M</div><div class="card-mini-d"><span class="fr">Investisseur 25% : €100M · 40×</span><span class="en">Investor 25%: €100M · 40×</span></div></div>
-<div class="card-mini"><div class="card-mini-t" style="color:var(--forest)"><span class="fr">Base</span><span class="en">Base</span></div><div class="card-mini-v">€600M</div><div class="card-mini-d"><span class="fr">Investisseur 25% : €150M · 60×</span><span class="en">Investor 25%: €150M · 60×</span></div></div>
+
+<p><span class="fr">Un concurrent qui voudrait copier Civil-Fi PAFC® devrait franchir cinq murs superposés. Chacun pris isolément est un obstacle ; ensemble, ils forment un <span class="strong">monopole structurel</span> durable pendant au moins une décennie.</span><span class="en">A competitor wishing to copy Civil-Fi PAFC® would have to breach five superimposed walls. Together they form a <span class="strong">structural monopoly</span> lasting at least a decade.</span></p>
+
+<div class="moat-g">
+<div class="moat-c"><div class="moat-n">1</div><div class="moat-lbl"><span class="fr">Premier arrivé légal</span><span class="en">Legal first-mover</span></div><div class="moat-t"><span class="fr">First-Mover Légal</span><span class="en">Legal first-mover</span></div><div class="moat-d"><span class="fr">2+ ans d'avance doctrinale. La doctrine PAFC® définit les termes, les concepts, le lexique. Tout concurrent parle notre langue.</span><span class="en">2+ years doctrinal lead. PAFC® defines terms, concepts, lexicon. Any competitor speaks our language.</span></div></div>
+<div class="moat-c"><div class="moat-n">2</div><div class="moat-lbl"><span class="fr">Portefeuille IP</span><span class="en">IP portfolio</span></div><div class="moat-t"><span class="fr">5 couches de propriété intellectuelle</span><span class="en">5 layers of IP</span></div><div class="moat-d"><span class="fr">Soleau + Marques FR/EU + Brevet RFC/JCI/PAMP (20 ans) + droit d'auteur + secret de fabrique.</span><span class="en">Soleau + FR/EU trademarks + RFC/JCI/PAMP patents (20 years) + copyright + trade secret.</span></div></div>
+<div class="moat-c"><div class="moat-n">3</div><div class="moat-lbl"><span class="fr">Monopole RFC</span><span class="en">RFC monopoly</span></div><div class="moat-t"><span class="fr">Le SWIFT de la fiducie civile</span><span class="en">SWIFT of civil trust law</span></div><div class="moat-d"><span class="fr">Le Registre Fiduciaire Central est l'infrastructure probatoire. Sans RFC, pas d'opposabilité. Péage incontournable.</span><span class="en">The Central Fiduciary Registry is the evidentiary infrastructure. Without RFC, no enforceability. Unavoidable toll.</span></div></div>
+<div class="moat-c"><div class="moat-n">4</div><div class="moat-lbl"><span class="fr">Lock-in certifiés</span><span class="en">Certified lock-in</span></div><div class="moat-t"><span class="fr">Les praticiens deviennent défenseurs</span><span class="en">Practitioners become defenders</span></div><div class="moat-d"><span class="fr">Les avocats et family offices certifiés CCFP dépendent de PAFC®. Défenseurs naturels contre tout concurrent.</span><span class="en">CCFP-certified lawyers and family offices depend on PAFC®. Natural defenders against any competitor.</span></div></div>
+<div class="moat-c"><div class="moat-n">5</div><div class="moat-lbl"><span class="fr">Moat réglementaire</span><span class="en">Regulatory moat</span></div><div class="moat-t"><span class="fr">OJP + rescrit = 18 mois pour copier</span><span class="en">OJP + ruling = 18 months to copy</span></div><div class="moat-d"><span class="fr">Un concurrent devrait obtenir sa propre OJP et son rescrit — minimum 18 mois. Pendant ce temps, chaque FAC-Fille crée de la jurisprudence favorable.</span><span class="en">A competitor needs own OJP and tax ruling — minimum 18 months. Meanwhile, every FAC-Fille creates favourable jurisprudence.</span></div></div>
 </div>
-<div class="card-mini" style="margin-top:16px;border-color:var(--terra)"><div class="card-mini-t"><span class="fr">Optimiste</span><span class="en">Optimistic</span></div><div class="card-mini-v">€800M+</div><div class="card-mini-d"><span class="fr">Investisseur 25% : €200M+ · 80×+ retour</span><span class="en">Investor 25%: €200M+ · 80×+ return</span></div></div>
 
 <div class="kp">
-<h4><span class="fr">Structure : €2,5M pour 25% en 3 tranches</span><span class="en">Structure: €2.5M for 25% in 3 tranches</span></h4>
-<p><span class="fr">Aujourd'hui €600K (12%) · M12 €1,2M (8%) · M24 €700K (5%). Exit visé M48–M72.</span><span class="en">Today €600K (12%) · M12 €1.2M (8%) · M24 €700K (5%). Exit targeted M48–M72.</span></p>
+<h4><span class="fr">Le verrou le plus durable : le RFC</span><span class="en">The most durable lock: the RFC</span></h4>
+<p><span class="fr">Quand le RFC devient la norme de preuve juridique pour toute FAC-Fille, son opérateur contrôle l'écosystème. C'est le modèle SWIFT, ISDA, VISA : infrastructure neutre, indispensable, péage sur chaque transaction.</span><span class="en">When the RFC becomes the legal proof standard, its operator controls the ecosystem. SWIFT, ISDA, VISA model: neutral, indispensable infrastructure, toll on every transaction.</span></p>
+</div>
 </div>
 
-<div class="pq"><p><span class="fr">La fusée est construite. Nous vous demandons de financer le lancement.</span><span class="en">The rocket is built. We are asking you to fuel the launch.</span></p></div>
+<!-- § 07 — 7 flux de revenus -->
+<div class="section">
+<div class="sn">07</div>
+<div class="stag"><span class="fr">Modèle de revenus</span><span class="en">Revenue model</span></div>
+<h2><span class="fr">7 flux récurrents — <em>aucune performance</em></span><span class="en">7 recurring streams — <em>no performance fee</em></span></h2>
+<div class="srule"></div>
+
+<p><span class="fr">Civil-Fi PAFC® ne gère pas les actifs, ne perçoit pas de performance, ne rémunère pas de capital. Elle vend de l'infrastructure juridique, des licences, des certifications et des services techniques<a class="ast" href="#disc1">*</a>.</span><span class="en">Civil-Fi PAFC® doesn't manage assets, doesn't earn performance, doesn't remunerate capital. It sells legal infrastructure, licences, certifications and technical services<a class="ast" href="#disc1">*</a>.</span></p>
+
+<div class="rev-g">
+<div class="rev-c"><div class="rev-lbl">01</div><div class="rev-t"><span class="fr">Licences FAC-Mère Blanche</span><span class="en">White FAC-Mère licences</span></div><div class="rev-r">€5K–€20K + €2K–€5K/an</div><div class="rev-d"><span class="fr">Droit d'entrée + redevance annuelle. €200–€500 par FAC-Fille déployée. 100+ licenciés visés.</span><span class="en">Entry fee + annual royalty. €200–€500 per FAC-Fille. 100+ licensees target.</span></div></div>
+<div class="rev-c"><div class="rev-lbl">02</div><div class="rev-t"><span class="fr">RFC — Accès Registre</span><span class="en">RFC — Registry access</span></div><div class="rev-r">€1K–€3K/an par FAC-Fille</div><div class="rev-d"><span class="fr">Abonnement API RFC + scellement blockchain. 500+ FAC-Filles = €1,5M+/an en récurrent pur.</span><span class="en">RFC API subscription + blockchain sealing. 500+ FAC-Filles = €1.5M+/year pure recurring.</span></div></div>
+<div class="rev-c"><div class="rev-lbl">03</div><div class="rev-t"><span class="fr">Certification CCA (Academy)</span><span class="en">CCA Certification</span></div><div class="rev-r">€3K–€8K / CCFP</div><div class="rev-d"><span class="fr">Certified Civil-Fi Practitioner. Renouvellement €1K–€2K/an. Corporate €10K–€30K. 1 000+ certifiés.</span><span class="en">Certified Civil-Fi Practitioner. Renewal €1K–€2K/year. Corporate €10K–€30K. 1,000+ certified.</span></div></div>
+<div class="rev-c"><div class="rev-lbl">04</div><div class="rev-t"><span class="fr">Certification Charia (MIC)</span><span class="en">Sharia Certification (MIC)</span></div><div class="rev-r">€15K–€30K + €5K/an</div><div class="rev-d"><span class="fr">Par FAC-Fille. ACERFI/AAOIFI. <span class="strong">Seule offre certifiée en droit civil français.</span></span><span class="en">Per FAC-Fille. ACERFI/AAOIFI. <span class="strong">Only certified offering in French civil law.</span></span></div></div>
+<div class="rev-c"><div class="rev-lbl">05</div><div class="rev-t"><span class="fr">Oracle Civil SaaS</span><span class="en">Oracle Civil SaaS</span></div><div class="rev-r">€200–€500/mois</div><div class="rev-d"><span class="fr">Monitoring ECA temps réel. Alertes + ancrage blockchain. Sans équivalent sur le marché.</span><span class="en">Real-time ECA monitoring. Alerts + blockchain anchoring. No market equivalent.</span></div></div>
+<div class="rev-c"><div class="rev-lbl">06</div><div class="rev-t"><span class="fr">Ingénierie civile &amp; conseil</span><span class="en">Civil engineering &amp; advisory</span></div><div class="rev-r">€5K–€20K / projet</div><div class="rev-d"><span class="fr">Setup FAC-Fille clé en main. Scoring conformité PAFC®. Marges élevées.</span><span class="en">Turnkey FAC-Fille setup. PAFC® compliance scoring. High margins.</span></div></div>
+<div class="rev-c rev-big"><div class="rev-lbl">07 — <span class="fr">Clé de voûte</span><span class="en">Keystone</span></div><div class="rev-t"><span class="fr">Licences Maîtres Internationales</span><span class="en">International Master Licences</span></div><div class="rev-r">€50K–€200K + €20K–€50K/an</div><div class="rev-d"><span class="fr">Licence exclusive par pays. Cibles : Belgique, Maroc, Maurice, Québec, Sénégal (UEMOA). <span class="strong">Chaque licence internationale signée ajoute €50M à €100M à la valeur d'entreprise opposable à un acquéreur stratégique.</span></span><span class="en">Exclusive licence per country. Targets: Belgium, Morocco, Mauritius, Quebec, Senegal (UEMOA). <span class="strong">Each signed international licence adds €50M to €100M in enterprise value enforceable against a strategic acquirer.</span></span></div></div>
+</div>
+</div>
+
+<!-- § 08 — Investment structure + valuation trajectory -->
+<div class="section">
+<div class="sn">08</div>
+<div class="stag"><span class="fr">Structure d'investissement</span><span class="en">Investment structure</span></div>
+<h2><span class="fr">€2,5M · 25% max · <em>3 tranches</em></span><span class="en">€2.5M · 25% max · <em>3 tranches</em></span></h2>
+<div class="srule"></div>
+
+<p><span class="fr">La structure est conçue pour aligner l'investisseur et les fondateurs sur le long terme, tout en protégeant la dilution. Trois tranches sur 24 mois, chacune déclenchée par l'atteinte de jalons vérifiables.</span><span class="en">Structure aligns investor and founders long-term, protects against dilution. Three tranches over 24 months, each triggered by verifiable milestones.</span></p>
+
+<div class="mkts">
+<div class="mkt-r"><div class="mkt-v">T1</div><div class="mkt-i"><h4><span class="fr">€600K · 12% · aujourd'hui</span><span class="en">€600K · 12% · today</span></h4><p><span class="fr">Pre-money €5M. Usage : actualisation OJP premier rang, extension EUIPO, projet pilote Tenay, recrutements clés.</span><span class="en">Pre-money €5M. Use: top-tier OJP refresh, EUIPO extension, Tenay pilot, key hires.</span></p></div></div>
+<div class="mkt-r"><div class="mkt-v">T2</div><div class="mkt-i"><h4><span class="fr">€1,2M · 8% · Mois 12</span><span class="en">€1.2M · 8% · Month 12</span></h4><p><span class="fr">Pre-money €15M. Déclenchée par 5+ FAC-Filles déployées, 10+ licenciés signés.</span><span class="en">Pre-money €15M. Triggered by 5+ FAC-Filles deployed, 10+ licensees signed.</span></p></div></div>
+<div class="mkt-r"><div class="mkt-v">T3</div><div class="mkt-i"><h4><span class="fr">€700K · 5% · Mois 24</span><span class="en">€700K · 5% · Month 24</span></h4><p><span class="fr">Pre-money €14M. Déclenchée par 50+ FAC-Filles actives, 2+ licences internationales, ARR &gt;€1M.</span><span class="en">Pre-money €14M. Triggered by 50+ active FAC-Filles, 2+ international licences, ARR &gt;€1M.</span></p></div></div>
+</div>
+
+<h3 style="font-family:'EB Garamond',serif;font-size:18px;font-weight:500;color:var(--ink);margin:30px 0 10px"><span class="fr">Trajectoire de valorisation — du jour J à l'exit</span><span class="en">Valuation trajectory — from day one to exit</span></h3>
+
+<p><span class="fr">L'investisseur T1 entre au moment où la valeur projet se situe entre <span class="strong">€5M et €10M</span> (fourchette conservateur–optimiste) mais bénéficie d'un pre-money plafonné à <span class="em-t">€5M</span>. Un ticket d'entrée calibré pour récompenser le premier qui absorbe le risque de pionnier avec nous.</span><span class="en">The T1 investor enters when project value sits between <span class="strong">€5M and €10M</span> (conservative–optimistic range) but benefits from a pre-money capped at <span class="em-t">€5M</span>. An entry ticket calibrated to reward the first investor to absorb pioneer risk with us.</span></p>
+
+<div class="val-w">
+<div class="val-tbl">
+<div class="val-r val-h">
+<div><span class="fr">Stade</span><span class="en">Stage</span></div>
+<div><span class="fr">Valeur projet</span><span class="en">Project value</span></div>
+<div><span class="fr">Stake invest.</span><span class="en">Investor stake</span></div>
+<div><span class="fr">Valeur stake</span><span class="en">Stake value</span></div>
+<div><span class="fr">Multiple sur €2,5M</span><span class="en">Multiple on €2.5M</span></div>
+</div>
+<div class="val-r">
+<div class="val-stg"><span class="fr">Aujourd'hui</span><span class="en">Today</span><span class="val-phs">Phase 0</span></div>
+<div class="val-v">€5M – €10M</div>
+<div class="val-nt"><span class="fr">0% (avant T1)</span><span class="en">0% (pre-T1)</span></div>
+<div class="val-nt">—</div>
+<div class="val-nt">—</div>
+</div>
+<div class="val-r">
+<div class="val-stg">M12<span class="val-phs"><span class="fr">fin Phase 1</span><span class="en">end Phase 1</span></span></div>
+<div class="val-v">€15M – €22M</div>
+<div>12%</div>
+<div class="val-stk">€1,8M – €2,6M</div>
+<div>3–4× <span class="val-mut">(sur €600K)</span></div>
+</div>
+<div class="val-r">
+<div class="val-stg">M30<span class="val-phs"><span class="fr">fin Phase 2</span><span class="en">end Phase 2</span></span></div>
+<div class="val-v">€40M – €65M</div>
+<div>20%</div>
+<div class="val-stk">€8M – €13M</div>
+<div>4–7× <span class="val-mut">(sur €1,8M)</span></div>
+</div>
+<div class="val-r">
+<div class="val-stg">M48<span class="val-phs"><span class="fr">fin Phase 3</span><span class="en">end Phase 3</span></span></div>
+<div class="val-v">€100M – €200M</div>
+<div>25%</div>
+<div class="val-stk">€25M – €50M</div>
+<div>10–20× <span class="val-mut">(sur €2,5M)</span></div>
+</div>
+<div class="val-r val-ex">
+<div class="val-stg"><span class="fr">EXIT</span><span class="en">EXIT</span><span class="val-phs">M48–M72</span></div>
+<div class="val-v">€400M – €800M</div>
+<div>25%</div>
+<div class="val-stk">€100M – €200M</div>
+<div>40–80× ✓</div>
+</div>
+</div>
+</div>
+
+<p style="font-size:12px;color:var(--ink4);font-style:italic;margin-top:10px;max-width:580px"><span class="fr">Les fourchettes reflètent les scénarios conservateur et optimiste à chaque jalon. La croissance de la valeur projet est tirée par : OJP favorable, déploiement du réseau de licenciés, licences maîtres internationales signées, et ARR récurrent sur le RFC et les certifications.</span><span class="en">Ranges reflect conservative and optimistic scenarios at each milestone. Growth driven by favourable OJP, licensee network deployment, signed international master licences, and recurring ARR from RFC and certifications.</span></p>
+
+<div class="kp" style="margin-top:28px">
+<h4><span class="fr">Nature de la sortie</span><span class="en">Nature of the exit</span></h4>
+<p><span class="fr">L'événement de liquidité est conçu <span class="strong">principalement pour l'investisseur</span>. Mécanismes envisagés : tour secondaire avec fonds d'infrastructure, rachat stratégique (grand cabinet, banque privée, fintech paneuropéenne), entrée en bourse partielle. <span class="em-t">Les fondateurs restent engagés opérationnellement au-delà de l'exit</span> — Civil-Fi n'est pas un projet à vendre, c'est une infrastructure à bâtir sur plusieurs décennies. L'investisseur obtient sa liquidité ; le véhicule continue.</span><span class="en">The liquidity event is designed <span class="strong">primarily for the investor</span>. Mechanisms: secondary round with infrastructure fund, strategic acquisition (major firm, private bank, pan-European fintech), partial IPO. <span class="em-t">Founders remain operationally engaged beyond exit</span> — Civil-Fi is not a project to sell, it's an infrastructure to build over decades. The investor gets liquidity; the vehicle continues.</span></p>
+</div>
+</div>
+
+<!-- § 09 — Risk management -->
+<div class="section">
+<div class="sn">09</div>
+<div class="stag"><span class="fr">Gestion des risques</span><span class="en">Risk management</span></div>
+<h2><span class="fr">Risques identifiés &amp; <em>mitigation</em></span><span class="en">Identified risks &amp; <em>mitigation</em></span></h2>
+<div class="srule"></div>
+
+<p><span class="fr">Aucun projet innovant n'est sans risque. La différence avec Civil-Fi PAFC® : chaque risque identifié a une stratégie de mitigation documentée, protocolée et vérifiable.</span><span class="en">No innovative project is without risk. The difference with Civil-Fi PAFC®: every identified risk has a documented, protocoled, verifiable mitigation.</span></p>
+
+<div class="rsk">
+<div class="rsk-h"><div><span class="fr">Risque</span><span class="en">Risk</span></div><div><span class="fr">Niveau</span><span class="en">Level</span></div><div><span class="fr">Mitigation</span><span class="en">Mitigation</span></div></div>
+<div class="rsk-r"><div class="rsk-n"><span class="fr">Requalification AMF<a class="ast" href="#disc1">*</a></span><span class="en">AMF reclassification<a class="ast" href="#disc1">*</a></span></div><div><div class="rsk-l md">MAÎTRISÉ</div></div><div class="rsk-m"><span class="fr"><span class="strong">OJP obtenue</span> formalisant la non-qualification · actualisation annuelle · PBCM/CAPA/CNRCO dans chaque convention · Oracle Civil jamais autonome · CCS indépendant · PAMP anti-Ponzi mécanique.</span><span class="en"><span class="strong">OJP obtained</span> formalising non-qualification · annual refresh · PBCM/CAPA/CNRCO in every agreement · Oracle Civil never autonomous · independent CCS · mechanical anti-Ponzi PAMP.</span></div></div>
+<div class="rsk-r"><div class="rsk-n"><span class="fr">Requalification fiscale</span><span class="en">Tax reclassification</span></div><div><div class="rsk-l lo">MAÎTRISÉ</div></div><div class="rsk-m"><span class="fr"><span class="strong">Rescrit fiscal obtenu</span> — position opposable à l'administration. PSFP Niveau 1+2 par FAC-Fille &gt;€500K. Article 238 quater F CGI aligné.</span><span class="en"><span class="strong">Tax ruling obtained</span> — position enforceable against administration. PSFP Level 1+2 per FAC-Fille &gt;€500K. Art. 238 quater F CGI aligned.</span></div></div>
+<div class="rsk-r"><div class="rsk-n"><span class="fr">Confusion de patrimoines</span><span class="en">Patrimonial confusion</span></div><div><div class="rsk-l md">MODÉRÉ</div></div><div class="rsk-m"><span class="fr">PBCM complet (CAPA + CNRCO + ANAP + DIAC + CCR) dans chaque convention + hash blockchain + CCR exclusive.</span><span class="en">Complete PBCM in every agreement + blockchain hash + exclusive CCR.</span></div></div>
+<div class="rsk-r"><div class="rsk-n"><span class="fr">Défaillance fiduciaire</span><span class="en">Fiduciary failure</span></div><div><div class="rsk-l md">MODÉRÉ</div></div><div class="rsk-m"><span class="fr">RC Pro avocat + convention de substitution automatique + gouvernance quadripolaire + CCS peut suspendre + PFA intact.</span><span class="en">Lawyer professional liability + automatic substitution + quadripolar governance + CCS can suspend + PFA intact.</span></div></div>
+<div class="rsk-r"><div class="rsk-n"><span class="fr">Copies concurrentes</span><span class="en">Competitor copies</span></div><div><div class="rsk-l md">MODÉRÉ</div></div><div class="rsk-m"><span class="fr">5 couches IP superposées · 18 mois minimum pour concurrent · chaque FAC-Fille crée jurisprudence favorable.</span><span class="en">5 IP layers · 18 months minimum for competitor · every FAC-Fille creates favourable jurisprudence.</span></div></div>
+<div class="rsk-r"><div class="rsk-n"><span class="fr">Barrière d'adoption</span><span class="en">Adoption barrier</span></div><div><div class="rsk-l lo">GÉRABLE</div></div><div class="rsk-m"><span class="fr">CCA + templates standardisés + plateforme RealSmart® + licences White Label = adoption démultipliée par les praticiens.</span><span class="en">CCA + standardised templates + RealSmart® + White Label licences = adoption multiplied by practitioners.</span></div></div>
+</div>
+</div>
+
+<!-- § 10 — FAQ -->
+<div class="section">
+<div class="sn">10</div>
+<div class="stag"><span class="fr">FAQ investisseur</span><span class="en">Investor FAQ</span></div>
+<h2><span class="fr">Quatre questions <em>que vous vous posez</em></span><span class="en">Four questions <em>you're asking yourself</em></span></h2>
+<div class="srule"></div>
+
+<div class="faq-c open" onclick="this.classList.toggle('open')">
+<div class="faq-h"><span class="faq-n">01</span><div class="faq-t"><span class="fr">Êtes-vous sûrs à 100% que l'AMF<a class="ast" href="#disc1">*</a> ne peut pas intervenir ?</span><span class="en">Are you 100% sure the AMF<a class="ast" href="#disc1">*</a> can't intervene?</span></div><span class="faq-arr">+</span></div>
+<div class="faq-b"><div class="faq-i">
+<div class="faq-short"><div class="faq-sl"><span class="fr">Réponse courte</span><span class="en">Short answer</span></div><p><span class="fr">Non — 100% de certitude n'existe pas en droit. Mais nous avons <span class="strong">cinq verrous</span> qui rendent une requalification structurellement très difficile. Et l'OJP est <span class="em-t">déjà obtenue</span>, pas promise.</span><span class="en">No — 100% certainty doesn't exist in law. But we have <span class="strong">five locks</span> making reclassification structurally very difficult. And the OJP is <span class="em-t">already obtained</span>, not promised.</span></p></div>
+<div class="faq-long">
+<p><span class="fr">Pourquoi le modèle échappe à l'AMF :</span><span class="en">Why the model escapes the AMF:</span></p>
+<ul class="faq-li">
+<li><span class="fr"><span class="strong">Pas de dette.</span> L'adhérent fait un acte civil irréversible.</span><span class="en"><span class="strong">No debt.</span> The adherent makes an irreversible civil act.</span></li>
+<li><span class="fr"><span class="strong">Pas de titre financier.</span> Le DBA est un droit d'appartenance civile.</span><span class="en"><span class="strong">No financial instrument.</span> DBA is a civil membership right.</span></li>
+<li><span class="fr"><span class="strong">Pas de rendement promis.</span> La PCR est distribuée à la discrétion totale du fiduciaire.</span><span class="en"><span class="strong">No promised yield.</span> PCR distributed at fiduciary's full discretion.</span></li>
+<li><span class="fr"><span class="strong">Pas de fonds collectif.</span> La FAC-Fille ne lève pas de capitaux en vue de les investir.</span><span class="en"><span class="strong">No collective fund.</span> FAC-Fille doesn't raise capital to invest it.</span></li>
+<li><span class="fr"><span class="strong">Anti-Ponzi mécanique.</span> PAMP interdit toute distribution avant l'exploitation réelle.</span><span class="en"><span class="strong">Mechanical anti-Ponzi.</span> PAMP prohibits any distribution before real operation.</span></li>
+</ul>
+<p><span class="fr">L'OJP est obtenue d'un cabinet spécialisé. Un refresh annuel est prévu avec uplift progressif vers Gide ou August Debouzy à mesure que la jurisprudence s'étoffe.</span><span class="en">The OJP is obtained from a specialised firm. Annual refresh planned with progressive uplift to Gide or August Debouzy as jurisprudence develops.</span></p>
+</div>
+<div class="faq-bot"><div class="faq-bl"><span class="fr">En résumé</span><span class="en">Bottom line</span></div><p><span class="fr">Le modèle est construit pour ne créer aucun élément qui déclenche l'AMF. L'OJP et le rescrit sont <span class="em-t">déjà obtenus</span> — ce ne sont pas des promesses, ce sont des actifs doctrinaux en main<a class="ast" href="#disc1">*</a>.</span><span class="en">The model creates none of the elements triggering AMF. OJP and tax ruling are <span class="em-t">already obtained</span> — not promises, doctrinal assets in hand<a class="ast" href="#disc1">*</a>.</span></p></div>
+</div></div></div>
+
+<div class="faq-c" onclick="this.classList.toggle('open')">
+<div class="faq-h"><span class="faq-n">02</span><div class="faq-t"><span class="fr">Vous avez déjà fait une opération complète ?</span><span class="en">Have you completed a real operation?</span></div><span class="faq-arr">+</span></div>
+<div class="faq-b"><div class="faq-i">
+<div class="faq-short"><div class="faq-sl"><span class="fr">Réponse courte</span><span class="en">Short answer</span></div><p><span class="fr">Pas encore d'opération complète avec revenus. C'est exactement pour ça que nous levons — et pourquoi la valorisation est basse et le retour potentiel élevé.</span><span class="en">No completed operation with revenues yet. That's exactly why we're raising — and why valuation is low, return potential high.</span></p></div>
+<div class="faq-long">
+<p><span class="fr">Soyons transparents. Ce qui existe : doctrine complète (250+ termes) · 3 marques INPI · 3 dépôts Soleau · brevet en cours · <span class="strong">OJP obtenue</span> · <span class="strong">rescrit fiscal obtenu</span> · ~€1M capital fondateur déployé · convention Tenay rédigée par Me Ravot.</span><span class="en">Transparent. What exists: complete doctrine (250+ terms) · 3 INPI trademarks · 3 Soleau deposits · patent pending · <span class="strong">OJP obtained</span> · <span class="strong">tax ruling obtained</span> · ~€1M founder capital · Tenay agreement by Me Ravot.</span></p>
+<p><span class="fr">Ce qui n'existe <span class="em-t">pas encore</span> : le premier déploiement opérationnel complet avec revenus récurrents. C'est la Phase 1 (M1–M6), premier usage des fonds.</span><span class="en">What <span class="em-t">doesn't exist yet</span>: first complete operational deployment with recurring revenues. Phase 1 (M1–M6), first use of funds.</span></p>
+</div>
+<div class="faq-bot"><div class="faq-bl"><span class="fr">En résumé</span><span class="en">Bottom line</span></div><p><span class="fr">L'investisseur entre avant la preuve de concept opérationnelle. Pre-money €5M (pas €50M). Retour 40–80× (pas 4–8×). Le risque est plus élevé, la récompense aussi.</span><span class="en">Investor enters before operational proof of concept. Pre-money €5M (not €50M). Return 40–80× (not 4–8×). Higher risk, higher reward.</span></p></div>
+</div></div></div>
+
+<div class="faq-c" onclick="this.classList.toggle('open')">
+<div class="faq-h"><span class="faq-n">03</span><div class="faq-t"><span class="fr">Comment gérer 50–100 projets à l'échelle ?</span><span class="en">How do you manage 50–100 projects at scale?</span></div><span class="faq-arr">+</span></div>
+<div class="faq-b"><div class="faq-i">
+<div class="faq-short"><div class="faq-sl"><span class="fr">Réponse courte</span><span class="en">Short answer</span></div><p><span class="fr">On ne gère pas 100 projets. On gère 100 cabinets partenaires qui gèrent chacun leurs projets. <span class="strong">Modèle McDonald's, pas restaurant.</span></span><span class="en">We don't manage 100 projects. We manage 100 partner firms that each manage theirs. <span class="strong">McDonald's model, not family restaurant.</span></span></p></div>
+<div class="faq-long">
+<p><span class="fr"><span class="strong">1. Architecture FAC-Mère / FAC-Filles</span> — une structure-chapeau engendre N projets. Plateforme unique.</span><span class="en"><span class="strong">1. FAC-Mère / FAC-Filles</span> — single umbrella, N projects. Single platform.</span></p>
+<p><span class="fr"><span class="strong">2. Contrats standardisés</span> — templates pré-rédigés. Nouveau projet en semaines.</span><span class="en"><span class="strong">2. Standardised contracts</span> — pre-drafted templates. New project in weeks.</span></p>
+<p><span class="fr"><span class="strong">3. Plateforme + RFC + Oracle Civil</span> — monitoring automatisé. Le fiduciaire reçoit alertes, décide.</span><span class="en"><span class="strong">3. Platform + RFC + Oracle Civil</span> — automated monitoring. Fiduciary receives alerts, decides.</span></p>
+<p><span class="fr"><span class="strong">4. Modèle de licence</span> — Civil-Fi forme et certifie, les cabinets déploient. Revenus récurrents sans gestion opérationnelle.</span><span class="en"><span class="strong">4. Licence model</span> — Civil-Fi trains and certifies, firms deploy. Recurring revenues without operational management.</span></p>
+</div>
+<div class="faq-bot"><div class="faq-bl"><span class="fr">En résumé</span><span class="en">Bottom line</span></div><p><span class="fr">100 cabinets × 10 projets = 1 000 projets. Modèle ISDA, SWIFT, franchise — infrastructure et frais récurrents.</span><span class="en">100 firms × 10 projects = 1,000 projects. ISDA, SWIFT, franchise model — infrastructure and recurring fees.</span></p></div>
+</div></div></div>
+
+<div class="faq-c" onclick="this.classList.toggle('open')">
+<div class="faq-h"><span class="faq-n">04</span><div class="faq-t"><span class="fr">Pourquoi personne n'y a pensé avant ?</span><span class="en">Why has no one thought of this before?</span></div><span class="faq-arr">+</span></div>
+<div class="faq-b"><div class="faq-i">
+<div class="faq-short"><div class="faq-sl"><span class="fr">Réponse courte</span><span class="en">Short answer</span></div><p><span class="fr">Parce que personne n'avait la combinaison exacte de compétences, ni le courage de prendre le risque doctrinal. Les innovations juridiques majeures demandent un croisement rare de disciplines — et quelqu'un prêt à absorber l'incertitude réglementaire avant qu'elle ne devienne un précédent.</span><span class="en">Because no one had the exact combination of skills, nor the courage for doctrinal risk. Major legal innovations require rare cross-disciplinary expertise — and someone willing to absorb regulatory uncertainty before it becomes precedent.</span></p></div>
+<div class="faq-long">
+<p><span class="fr"><span class="strong">1. La fiducie française était mal comprise.</span> La loi de 2007 a introduit la fiducie, mais quasi exclusivement comme outil de sûreté (banques) ou de gestion (successions). Personne n'a pensé à l'utiliser comme <span class="em-t">architecture primaire de propriété collective</span>. Elle dormait dans le Code civil, sous-exploitée pendant 18 ans.</span><span class="en"><span class="strong">1. French trust law was misunderstood.</span> The 2007 law introduced trusts, but almost exclusively as security (for banks) or management (for successions). No one thought to use it as <span class="em-t">primary collective ownership architecture</span>. It slept in the Civil Code, underused for 18 years.</span></p>
+<p><span class="fr"><span class="strong">2. Il fallait croiser 4 mondes qui ne se parlent pas :</span> droit civil français · ingénierie Web3 · finance islamique · gestion de patrimoine moderne. Les avocats fiduciaires ne parlent pas blockchain. Les ingénieurs Web3 ne lisent pas le Code civil. Deux ans à faire le pont.</span><span class="en"><span class="strong">2. It required crossing 4 worlds that don't talk:</span> French civil law · Web3 engineering · Islamic finance · modern wealth management. Trust lawyers don't speak blockchain. Web3 engineers don't read the Civil Code. Two years bridging these.</span></p>
+<p><span class="fr"><span class="strong">3. Le travail doctrinal nécessaire est immense — et non rémunéré en amont.</span> Aucun grand cabinet ne produit 250+ termes sans client payeur. Il fallait des fondateurs prêts à investir des milliers d'heures <span class="em-t">avant</span> tout revenu.</span><span class="en"><span class="strong">3. Doctrinal work required is immense — unpaid upfront.</span> No major firm produces 250+ terms without paying client. Required founders to invest thousands of hours <span class="em-t">before</span> any revenue.</span></p>
+<p><span class="fr"><span class="strong">4. Il fallait accepter le risque de pionnier.</span> Le premier absorbe toute l'incertitude. Pas de jurisprudence, pas de précédent. Les grands acteurs ne prennent jamais ce risque — ils copient après. Notre avantage : 2–3 ans d'avance verrouillée par nos 5 couches IP.</span><span class="en"><span class="strong">4. It required accepting pioneer risk.</span> The first absorbs all uncertainty. No jurisprudence, no precedent. Major players never take this risk — they copy after. Our advantage: 2–3 years of lead locked by our 5 IP layers.</span></p>
+</div>
+<div class="faq-bot"><div class="faq-bl"><span class="fr">En résumé</span><span class="en">Bottom line</span></div><p><span class="fr">L'innovation majeure ne vient jamais des institutions installées. Elle vient de gens avec les compétences croisées, la vision, et le courage du risque doctrinal. La fenêtre est ouverte maintenant — dans 3 ans, les marques seront prises, les brevets déposés, la doctrine dominante écrite.</span><span class="en">Major innovation never comes from established institutions. It comes from people with cross-disciplinary skills, vision, and courage for doctrinal risk. The window is open now — in 3 years, trademarks will be taken, patents filed, dominant doctrine written.</span></p></div>
+</div></div></div>
+
+</div>
+
+<!-- § 11 — La proposition en 5 lignes -->
+<div class="prop">
+<div class="prop-l"><span class="fr">La proposition en 5 lignes</span><span class="en">The proposition in 5 lines</span></div>
+<div class="prop-t"><span class="fr">L'essentiel, sans jargon</span><span class="en">The essence, without jargon</span></div>
+<div class="prop-body">
+<p><span class="fr">Civil-Fi PAFC® est le <strong>premier et seul système d'exploitation juridique fiduciaire civil au monde</strong>. Protégé par 5 couches de propriété intellectuelle. <strong>OJP obtenue. Rescrit fiscal obtenu.</strong> Matérialisé par un brevet couvrant 3 inventions techniques inédites.</span><span class="en">Civil-Fi PAFC® is the <strong>first and only civil fiduciary legal operating system in the world</strong>. Protected by 5 IP layers. <strong>OJP obtained. Tax ruling obtained.</strong> Materialised by a patent covering 3 novel technical inventions.</span></p>
+<p><span class="fr">Un investissement de <strong>€2,5M pour 25%</strong> devient <strong>€100M à €200M</strong> à l'exit (40 à 80 fois la mise). L'investisseur sort en liquidité ; le véhicule continue sa route.</span><span class="en">An investment of <strong>€2.5M for 25%</strong> becomes <strong>€100M to €200M</strong> at exit (40 to 80× the stake). The investor exits in liquidity; the vehicle continues.</span></p>
+<p><span class="fr">Le RFC est le <em>SWIFT de la fiducie civile</em>. Qui le contrôle contrôle le marché.</span><span class="en">The RFC is the <em>SWIFT of civil trust law</em>. Whoever controls it controls the market.</span></p>
+<p><span class="fr">La fusée est construite. Le lanceur est prêt. <strong>Nous vous demandons de financer le lancement.</strong></span><span class="en">The rocket is built. The launch pad is ready. <strong>We are asking you to fuel the launch.</strong></span></p>
+</div>
 </div>
 
 <!-- PARTNERS CTA -->
@@ -705,7 +1215,7 @@ select.form-input:invalid,select.form-input option[value=""]{color:var(--ink5)}
 
 <div class="foot">
 <p>SC CDDEV / RealSmart® · Clément Éric Dijoux & Zosoa Rasoarahona · Me Pierre-Alain Ravot</p>
-<p>INPI N°5238667 · Soleau v1/v2/v3 · Brevet en cours · Rescrit fiscal en cours</p>
+<p>INPI N°5238667 · Soleau v1/v2/v3 · Brevet en cours · OJP obtenue · Rescrit fiscal obtenu</p>
 <p style="margin-top:6px"><span class="fr">Strictement confidentiel · © SC CDDEV 2026</span><span class="en">Strictly confidential · © SC CDDEV 2026</span></p>
 </div>
 
