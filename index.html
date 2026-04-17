@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Civil-Fi PAFC® — Secure Access</title>
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<meta name="googlebot" content="noindex, nofollow">
+<meta property="og:title" content="Civil-Fi PAFC® — Confidential">
+<meta property="og:description" content="This document is protected under a Non-Disclosure Agreement. Authorised access only.">
+<meta property="og:type" content="website">
+<meta name="description" content="Confidential investor memorandum — Authorised access only.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='14' fill='none' stroke='%231C2433' stroke-width='1.5'/><text x='16' y='21' text-anchor='middle' font-family='serif' font-size='14' font-weight='bold' fill='%231C2433'>CF</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ivory: #F4F1EA;
+  --parch: #EDE8DD;
+  --cream: #E5DFD2;
+  --ink: #1C2433;
+  --ink2: #2D3748;
+  --ink3: #4A5568;
+  --ink4: #718096;
+  --ink5: #A0AEC0;
+  --terra: #8B3A2A;
+  --terra2: #A04838;
+  --terra3: rgba(139,58,42,.06);
+  --forest: #2D5F3E;
+  --forest2: rgba(45,95,62,.08);
+  --rule: rgba(28,36,51,.1);
+  --rule2: rgba(28,36,51,.04);
+  --err: #C0392B;
+  --err2: rgba(192,57,43,.08);
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{overflow-x:hidden}
+body{font-family:'Spectral',Georgia,serif;background:var(--ivory);color:var(--ink2);line-height:1.7;-webkit-font-smoothing:antialiased;min-height:100vh}
+::selection{background:var(--terra);color:var(--ivory)}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;opacity:.025;z-index:1;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+.crest{width:60px;height:60px;margin:0 auto;border:1.5px solid var(--ink);border-radius:50%;display:flex;align-items:center;justify-content:center;position:relative;flex-shrink:0}
+.crest::before{content:'';position:absolute;inset:4px;border:.5px solid var(--rule);border-radius:50%}
+.crest span{font-family:'EB Garamond',serif;font-size:17px;font-weight:700;color:var(--ink);letter-spacing:2px}
+.crest.lg{width:88px;height:88px}
+.crest.lg span{font-size:24px}
+
+.classif{font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:5px;text-transform:uppercase;color:var(--terra);padding:5px 14px;border:.5px solid var(--terra);display:inline-block}
+
+.btn-primary{padding:14px 28px;background:var(--ink);color:var(--ivory);font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:4px;text-transform:uppercase;border:none;cursor:pointer;transition:all .3s;font-weight:500;display:inline-flex;align-items:center;gap:10px}
+.btn-primary:hover:not(:disabled){background:var(--ink2);letter-spacing:5px}
+.btn-primary:disabled{background:var(--ink5);cursor:not-allowed;letter-spacing:4px;opacity:.5}
+.btn-primary .arrow{font-size:14px;transition:transform .3s}
+.btn-primary:hover:not(:disabled) .arrow{transform:translateX(4px)}
+
+.btn-large{padding:18px 36px;background:var(--terra);color:var(--ivory);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:4px;text-transform:uppercase;border:none;cursor:pointer;transition:all .3s;font-weight:500;display:inline-flex;align-items:center;gap:12px;text-decoration:none}
+.btn-large:hover{background:var(--terra2);letter-spacing:5px;box-shadow:0 8px 24px rgba(139,58,42,.2)}
+.btn-large .arrow{font-size:16px;transition:transform .3s}
+.btn-large:hover .arrow{transform:translateX(4px)}
+
+/* Stage wrapper */
+#stage-wrap{position:fixed;inset:0;z-index:9999;background:var(--ivory);overflow-y:auto;-webkit-overflow-scrolling:touch}
+#stage-wrap.gone{display:none}
+.stage{display:none;min-height:100vh;padding:24px 20px 40px;align-items:center;justify-content:center}
+.stage.active{display:flex}
+.stage-inner{width:100%;max-width:480px;margin:auto}
+
+.stage-head{text-align:center;margin-bottom:32px}
+.stage-progress{font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:4px;text-transform:uppercase;color:var(--ink4);margin-top:24px;padding-top:16px;border-top:.5px solid var(--rule)}
+.stage-progress span{color:var(--terra);font-weight:500}
+.stage-title{font-family:'EB Garamond',serif;font-size:28px;font-weight:400;color:var(--ink);line-height:1.2;margin:20px 0 6px;letter-spacing:.3px}
+.stage-title em{font-style:italic;color:var(--terra)}
+.stage-sub{font-size:14px;color:var(--ink3);max-width:400px;margin:0 auto}
+
+/* S0 */
+.s0-intro{text-align:center}
+.s0-intro .crest{margin-bottom:40px}
+.s0-intro .classif{margin-bottom:28px}
+.s0-badges{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:28px 0 36px}
+.s0-badge{font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--ink4);padding:4px 10px;background:var(--parch);border:.5px solid var(--rule)}
+.s0-cta{margin-top:32px}
+.s0-legal{margin-top:40px;padding-top:24px;border-top:.5px solid var(--rule)}
+.s0-legal p{font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:1.5px;color:var(--ink5);line-height:2;text-transform:uppercase}
+
+/* NDA */
+.nda-scroll{background:var(--parch);border:.5px solid var(--rule);padding:20px 22px;max-height:320px;overflow-y:auto;margin:24px 0;-webkit-overflow-scrolling:touch;position:relative}
+.nda-scroll::-webkit-scrollbar{width:4px}
+.nda-scroll::-webkit-scrollbar-thumb{background:var(--ink5);border-radius:2px}
+.nda-scroll h4{font-family:'EB Garamond',serif;font-size:15px;font-weight:600;color:var(--ink);margin:14px 0 6px}
+.nda-scroll h4:first-child{margin-top:0}
+.nda-scroll p{font-size:12.5px;color:var(--ink2);line-height:1.75;margin-bottom:8px}
+.nda-scroll ul{list-style:none;margin:6px 0 8px}
+.nda-scroll li{font-size:12.5px;color:var(--ink2);line-height:1.75;padding-left:16px;position:relative}
+.nda-scroll li::before{content:'—';position:absolute;left:0;color:var(--ink4)}
+.nda-check{display:flex;align-items:flex-start;gap:10px;padding:10px 0;cursor:pointer;user-select:none}
+.nda-check input{margin-top:3px;accent-color:var(--ink);width:14px;height:14px;flex-shrink:0;cursor:pointer}
+.nda-check span{font-size:13px;color:var(--ink2);line-height:1.6}
+.nda-scroll-hint{font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:2px;color:var(--ink4);text-align:center;margin-top:-18px;margin-bottom:20px;text-transform:uppercase}
+
+/* Identity form */
+.form-group{margin-bottom:16px}
+.form-label{font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--ink4);display:block;margin-bottom:6px}
+.form-label .req{color:var(--terra);margin-left:2px}
+.form-input{width:100%;padding:11px 14px;background:transparent;border:.5px solid var(--rule);color:var(--ink);font-family:'Spectral',serif;font-size:15px;outline:none;transition:border-color .3s;-webkit-appearance:none;appearance:none}
+.form-input:focus{border-color:var(--ink)}
+.form-input.invalid{border-color:var(--err);background:var(--err2)}
+.form-input::placeholder{color:var(--ink5)}
+select.form-input{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath d='M2 4 L 5 7 L 8 4' stroke='%23718096' fill='none' stroke-width='1'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;background-size:10px;padding-right:36px;cursor:pointer}
+select.form-input:invalid,select.form-input option[value=""]{color:var(--ink5)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.device-info{background:var(--parch);border:.5px solid var(--rule);padding:14px 16px;margin:20px 0;font-family:'JetBrains Mono',monospace;font-size:10px}
+.device-info-row{display:flex;justify-content:space-between;padding:4px 0;color:var(--ink3);gap:8px}
+.device-info-row .label{color:var(--ink4);text-transform:uppercase;font-size:8px;letter-spacing:2px;flex-shrink:0}
+.device-info-row .value{font-size:10px;letter-spacing:.5px;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.device-info-row .live{color:var(--forest);animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:.6}50%{opacity:1}}
+
+.gdpr-box{background:var(--terra3);border:.5px solid var(--terra3);border-left:2px solid var(--terra);padding:14px 16px;margin:20px 0}
+.gdpr-box .gdpr-check{display:flex;align-items:flex-start;gap:10px;cursor:pointer;user-select:none}
+.gdpr-box input{margin-top:3px;accent-color:var(--terra);width:14px;height:14px;flex-shrink:0;cursor:pointer}
+.gdpr-box .gdpr-text{font-size:12px;color:var(--ink2);line-height:1.6}
+.gdpr-box .gdpr-text strong{color:var(--terra);font-weight:600}
+.gdpr-box .gdpr-meta{font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:1px;color:var(--ink4);margin-top:6px;text-transform:uppercase}
+
+/* Signature */
+.sig-preamble{background:var(--terra3);border-left:2px solid var(--terra);padding:12px 16px;margin:20px 0;font-size:13px;color:var(--ink2);line-height:1.6}
+.sig-box{position:relative;background:#fff;border:.5px solid var(--rule);margin:20px 0;overflow:hidden}
+.sig-box::before{content:'';position:absolute;bottom:20px;left:20px;right:20px;height:.5px;background:var(--ink5)}
+.sig-box::after{content:'×';position:absolute;bottom:16px;left:20px;font-family:'EB Garamond',serif;font-size:20px;color:var(--ink5)}
+.sig-canvas{display:block;width:100%;height:200px;touch-action:none;cursor:crosshair}
+.sig-placeholder{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;font-family:'EB Garamond',serif;font-style:italic;font-size:15px;color:var(--ink5);transition:opacity .3s}
+.sig-placeholder.hidden{opacity:0}
+.sig-actions{display:flex;gap:10px;justify-content:space-between;align-items:center;margin:10px 0 20px}
+.sig-date{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--ink4);text-transform:uppercase}
+.sig-clear{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--terra);text-transform:uppercase;background:none;border:none;cursor:pointer;padding:4px 0;border-bottom:.5px dashed var(--terra)}
+
+/* Biometric */
+.bio-choice{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:24px 0}
+.bio-option{background:var(--parch);border:.5px solid var(--rule);padding:20px 16px;text-align:center;cursor:pointer;transition:all .3s}
+.bio-option:hover{border-color:var(--ink)}
+.bio-option.selected{border-color:var(--terra);background:var(--terra3)}
+.bio-option svg{width:40px;height:40px;margin:0 auto 10px;display:block}
+.bio-option .stroke{stroke:var(--ink);stroke-width:1.5;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.bio-option.selected .stroke{stroke:var(--terra)}
+.bio-option-label{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--ink)}
+.bio-option.selected .bio-option-label{color:var(--terra)}
+
+.bio-scanner{margin:30px auto;display:flex;flex-direction:column;align-items:center}
+.fp-wrap{width:180px;height:220px;position:relative;border:1px solid var(--rule);background:#fff;overflow:hidden;margin-bottom:20px}
+.fp-svg{width:100%;height:100%;display:block}
+.fp-ridge{stroke:var(--ink5);stroke-width:1.2;fill:none;stroke-linecap:round;transition:stroke .3s}
+.fp-ridge.scanned{stroke:var(--terra)}
+.fp-scanline{position:absolute;left:0;right:0;height:2px;background:linear-gradient(to right,transparent,var(--terra),transparent);box-shadow:0 0 12px var(--terra);top:100%;transition:top 3s linear;opacity:0}
+.fp-scanline.on{opacity:1;top:-4px}
+.fp-check{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(244,241,234,.95);opacity:0;transition:opacity .5s}
+.fp-check.on{opacity:1}
+.fp-check svg{width:50px;height:50px}
+.fp-check .stroke{stroke:var(--forest);stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:60;stroke-dashoffset:60;animation:draw-check 1s ease forwards}
+@keyframes draw-check{to{stroke-dashoffset:0}}
+
+.face-wrap{width:200px;height:240px;position:relative;border:1px solid var(--rule);background:#fff;overflow:hidden;margin-bottom:20px}
+.face-svg{width:100%;height:100%;display:block}
+.face-outline{stroke:var(--ink4);stroke-width:1;fill:none}
+.face-corners{stroke:var(--terra);stroke-width:2;fill:none;stroke-linecap:round}
+.face-dot{fill:var(--ink5);opacity:0;transition:opacity .2s,fill .3s}
+.face-dot.on{opacity:1;fill:var(--terra)}
+.face-dot.done{fill:var(--forest)}
+.face-sweep{position:absolute;left:10%;right:10%;height:3px;background:linear-gradient(to right,transparent,var(--terra),transparent);box-shadow:0 0 10px var(--terra);top:0;opacity:0;animation:face-sweep 2s ease infinite}
+.face-sweep.on{opacity:1}
+@keyframes face-sweep{0%{top:10%}50%{top:85%}100%{top:10%}}
+
+.bio-progress{text-align:center;margin-top:12px}
+.bio-percent{font-family:'EB Garamond',serif;font-size:32px;font-weight:700;color:var(--terra);line-height:1}
+.bio-status{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--ink4);margin-top:6px;min-height:12px}
+
+/* Processing */
+.proc-wrap{text-align:center;padding:40px 20px}
+.proc-spinner{width:50px;height:50px;margin:0 auto 30px;position:relative}
+.proc-spinner::before,.proc-spinner::after{content:'';position:absolute;inset:0;border:1px solid transparent;border-top-color:var(--ink);border-radius:50%;animation:spin 1.4s linear infinite}
+.proc-spinner::after{inset:8px;border-top-color:var(--terra);animation-duration:1s;animation-direction:reverse}
+@keyframes spin{to{transform:rotate(360deg)}}
+.proc-title{font-family:'EB Garamond',serif;font-size:20px;font-weight:400;color:var(--ink);margin-bottom:20px}
+.proc-list{max-width:320px;margin:0 auto;text-align:left}
+.proc-item{display:flex;align-items:center;gap:10px;padding:7px 0;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:1px;color:var(--ink5);transition:color .3s}
+.proc-item.active{color:var(--ink)}
+.proc-item.done{color:var(--forest)}
+.proc-dot{width:6px;height:6px;border-radius:50%;background:var(--ink5);flex-shrink:0;transition:all .3s}
+.proc-item.active .proc-dot{background:var(--terra);animation:pulse 1s infinite}
+.proc-item.done .proc-dot{background:var(--forest)}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.4)}}
+.proc-bar{width:100%;height:2px;background:var(--rule);margin-top:40px;overflow:hidden}
+.proc-fill{height:100%;background:var(--terra);width:0%;transition:width .6s ease}
+
+/* Confirmation */
+.conf-wrap{text-align:center}
+.conf-seal{position:relative;margin:20px auto 30px;width:140px;height:140px}
+.conf-seal-outer{width:140px;height:140px;border:2px solid var(--forest);border-radius:50%;position:relative;display:flex;align-items:center;justify-content:center;background:var(--forest2)}
+.conf-seal-outer::before{content:'';position:absolute;inset:6px;border:1px solid var(--forest);border-radius:50%;opacity:.4}
+.conf-seal-outer svg{width:50px;height:50px}
+.conf-seal-outer .stroke{stroke:var(--forest);stroke-width:2.5;fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:60;stroke-dashoffset:60;animation:draw-check 1.2s ease .3s forwards}
+.conf-ring{position:absolute;inset:-12px;border:.5px dashed var(--forest);border-radius:50%;opacity:.5;animation:slow-rotate 30s linear infinite}
+@keyframes slow-rotate{to{transform:rotate(360deg)}}
+.conf-badge{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:5px;text-transform:uppercase;color:var(--forest);padding:5px 16px;border:.5px solid var(--forest);margin-bottom:16px}
+.conf-title{font-family:'EB Garamond',serif;font-size:32px;font-weight:400;color:var(--ink);font-style:italic;margin-bottom:8px}
+.conf-name{font-family:'EB Garamond',serif;font-size:18px;font-weight:500;color:var(--terra);margin-bottom:30px;font-style:italic}
+.conf-cert{background:var(--parch);border:.5px solid var(--rule);padding:20px 22px;margin:24px 0;text-align:left}
+.conf-cert-row{display:flex;justify-content:space-between;gap:8px;padding:6px 0;font-family:'JetBrains Mono',monospace;font-size:10px;border-bottom:.5px solid var(--rule2)}
+.conf-cert-row:last-child{border-bottom:none}
+.conf-cert-label{color:var(--ink4);text-transform:uppercase;font-size:8px;letter-spacing:2px;flex-shrink:0}
+.conf-cert-value{color:var(--ink);font-weight:500;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+.conf-cert-value.mono{font-family:'JetBrains Mono',monospace}
+.conf-cert-value.ok{color:var(--forest)}
+.conf-email-info{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--ink4);margin:16px 0 20px;text-transform:uppercase;letter-spacing:2px}
+.conf-email-info .check{color:var(--forest);margin-right:6px}
+
+.error-msg{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--err);margin-top:12px;text-align:center;min-height:14px;opacity:0;transition:opacity .3s}
+.error-msg.on{opacity:1}
+
+/* Document */
+#doc{display:none;opacity:0;transition:opacity .8s ease}
+#doc.on{display:block;opacity:1}
+.top{position:fixed;top:0;left:0;right:0;z-index:99;background:rgba(244,241,234,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:.5px solid var(--rule);display:flex;justify-content:space-between;align-items:center;padding:8px 16px;font-size:8px}
+.top-l{display:flex;align-items:center;gap:10px;min-width:0}
+.top-brand{font-family:'EB Garamond',serif;font-size:13px;font-weight:600;color:var(--ink);font-style:italic;flex-shrink:0}
+.top-sess{font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:1.5px;color:var(--ink4);text-transform:uppercase;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.top-r{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.lsw{display:flex;border:.5px solid var(--rule)}
+.lsw button{padding:3px 8px;font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:2px;color:var(--ink4);background:none;border:none;cursor:pointer}
+.lsw button.on{color:var(--ink);background:var(--parch)}
+
+.pg{max-width:680px;margin:0 auto;padding:0 24px}
+.hdr{padding:90px 24px 50px;max-width:680px;margin:0 auto;border-bottom:.5px solid var(--rule)}
+.hdr-conf{font-family:'JetBrains Mono',monospace;font-size:7.5px;letter-spacing:5px;text-transform:uppercase;color:var(--terra);margin-bottom:28px;padding-bottom:10px;border-bottom:.5px solid var(--terra3)}
+.hdr-t{font-family:'EB Garamond',serif;font-size:clamp(26px,5vw,40px);font-weight:400;color:var(--ink);line-height:1.2;margin-bottom:10px}
+.hdr-t em{font-style:italic;color:var(--terra)}
+.hdr-s{font-size:15px;font-weight:300;color:var(--ink3);max-width:520px;margin-bottom:24px}
+.hdr-meta{font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--ink4)}
+
+.section{padding:60px 24px;max-width:680px;margin:0 auto}
+.section h2{font-family:'EB Garamond',serif;font-size:26px;font-weight:400;color:var(--ink);margin-bottom:8px;line-height:1.2}
+.section h2 em{font-style:italic;color:var(--terra)}
+.section .sn{font-family:'EB Garamond',serif;font-size:64px;font-weight:800;color:var(--parch);line-height:1;margin-bottom:-8px;user-select:none}
+.section .stag{font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:4px;text-transform:uppercase;color:var(--terra);margin-bottom:6px}
+.section .srule{width:36px;height:.5px;background:var(--ink);margin:12px 0 28px}
+.section p{font-size:15px;color:var(--ink2);line-height:1.8;margin-bottom:16px;max-width:580px}
+
+.pq{margin:30px 0;padding:20px 0 20px 24px;border-left:2px solid var(--terra);max-width:580px}
+.pq p{font-family:'EB Garamond',serif;font-size:18px;font-style:italic;color:var(--ink);line-height:1.5}
+
+.kp{background:var(--terra3);border-left:2px solid var(--terra);padding:20px 22px;margin:24px 0}
+.kp h4{font-family:'EB Garamond',serif;font-size:18px;font-weight:600;color:var(--ink);margin-bottom:6px}
+.kp p{font-size:14px;color:var(--ink2);line-height:1.7}
+
+.cards-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0}
+.card-mini{border:.5px solid var(--rule);padding:16px;background:var(--ivory)}
+.card-mini-t{font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--terra);margin-bottom:6px}
+.card-mini-v{font-family:'EB Garamond',serif;font-size:22px;font-weight:700;color:var(--ink);margin-bottom:4px}
+.card-mini-d{font-size:12px;color:var(--ink3)}
+
+.tam-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:0}
+.tam-c{padding:14px 16px 14px 0;border-top:.5px solid var(--rule)}
+.tam-c-v{font-family:'EB Garamond',serif;font-size:20px;font-weight:700;color:var(--terra)}
+.tam-c-n{font-size:13px;color:var(--ink2);margin-top:2px}
+.tam-c-d{font-family:'JetBrains Mono',monospace;font-size:7.5px;color:var(--ink4);margin-top:2px;text-transform:uppercase;letter-spacing:.5px}
+
+.uc{border-bottom:.5px solid var(--rule)}
+.uc-h{padding:18px 0;cursor:pointer;display:flex;gap:12px;align-items:flex-start}
+.uc-n{font-family:'EB Garamond',serif;font-size:26px;font-weight:800;color:var(--parch);line-height:1;width:36px;flex-shrink:0;user-select:none;transition:color .3s}
+.uc.open .uc-n{color:var(--terra)}
+.uc-t{font-family:'EB Garamond',serif;font-size:17px;font-weight:500;color:var(--ink);flex:1;line-height:1.3}
+.uc-arr{font-family:'JetBrains Mono',monospace;color:var(--ink4);transition:transform .3s;flex-shrink:0}
+.uc.open .uc-arr{transform:rotate(45deg);color:var(--terra)}
+.uc-b{max-height:0;overflow:hidden;transition:max-height .5s}
+.uc.open .uc-b{max-height:2500px}
+.uc-i{padding:0 0 24px 48px}
+.uc-lbl{font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--terra);margin-bottom:4px}
+.uc-lbl.sol{color:var(--forest)}
+.uc-p{font-size:13.5px;color:var(--ink2);line-height:1.75;margin-bottom:14px}
+.uc-r{background:var(--forest2);border-left:2px solid var(--forest);padding:12px 16px;font-size:13.5px;color:var(--forest);font-weight:500;line-height:1.6}
+
+/* Partners CTA */
+.partners-cta{background:var(--ink);padding:60px 24px;text-align:center;margin-top:40px}
+.partners-cta-inner{max-width:520px;margin:0 auto}
+.partners-tag{font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:5px;text-transform:uppercase;color:var(--terra);margin-bottom:16px}
+.partners-title{font-family:'EB Garamond',serif;font-size:clamp(24px,4vw,32px);font-weight:400;color:var(--ivory);line-height:1.2;margin-bottom:10px}
+.partners-title em{font-style:italic;color:var(--terra)}
+.partners-sub{font-size:14px;color:var(--ink5);margin-bottom:32px;max-width:400px;margin-left:auto;margin-right:auto}
+.partners-sub em{color:var(--cream);font-style:normal}
+
+.watermark{position:fixed;bottom:16px;right:16px;font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:2px;color:var(--ink5);text-transform:uppercase;pointer-events:none;z-index:98;background:rgba(244,241,234,.85);padding:4px 10px;border:.5px solid var(--rule);max-width:45vw;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+.foot{padding:40px 24px;text-align:center;border-top:.5px solid var(--rule)}
+.foot p{font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:2px;color:var(--ink5);text-transform:uppercase;line-height:2.4}
+
+@media(max-width:480px){
+  .stage-inner{max-width:100%}
+  .form-row{grid-template-columns:1fr}
+  .bio-choice{grid-template-columns:1fr}
+  .cards-2{grid-template-columns:1fr}
+  .hdr{padding:80px 20px 36px}
+  .section{padding:44px 20px}
+  .uc-i{padding-left:20px}
+  .uc-n{display:none}
+}
+
+[data-lang="en"] .fr{display:none!important}
+[data-lang="fr"] .en{display:none!important}
+</style>
+</head>
+<body data-lang="fr">
+
+<!-- ═════════════════════ STAGES ═════════════════════ -->
+<div id="stage-wrap">
+
+<!-- STAGE 0 -->
+<div class="stage active" id="stage-0">
+<div class="stage-inner s0-intro">
+<div class="crest lg"><span>CF</span></div>
+<div style="margin-top:28px"><span class="classif">Strictly Confidential</span></div>
+<div class="stage-title" style="margin-top:28px"><span class="fr">Accès <em>confidentiel</em></span><span class="en">Confidential <em>access</em></span></div>
+<div class="stage-sub" style="margin-top:8px">
+<span class="fr">Vous êtes sur le point d'accéder au mémorandum investisseur Civil-Fi PAFC®. L'accès nécessite une identification et un engagement de confidentialité.</span>
+<span class="en">You are about to access the Civil-Fi PAFC® investor memorandum. Access requires identification and a non-disclosure undertaking.</span>
+</div>
+<div class="s0-badges">
+<div class="s0-badge">NDA</div>
+<div class="s0-badge"><span class="fr">Signature</span><span class="en">Signature</span></div>
+<div class="s0-badge"><span class="fr">Empreinte digitale</span><span class="en">Fingerprint</span></div>
+<div class="s0-badge">RGPD · eIDAS</div>
+</div>
+<div class="s0-cta"><button class="btn-primary" onclick="go(1)"><span class="fr">Commencer</span><span class="en">Begin</span><span class="arrow">→</span></button></div>
+<div class="s0-legal">
+<p>SC CDDEV / RealSmart® · <span class="fr">Marques INPI N°5238667</span><span class="en">INPI Trademarks No. 5238667</span><br>
+<span class="fr">Document protégé · Reproduction interdite</span><span class="en">Protected document · Reproduction prohibited</span></p>
+</div>
+</div>
+</div>
+
+<!-- STAGE 1 - NDA -->
+<div class="stage" id="stage-1">
+<div class="stage-inner">
+<div class="stage-head">
+<div class="crest"><span>CF</span></div>
+<div class="stage-progress"><span class="fr">Étape <span>1</span> sur 6</span><span class="en">Step <span>1</span> of 6</span></div>
+<div class="stage-title"><span class="fr">Accord de <em>confidentialité</em></span><span class="en">Non-disclosure <em>agreement</em></span></div>
+<div class="stage-sub"><span class="fr">Lisez et acceptez les termes pour continuer.</span><span class="en">Read and accept the terms to continue.</span></div>
+</div>
+
+<div class="nda-scroll" id="ndaScroll">
+<h4><span class="fr">Accord de Non-Divulgation</span><span class="en">Non-Disclosure Agreement</span></h4>
+<p><span class="fr">Le présent Accord est conclu entre <strong>SC CDDEV</strong>, société civile française dont le siège est au 271 Boulevard Pinel, 69200 Vénissieux, France (« Émetteur ») et le destinataire identifié ci-après (« Destinataire »).</span><span class="en">This Agreement is entered into between <strong>SC CDDEV</strong>, a French civil company having its registered office at 271 Boulevard Pinel, 69200 Vénissieux, France ("Discloser") and the recipient identified below ("Recipient").</span></p>
+
+<h4><span class="fr">1. Informations confidentielles</span><span class="en">1. Confidential Information</span></h4>
+<p><span class="fr">L'Émetteur communique au Destinataire des informations confidentielles et propriétaires concernant Civil-Fi PAFC®, incluant notamment : la doctrine, l'architecture juridique, les inventions techniques, les projections financières, les plans stratégiques, le portefeuille de propriété intellectuelle, les relations d'affaires et la méthodologie de valorisation (« Informations Confidentielles »).</span><span class="en">The Discloser shares with the Recipient confidential and proprietary information regarding Civil-Fi PAFC®, including but not limited to: the doctrine, legal architecture, technical inventions, financial projections, strategic plans, intellectual property portfolio, business relationships, and valuation methodology ("Confidential Information").</span></p>
+
+<h4><span class="fr">2. Obligations du Destinataire</span><span class="en">2. Recipient Obligations</span></h4>
+<ul>
+<li><span class="fr">Conserver les Informations Confidentielles en toute confidentialité</span><span class="en">Hold all Confidential Information in strict confidence</span></li>
+<li><span class="fr">Ne divulguer aucune information à un tiers sans accord écrit préalable</span><span class="en">Not disclose any information to third parties without prior written consent</span></li>
+<li><span class="fr">Utiliser les informations uniquement pour évaluer un investissement potentiel</span><span class="en">Use the information solely to evaluate a potential investment</span></li>
+</ul>
+
+<h4><span class="fr">3. Propriété intellectuelle protégée</span><span class="en">3. Protected Intellectual Property</span></h4>
+<ul>
+<li><span class="fr">Marques INPI N°5238667 (CIVIL-FI, Finance Fiduciaire, PAFC)</span><span class="en">INPI Trademarks No. 5238667</span></li>
+<li><span class="fr">Enveloppes Soleau INPI v1 (17/11/2025), v2 et v3</span><span class="en">INPI Soleau Envelopes v1 (17/11/2025), v2 and v3</span></li>
+<li><span class="fr">Brevet en cours sur trois inventions techniques (RFC, JCI, PAMP)</span><span class="en">Pending patent on three technical inventions (RFC, JCI, PAMP)</span></li>
+<li><span class="fr">Droits d'auteur sur le corpus doctrinal complet (250+ termes définis)</span><span class="en">Copyright on the complete doctrinal corpus (250+ defined terms)</span></li>
+</ul>
+
+<h4><span class="fr">4. Durée</span><span class="en">4. Term</span></h4>
+<p><span class="fr">Le présent Accord demeure en vigueur pour une durée de cinq (5) ans à compter de sa signature électronique.</span><span class="en">This Agreement shall remain in effect for a period of five (5) years from electronic execution.</span></p>
+
+<h4><span class="fr">5. Recours</span><span class="en">5. Remedies</span></h4>
+<p><span class="fr">Le Destinataire reconnaît que toute violation du présent Accord causerait un préjudice irréparable à l'Émetteur, justifiant toute mesure d'injonction en sus des dommages-intérêts.</span><span class="en">The Recipient acknowledges that any breach would cause irreparable harm, justifying injunctive relief in addition to damages.</span></p>
+
+<h4><span class="fr">6. Droit applicable</span><span class="en">6. Governing Law</span></h4>
+<p><span class="fr">Le présent Accord est régi par le droit français. Tout litige relève de la compétence exclusive du Tribunal de Commerce de Lyon.</span><span class="en">This Agreement is governed by French law. Any dispute falls under the exclusive jurisdiction of the Commercial Court of Lyon.</span></p>
+
+<h4><span class="fr">7. Signature électronique (eIDAS)</span><span class="en">7. Electronic Signature (eIDAS)</span></h4>
+<p><span class="fr">Les parties conviennent que la signature électronique, la vérification biométrique et l'horodatage associés ont la même force juridique qu'une signature manuscrite, conformément au Règlement UE 910/2014 (eIDAS).</span><span class="en">The parties agree that electronic signature, biometric verification and associated timestamping shall have the same legal force as a handwritten signature, pursuant to EU Regulation 910/2014 (eIDAS).</span></p>
+</div>
+
+<div class="nda-scroll-hint" id="scrollHint">↓ <span class="fr">Faites défiler pour lire l'intégralité</span><span class="en">Scroll to read in full</span> ↓</div>
+
+<label class="nda-check"><input type="checkbox" id="ck1" onchange="checkNDA()"><span><span class="fr">J'ai lu et compris les termes du présent Accord.</span><span class="en">I have read and understood the terms.</span></span></label>
+<label class="nda-check"><input type="checkbox" id="ck2" onchange="checkNDA()"><span><span class="fr">J'accepte d'être lié par les obligations de confidentialité.</span><span class="en">I agree to be bound by the confidentiality obligations.</span></span></label>
+
+<div style="text-align:center;margin-top:28px"><button class="btn-primary" id="btnNDA" disabled onclick="go(2)"><span class="fr">Continuer</span><span class="en">Continue</span><span class="arrow">→</span></button></div>
+</div>
+</div>
+
+<!-- STAGE 2 - IDENTITY -->
+<div class="stage" id="stage-2">
+<div class="stage-inner">
+<div class="stage-head">
+<div class="crest"><span>CF</span></div>
+<div class="stage-progress"><span class="fr">Étape <span>2</span> sur 6</span><span class="en">Step <span>2</span> of 6</span></div>
+<div class="stage-title"><span class="fr">Vérification d'<em>identité</em></span><span class="en">Identity <em>verification</em></span></div>
+<div class="stage-sub">
+<span class="fr">Tous les champs sont requis. Ces informations sont enregistrées dans le certificat d'accès.</span>
+<span class="en">All fields are required. This information is recorded in the access certificate.</span>
+</div>
+</div>
+
+<div class="form-group">
+<label class="form-label"><span class="fr">Nom complet</span><span class="en">Full legal name</span><span class="req">*</span></label>
+<input type="text" class="form-input" id="idName" autocomplete="name" required oninput="validateForm()">
+</div>
+
+<div class="form-row">
+<div class="form-group">
+<label class="form-label"><span class="fr">Entité</span><span class="en">Organisation</span><span class="req">*</span></label>
+<input type="text" class="form-input" id="idOrg" autocomplete="organization" required oninput="validateForm()">
+</div>
+<div class="form-group">
+<label class="form-label"><span class="fr">Fonction</span><span class="en">Position</span><span class="req">*</span></label>
+<input type="text" class="form-input" id="idRole" autocomplete="organization-title" required oninput="validateForm()">
+</div>
+</div>
+
+<div class="form-row">
+<div class="form-group">
+<label class="form-label"><span class="fr">Pays</span><span class="en">Country</span><span class="req">*</span></label>
+<select class="form-input" id="idCountry" required onchange="validateForm()">
+<option value="" disabled selected><span class="fr">— Sélectionner —</span></option>
+</select>
+</div>
+<div class="form-group">
+<label class="form-label">Email<span class="req">*</span></label>
+<input type="email" class="form-input" id="idEmail" autocomplete="email" required oninput="validateForm()">
+</div>
+</div>
+
+<div class="gdpr-box">
+<label class="gdpr-check">
+<input type="checkbox" id="gdprCheck" onchange="validateForm()">
+<span class="gdpr-text">
+<strong><span class="fr">Consentement RGPD</span><span class="en">GDPR Consent</span>.</strong>
+<span class="fr"> Je consens à la collecte et au traitement de mes données d'identification (nom, entité, email, signature, horodatage, adresse IP, informations d'appareil) aux seules fins de (i) l'exécution du présent NDA, (ii) l'accès au mémorandum, (iii) la conservation de la preuve juridique. Durée de conservation : 5 ans. Je peux exercer mes droits d'accès, de rectification et d'effacement à tout moment.</span>
+<span class="en"> I consent to the collection and processing of my identification data (name, entity, email, signature, timestamp, IP address, device information) for the sole purposes of (i) executing this NDA, (ii) accessing the memorandum, (iii) preserving legal proof. Retention: 5 years. I may exercise my rights of access, rectification, and erasure at any time.</span>
+</span>
+</label>
+<div class="gdpr-meta"><span class="fr">Base légale</span><span class="en">Legal basis</span> : GDPR Art. 6(1)(a)(b) · eIDAS Regulation (EU) 910/2014</div>
+</div>
+
+<div class="device-info">
+<div class="device-info-row"><span class="label"><span class="fr">Appareil</span><span class="en">Device</span></span><span class="value" id="dvDevice">—</span></div>
+<div class="device-info-row"><span class="label">IP</span><span class="value" id="dvIp"><span class="fr">Vérification…</span><span class="en">Detecting…</span></span></div>
+<div class="device-info-row"><span class="label"><span class="fr">Fuseau</span><span class="en">Timezone</span></span><span class="value" id="dvTz">—</span></div>
+<div class="device-info-row"><span class="label">Session</span><span class="value live" id="dvTs">—</span></div>
+</div>
+
+<div class="error-msg" id="idErr"><span class="fr">Tous les champs marqués d'un * sont requis, y compris le consentement RGPD.</span><span class="en">All fields marked with * are required, including GDPR consent.</span></div>
+<div style="text-align:center;margin-top:20px"><button class="btn-primary" id="btnId" disabled onclick="submitId()"><span class="fr">Continuer</span><span class="en">Continue</span><span class="arrow">→</span></button></div>
+</div>
+</div>
+
+<!-- STAGE 3 - SIGNATURE -->
+<div class="stage" id="stage-3">
+<div class="stage-inner">
+<div class="stage-head">
+<div class="crest"><span>CF</span></div>
+<div class="stage-progress"><span class="fr">Étape <span>3</span> sur 6</span><span class="en">Step <span>3</span> of 6</span></div>
+<div class="stage-title"><span class="fr">Signature <em>manuscrite</em></span><span class="en">Handwritten <em>signature</em></span></div>
+<div class="stage-sub"><span class="fr">Signez dans le cadre avec votre doigt ou la souris.</span><span class="en">Sign in the frame using your finger or mouse.</span></div>
+</div>
+
+<div class="sig-preamble">
+<span class="fr">En signant, je reconnais avoir lu et accepté l'Accord de Non-Divulgation et m'engage à en respecter les termes.</span>
+<span class="en">By signing, I acknowledge having read and accepted the Non-Disclosure Agreement.</span>
+</div>
+
+<div class="sig-box">
+<canvas class="sig-canvas" id="sigCanvas"></canvas>
+<div class="sig-placeholder" id="sigPh"><span class="fr">Signer ici</span><span class="en">Sign here</span></div>
+</div>
+
+<div class="sig-actions">
+<button class="sig-clear" onclick="clearSig()"><span class="fr">Effacer</span><span class="en">Clear</span></button>
+<span class="sig-date" id="sigDate">—</span>
+</div>
+
+<div style="text-align:center"><button class="btn-primary" id="btnSig" disabled onclick="go(4)"><span class="fr">Valider la signature</span><span class="en">Confirm signature</span><span class="arrow">→</span></button></div>
+</div>
+</div>
+
+<!-- STAGE 4 - BIOMETRIC -->
+<div class="stage" id="stage-4">
+<div class="stage-inner">
+<div class="stage-head">
+<div class="crest"><span>CF</span></div>
+<div class="stage-progress"><span class="fr">Étape <span>4</span> sur 6</span><span class="en">Step <span>4</span> of 6</span></div>
+<div class="stage-title"><span class="fr">Confirmation <em>biométrique</em></span><span class="en">Biometric <em>confirmation</em></span></div>
+<div class="stage-sub" id="bioSub"><span class="fr">Posez votre doigt sur le capteur pour confirmer votre identité.</span><span class="en">Place your finger on the sensor to confirm your identity.</span></div>
+</div>
+
+<div class="bio-scanner" id="fpScanner" style="display:flex">
+<div class="fp-wrap" id="fpWrap">
+<svg class="fp-svg" viewBox="0 0 180 220" preserveAspectRatio="xMidYMid meet">
+<g id="fpRidges">
+<path class="fp-ridge" d="M30 180 Q 30 80, 90 60 Q 150 80, 150 180"/>
+<path class="fp-ridge" d="M40 182 Q 40 95, 90 80 Q 140 95, 140 182"/>
+<path class="fp-ridge" d="M50 184 Q 50 108, 90 96 Q 130 108, 130 184"/>
+<path class="fp-ridge" d="M60 186 Q 60 120, 90 110 Q 120 120, 120 186"/>
+<path class="fp-ridge" d="M70 188 Q 70 133, 90 125 Q 110 133, 110 188"/>
+<path class="fp-ridge" d="M80 190 Q 80 145, 90 140 Q 100 145, 100 190"/>
+<path class="fp-ridge" d="M88 192 Q 88 155, 90 152 Q 92 155, 92 192"/>
+<path class="fp-ridge" d="M25 100 L 60 95"/>
+<path class="fp-ridge" d="M155 100 L 120 95"/>
+<path class="fp-ridge" d="M35 140 L 55 135"/>
+<path class="fp-ridge" d="M145 140 L 125 135"/>
+<path class="fp-ridge" d="M45 165 L 60 160"/>
+<path class="fp-ridge" d="M135 165 L 120 160"/>
+<path class="fp-ridge" d="M55 185 L 65 180"/>
+<path class="fp-ridge" d="M125 185 L 115 180"/>
+</g>
+</svg>
+<div class="fp-scanline" id="fpLine"></div>
+<div class="fp-check" id="fpCheck"><svg viewBox="0 0 50 50"><path class="stroke" d="M 10 25 L 22 37 L 42 15"/></svg></div>
+</div>
+<div class="bio-progress"><div class="bio-percent" id="fpPct">0%</div><div class="bio-status" id="fpStatus"><span class="fr">Posez votre doigt</span><span class="en">Place your finger</span></div></div>
+</div>
+
+</div>
+</div>
+
+<!-- STAGE 5 - PROCESSING -->
+<div class="stage" id="stage-5">
+<div class="stage-inner">
+<div class="proc-wrap">
+<div class="proc-spinner"></div>
+<div class="proc-title"><span class="fr">Authentification en cours</span><span class="en">Authenticating</span></div>
+<div class="proc-list" id="procList">
+<div class="proc-item" data-step="0"><div class="proc-dot"></div><span class="fr">Vérification de la signature…</span><span class="en">Verifying signature…</span></div>
+<div class="proc-item" data-step="1"><div class="proc-dot"></div><span class="fr">Calcul du hash biométrique…</span><span class="en">Computing biometric hash…</span></div>
+<div class="proc-item" data-step="2"><div class="proc-dot"></div><span class="fr">Ancrage de l'horodatage…</span><span class="en">Anchoring timestamp…</span></div>
+<div class="proc-item" data-step="3"><div class="proc-dot"></div><span class="fr">Enregistrement au coffre-fort sécurisé…</span><span class="en">Recording to secure vault…</span></div>
+<div class="proc-item" data-step="4"><div class="proc-dot"></div><span class="fr">Génération du certificat…</span><span class="en">Generating certificate…</span></div>
+</div>
+<div class="proc-bar"><div class="proc-fill" id="procFill"></div></div>
+</div>
+</div>
+</div>
+
+<!-- STAGE 6 - CONFIRMATION -->
+<div class="stage" id="stage-6">
+<div class="stage-inner conf-wrap">
+<div class="conf-seal">
+<div class="conf-ring"></div>
+<div class="conf-seal-outer"><svg viewBox="0 0 50 50"><path class="stroke" d="M 10 25 L 22 37 L 42 15"/></svg></div>
+</div>
+<div class="conf-badge"><span class="fr">Accès autorisé</span><span class="en">Access granted</span></div>
+<div class="conf-title"><span class="fr">Bienvenue</span><span class="en">Welcome</span></div>
+<div class="conf-name" id="confName">—</div>
+
+<div class="conf-cert">
+<div class="conf-cert-row"><span class="conf-cert-label">NDA Reference</span><span class="conf-cert-value mono" id="certRef">—</span></div>
+<div class="conf-cert-row"><span class="conf-cert-label">Signature Hash</span><span class="conf-cert-value mono" id="certHash">—</span></div>
+<div class="conf-cert-row"><span class="conf-cert-label"><span class="fr">Horodatage</span><span class="en">Timestamp</span></span><span class="conf-cert-value mono" id="certTime">—</span></div>
+<div class="conf-cert-row"><span class="conf-cert-label">Session ID</span><span class="conf-cert-value mono" id="certSession">—</span></div>
+<div class="conf-cert-row"><span class="conf-cert-label"><span class="fr">Validité</span><span class="en">Valid until</span></span><span class="conf-cert-value mono" id="certExpiry">—</span></div>
+<div class="conf-cert-row"><span class="conf-cert-label"><span class="fr">Copie juridique</span><span class="en">Legal copy</span></span><span class="conf-cert-value mono ok" id="certEmail">—</span></div>
+</div>
+
+<div class="conf-email-info" id="emailInfo"></div>
+
+<button class="btn-primary" onclick="enterDoc()"><span class="fr">Accéder au mémorandum</span><span class="en">Enter memorandum</span><span class="arrow">→</span></button>
+</div>
+</div>
+
+</div>
+
+<!-- ═════════════════════ DOCUMENT ═════════════════════ -->
+<div id="doc">
+
+<div class="top">
+<div class="top-l">
+<span class="top-brand">Civil-Fi PAFC®</span>
+<span class="top-sess" id="topSess">—</span>
+</div>
+<div class="top-r">
+<div class="lsw">
+<button class="on" onclick="sl('fr',this)">FR</button>
+<button onclick="sl('en',this)">EN</button>
+</div>
+</div>
+</div>
+
+<div class="watermark" id="wm">—</div>
+
+<div class="hdr">
+<div class="hdr-conf"><span class="fr">Document confidentiel — Investisseurs autorisés</span><span class="en">Confidential — Authorised investors</span></div>
+<h1 class="hdr-t"><span class="fr">L'infrastructure juridique qui <em>redéfinit</em> la propriété collective</span><span class="en">The legal infrastructure that <em>redefines</em> collective ownership</span></h1>
+<p class="hdr-s"><span class="fr">Premier système d'exploitation juridique au monde pour la propriété collective d'actifs réels. Un marché de plus de mille milliards.</span><span class="en">The world's first legal operating system for collective ownership of real assets. A trillion-dollar market.</span></p>
+<div class="hdr-meta">Clément Éric Dijoux · Zosoa Rasoarahona · Me Pierre-Alain Ravot · Avril 2026</div>
+</div>
+
+<div class="section">
+<div class="sn">01</div>
+<div class="stag"><span class="fr">Synthèse</span><span class="en">Summary</span></div>
+<h2><span class="fr">Ce que nous avons construit</span><span class="en">What we built</span></h2>
+<div class="srule"></div>
+<p><span class="fr">Civil-Fi PAFC® est une infrastructure juridique entièrement nouvelle pour la propriété collective d'actifs réels — hors régulation financière, confirmée par le fisc, protégée par brevets et marques.</span><span class="en">Civil-Fi PAFC® is an entirely new legal infrastructure for collective ownership of real assets — outside financial regulation, confirmed by tax authorities, protected by patents and trademarks.</span></p>
+<div class="pq"><p><span class="fr">Nous n'avons pas trouvé une faille. Nous avons construit une route juridique entièrement nouvelle, parallèle à l'autoroute financière.</span><span class="en">We did not find a loophole. We built a completely new legal road, running parallel to the financial highway.</span></p></div>
+
+<div class="cards-2">
+<div class="card-mini"><div class="card-mini-t">IP</div><div class="card-mini-v">3 + 3</div><div class="card-mini-d"><span class="fr">Marques · Brevets</span><span class="en">Trademarks · Patents</span></div></div>
+<div class="card-mini"><div class="card-mini-t">Capital</div><div class="card-mini-v">€1M+</div><div class="card-mini-d"><span class="fr">Déployé</span><span class="en">Deployed</span></div></div>
+<div class="card-mini"><div class="card-mini-t">Doctrine</div><div class="card-mini-v">250+</div><div class="card-mini-d"><span class="fr">Termes définis</span><span class="en">Defined terms</span></div></div>
+<div class="card-mini"><div class="card-mini-t"><span class="fr">Marchés</span><span class="en">Markets</span></div><div class="card-mini-v">8</div><div class="card-mini-d"><span class="fr">Verticales · 20+ pays</span><span class="en">Verticals · 20+ countries</span></div></div>
+</div>
+</div>
+
+<div class="section">
+<div class="sn">02</div>
+<div class="stag"><span class="fr">Marché mondial</span><span class="en">Global market</span></div>
+<h2><span class="fr">Plus de <em>$1,2 trillion</em> adressable</span><span class="en"><em>$1.2 trillion+</em> addressable</span></h2>
+<div class="srule"></div>
+<div class="tam-row">
+<div class="tam-c"><div class="tam-c-v">€200Md+</div><div class="tam-c-n"><span class="fr">Immobilier France</span><span class="en">French real estate</span></div></div>
+<div class="tam-c"><div class="tam-c-v">$4.5T</div><div class="tam-c-n"><span class="fr">Finance islamique</span><span class="en">Islamic finance</span></div></div>
+<div class="tam-c"><div class="tam-c-v">€200Md/an</div><div class="tam-c-n"><span class="fr">Successions</span><span class="en">Successions</span></div></div>
+<div class="tam-c"><div class="tam-c-v">$16T</div><div class="tam-c-n">RWA 2030</div></div>
+<div class="tam-c"><div class="tam-c-v">$70T</div><div class="tam-c-n">Great Wealth Transfer</div></div>
+<div class="tam-c"><div class="tam-c-v">€100Md+</div><div class="tam-c-n">Diaspora</div></div>
+</div>
+</div>
+
+<div class="section">
+<div class="sn">03</div>
+<div class="stag"><span class="fr">Cas d'usage</span><span class="en">Use cases</span></div>
+<h2><span class="fr">Huit marchés, huit problèmes résolus</span><span class="en">Eight markets, eight problems solved</span></h2>
+<div class="srule"></div>
+
+<div class="uc open" onclick="this.classList.toggle('open')"><div class="uc-h"><span class="uc-n">01</span><div class="uc-t"><span class="fr">Immobilier — Projet Tenay, €800K</span><span class="en">Real estate — Tenay project, €800K</span></div><span class="uc-arr">+</span></div><div class="uc-b"><div class="uc-i">
+<p class="uc-p"><span class="fr">Bâtiment historique, €800K nécessaires. Avec Civil-Fi : FAC-Fille, 40 participants, contributions directes, DBA, partage des revenus. Coût <€15K, délai 4 semaines.</span><span class="en">Historic building needing €800K. With Civil-Fi: FAC-Fille, 40 participants, direct contributions, DBA, revenue sharing. Under €15K, 4 weeks.</span></p>
+<div class="uc-r"><span class="fr">€800K levés en 4 semaines. Zéro AMF. 70% moins cher.</span><span class="en">€800K raised in 4 weeks. Zero AMF. 70% cheaper.</span></div>
+</div></div></div>
+
+<div class="uc" onclick="this.classList.toggle('open')"><div class="uc-h"><span class="uc-n">02</span><div class="uc-t"><span class="fr">Finance islamique — 6M de Muslims sans solution</span><span class="en">Islamic finance — 6M Muslims without a solution</span></div><span class="uc-arr">+</span></div><div class="uc-b"><div class="uc-i">
+<p class="uc-p"><span class="fr">Achat immobilier halal impossible aujourd'hui. Avec Civil-Fi : fonds islamique contribue 70%, couple contribue 30%, DU pour habiter. Zéro intérêt. 100% halal. Certifié ACERFI.</span><span class="en">Halal property purchase currently impossible. With Civil-Fi: Islamic fund contributes 70%, couple contributes 30%, DU to live there. Zero interest. 100% halal. ACERFI-certified.</span></p>
+<div class="uc-r"><span class="fr">Premier achat halal en droit civil français. Marché : €50Md.</span><span class="en">First halal purchase in French civil law. Market: €50B.</span></div>
+</div></div></div>
+
+<div class="uc" onclick="this.classList.toggle('open')"><div class="uc-h"><span class="uc-n">03</span><div class="uc-t"><span class="fr">Succession — Immeuble Paris 16e, €3,2M</span><span class="en">Succession — Paris 16th building, €3.2M</span></div><span class="uc-arr">+</span></div><div class="uc-b"><div class="uc-i">
+<p class="uc-p"><span class="fr">Avec Civil-Fi : FAC-Mère Patrimoniale + 7 petits-enfants adhérents. Donation progressive sur 15 ans. Droits insaisissables. Personne ne peut forcer une vente.</span><span class="en">With Civil-Fi: FAC-Mère Patrimoniale + 7 grandchildren as adherents. Progressive donation over 15 years. Unseizable rights. No one can force a sale.</span></p>
+<div class="uc-r"><span class="fr">€3,2M préservés intacts sur 50+ ans.</span><span class="en">€3.2M preserved intact for 50+ years.</span></div>
+</div></div></div>
+
+<div class="uc" onclick="this.classList.toggle('open')"><div class="uc-h"><span class="uc-n">04</span><div class="uc-t"><span class="fr">Licence White Label — Le modèle McDonald's</span><span class="en">White label — The McDonald's model</span></div><span class="uc-arr">+</span></div><div class="uc-b"><div class="uc-i">
+<p class="uc-p"><span class="fr">Un cabinet signe : €12K setup + €4K/an. €300 par FAC-Fille déployée. × 100 cabinets = €2,5M/an sans gérer un seul projet.</span><span class="en">A firm signs: €12K setup + €4K/year. €300 per FAC-Fille deployed. × 100 firms = €2.5M/year without managing a single project.</span></p>
+</div></div></div>
+
+<div class="uc" onclick="this.classList.toggle('open')"><div class="uc-h"><span class="uc-n">05</span><div class="uc-t"><span class="fr">Énergie, IA & Carbone</span><span class="en">Energy, AI & Carbon</span></div><span class="uc-arr">+</span></div><div class="uc-b"><div class="uc-i">
+<p class="uc-p"><span class="fr">Solaire (€1,2M, 200 ménages), GPU/IA (€2M, 50 entrepreneurs), Forêt carbone (€150K/an). Tout actif productif = FAC-Fille.</span><span class="en">Solar (€1.2M, 200 households), GPU/AI (€2M, 50 entrepreneurs), Carbon forest (€150K/year). Any productive asset = FAC-Fille.</span></p>
+</div></div></div>
+
+<div class="uc" onclick="this.classList.toggle('open')"><div class="uc-h"><span class="uc-n">06</span><div class="uc-t"><span class="fr">Patrimoine multi-actifs — L'outil Rothschild</span><span class="en">Multi-asset — The Rothschild tool</span></div><span class="uc-arr">+</span></div><div class="uc-b"><div class="uc-i">
+<p class="uc-p"><span class="fr">Famille : vignoble, immeubles, villa, meubles anciens (€8M). Une FAC-Mère + 4 FAC-Filles. 13 membres. Un seul fiduciaire.</span><span class="en">Family: vineyard, buildings, villa, antique furniture (€8M). One FAC-Mère + 4 FAC-Filles. 13 members. One fiduciary.</span></p>
+</div></div></div>
+
+<div class="uc" onclick="this.classList.toggle('open')"><div class="uc-h"><span class="uc-n">07</span><div class="uc-t"><span class="fr">Diaspora — Actifs à l'étranger, protection française</span><span class="en">Diaspora — Overseas assets, French protection</span></div><span class="uc-arr">+</span></div><div class="uc-b"><div class="uc-i">
+<p class="uc-p"><span class="fr">15 membres de famille en France financent un hôtel à Antananarivo (€400K). FAC-Fille sous droit français, PAMP jalonné. Actif étranger, protection française.</span><span class="en">15 family members in France finance a hotel in Antananarivo (€400K). FAC-Fille under French law, PAMP-gated. Foreign asset, French protection.</span></p>
+<div class="uc-r"><span class="fr">Réplicable pour millions de Français issus de la diaspora.</span><span class="en">Replicable for millions of French citizens from the diaspora.</span></div>
+</div></div></div>
+
+<div class="uc" onclick="this.classList.toggle('open')"><div class="uc-h"><span class="uc-n">08</span><div class="uc-t"><span class="fr">Art, vin & luxe — Actifs d'exception</span><span class="en">Art, wine & luxury — Exceptional assets</span></div><span class="uc-arr">+</span></div><div class="uc-b"><div class="uc-i">
+<p class="uc-p"><span class="fr">Collection d'art €2M, 10 co-propriétaires civils. Applicable aux caves à vin, yachts, jets partagés, voitures de collection.</span><span class="en">€2M art collection, 10 civil co-owners. Applicable to wine cellars, yachts, shared jets, vintage cars.</span></p>
+</div></div></div>
+</div>
+
+<div class="section">
+<div class="sn">04</div>
+<div class="stag"><span class="fr">Valorisation & exit</span><span class="en">Valuation & exit</span></div>
+<h2><span class="fr">€400M–€800M+ à l'<em>exit</em></span><span class="en">€400M–€800M+ at <em>exit</em></span></h2>
+<div class="srule"></div>
+<div class="cards-2">
+<div class="card-mini"><div class="card-mini-t"><span class="fr">Conservateur</span><span class="en">Conservative</span></div><div class="card-mini-v">€400M</div><div class="card-mini-d"><span class="fr">Investisseur 25% : €100M · 40×</span><span class="en">Investor 25%: €100M · 40×</span></div></div>
+<div class="card-mini"><div class="card-mini-t" style="color:var(--forest)"><span class="fr">Base</span><span class="en">Base</span></div><div class="card-mini-v">€600M</div><div class="card-mini-d"><span class="fr">Investisseur 25% : €150M · 60×</span><span class="en">Investor 25%: €150M · 60×</span></div></div>
+</div>
+<div class="card-mini" style="margin-top:16px;border-color:var(--terra)"><div class="card-mini-t"><span class="fr">Optimiste</span><span class="en">Optimistic</span></div><div class="card-mini-v">€800M+</div><div class="card-mini-d"><span class="fr">Investisseur 25% : €200M+ · 80×+ retour</span><span class="en">Investor 25%: €200M+ · 80×+ return</span></div></div>
+
+<div class="kp">
+<h4><span class="fr">Structure : €2,5M pour 25% en 3 tranches</span><span class="en">Structure: €2.5M for 25% in 3 tranches</span></h4>
+<p><span class="fr">Aujourd'hui €600K (12%) · M12 €1,2M (8%) · M24 €700K (5%). Exit visé M48–M72.</span><span class="en">Today €600K (12%) · M12 €1.2M (8%) · M24 €700K (5%). Exit targeted M48–M72.</span></p>
+</div>
+
+<div class="pq"><p><span class="fr">La fusée est construite. Nous vous demandons de financer le lancement.</span><span class="en">The rocket is built. We are asking you to fuel the launch.</span></p></div>
+</div>
+
+<!-- PARTNERS CTA -->
+<div class="partners-cta">
+<div class="partners-cta-inner">
+<div class="partners-tag"><span class="fr">Prochaine étape</span><span class="en">Next step</span></div>
+<h2 class="partners-title"><span class="fr">Parlons en <em>confidentiellement</em></span><span class="en">Let's talk <em>confidentially</em></span></h2>
+<p class="partners-sub"><span class="fr">Planifiez un appel privé avec les partenaires. Discutons de la thèse, de la structure d'investissement et des prochaines étapes.</span><span class="en">Schedule a private call with the partners. Let's discuss the thesis, investment structure, and next steps.</span></p>
+<a href="#" id="calendlyBtn" target="_blank" rel="noopener" class="btn-large">
+<span class="fr">Je suis intéressé — Parler aux partenaires</span>
+<span class="en">I'm interested — Speak to the partners</span>
+<span class="arrow">→</span>
+</a>
+</div>
+</div>
+
+<div class="foot">
+<p>SC CDDEV / RealSmart® · Clément Éric Dijoux & Zosoa Rasoarahona · Me Pierre-Alain Ravot</p>
+<p>INPI N°5238667 · Soleau v1/v2/v3 · Brevet en cours · Rescrit fiscal en cours</p>
+<p style="margin-top:6px"><span class="fr">Strictement confidentiel · © SC CDDEV 2026</span><span class="en">Strictly confidential · © SC CDDEV 2026</span></p>
+</div>
+
+</div>
+
+<script>
+/* ═══════════════════════════════════════════════════════════════════════════
+   CONFIGURATION — Civil-Fi NDA Vault · Supabase (eu-west-3 Paris)
+   
+   All NDA records are stored in your Supabase database.
+   The Edge Function also sends email notifications if Web3Forms is configured
+   (set WEB3FORMS_KEY and RECIPIENT_EMAIL as Edge Function secrets in Supabase
+   dashboard → Edge Functions → submit-nda → Manage secrets).
+   
+   CALENDLY — The "Speak to partners" button redirects here.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+const SUPABASE_URL = 'https://jnjicknziqrnpuystooa.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Impuamlja256aXFybnB1eXN0b29hIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY0MDUxNDksImV4cCI6MjA5MTk4MTE0OX0.HQCXoimAMyqkDLWU7waRlPpIo4n01XfNhk7hWbSVCXE';
+const NDA_ENDPOINT = SUPABASE_URL + '/functions/v1/submit-nda';
+const CALENDLY_URL = 'https://calendly.com/zosoa-rasoa';
+
+/* ═══════════════════════════════════════════════════════════════════════════ */
+
+// Countries list (ISO UN-recognized)
+const COUNTRIES = ['Afghanistan','Albania','Algeria','Andorra','Angola','Antigua and Barbuda','Argentina','Armenia','Australia','Austria','Azerbaijan','Bahamas','Bahrain','Bangladesh','Barbados','Belarus','Belgium','Belize','Benin','Bhutan','Bolivia','Bosnia and Herzegovina','Botswana','Brazil','Brunei','Bulgaria','Burkina Faso','Burundi','Cabo Verde','Cambodia','Cameroon','Canada','Central African Republic','Chad','Chile','China','Colombia','Comoros','Congo','Costa Rica','Croatia','Cuba','Cyprus','Czech Republic','Denmark','Djibouti','Dominica','Dominican Republic','Ecuador','Egypt','El Salvador','Equatorial Guinea','Eritrea','Estonia','Eswatini','Ethiopia','Fiji','Finland','France','Gabon','Gambia','Georgia','Germany','Ghana','Greece','Grenada','Guatemala','Guinea','Guinea-Bissau','Guyana','Haiti','Honduras','Hungary','Iceland','India','Indonesia','Iran','Iraq','Ireland','Israel','Italy','Ivory Coast','Jamaica','Japan','Jordan','Kazakhstan','Kenya','Kiribati','Kosovo','Kuwait','Kyrgyzstan','Laos','Latvia','Lebanon','Lesotho','Liberia','Libya','Liechtenstein','Lithuania','Luxembourg','Madagascar','Malawi','Malaysia','Maldives','Mali','Malta','Marshall Islands','Mauritania','Mauritius','Mexico','Micronesia','Moldova','Monaco','Mongolia','Montenegro','Morocco','Mozambique','Myanmar','Namibia','Nauru','Nepal','Netherlands','New Zealand','Nicaragua','Niger','Nigeria','North Korea','North Macedonia','Norway','Oman','Pakistan','Palau','Palestine','Panama','Papua New Guinea','Paraguay','Peru','Philippines','Poland','Portugal','Qatar','Romania','Russia','Rwanda','Saint Kitts and Nevis','Saint Lucia','Saint Vincent and the Grenadines','Samoa','San Marino','Sao Tome and Principe','Saudi Arabia','Senegal','Serbia','Seychelles','Sierra Leone','Singapore','Slovakia','Slovenia','Solomon Islands','Somalia','South Africa','South Korea','South Sudan','Spain','Sri Lanka','Sudan','Suriname','Sweden','Switzerland','Syria','Taiwan','Tajikistan','Tanzania','Thailand','Timor-Leste','Togo','Tonga','Trinidad and Tobago','Tunisia','Turkey','Turkmenistan','Tuvalu','Uganda','Ukraine','United Arab Emirates','United Kingdom','United States','Uruguay','Uzbekistan','Vanuatu','Vatican City','Venezuela','Vietnam','Yemen','Zambia','Zimbabwe'];
+
+// State
+let userData = {};
+let certData = {};
+let ipAddress = null;
+let deviceInfo = '';
+let emailSent = false;
+
+// Populate country dropdown
+const countrySelect = document.getElementById('idCountry');
+COUNTRIES.forEach(c => {
+  const opt = document.createElement('option');
+  opt.value = c;
+  opt.textContent = c;
+  countrySelect.appendChild(opt);
+});
+
+// Set Calendly link
+document.getElementById('calendlyBtn').href = CALENDLY_URL;
+
+// Capture IP on page load
+fetch('https://api.ipify.org?format=json')
+  .then(r => r.json())
+  .then(d => {
+    ipAddress = d.ip;
+    const el = document.getElementById('dvIp');
+    if(el) el.textContent = ipAddress;
+  })
+  .catch(() => {
+    const el = document.getElementById('dvIp');
+    if(el) el.textContent = 'Not available';
+  });
+
+// ═════ Stage nav ═════
+function go(n){
+  document.querySelectorAll('.stage').forEach(s=>s.classList.remove('active'));
+  document.getElementById('stage-'+n).classList.add('active');
+  window.scrollTo({top:0,behavior:'instant'});
+  if(n===2) initIdentity();
+  if(n===3) initSignature();
+  if(n===4) resetBio();
+  if(n===5) runProcessing();
+  if(n===6) showCertificate();
+}
+
+// ═════ NDA checks ═════
+function checkNDA(){
+  const c1=document.getElementById('ck1').checked;
+  const c2=document.getElementById('ck2').checked;
+  document.getElementById('btnNDA').disabled=!(c1&&c2);
+}
+document.getElementById('ndaScroll').addEventListener('scroll', (e) => {
+  if(e.target.scrollTop > 20) document.getElementById('scrollHint').style.opacity = '0';
+});
+
+// ═════ Identity stage ═════
+function initIdentity(){
+  const ua = navigator.userAgent;
+  if(/iPhone/.test(ua)) deviceInfo = 'iPhone · Safari';
+  else if(/iPad/.test(ua)) deviceInfo = 'iPad · Safari';
+  else if(/Android/.test(ua)) deviceInfo = 'Android · ' + (/Chrome/.test(ua) ? 'Chrome' : 'Browser');
+  else if(/Macintosh/.test(ua)) deviceInfo = 'macOS · ' + (/Chrome/.test(ua) ? 'Chrome' : /Safari/.test(ua) ? 'Safari' : 'Browser');
+  else if(/Windows/.test(ua)) deviceInfo = 'Windows · ' + (/Chrome/.test(ua) ? 'Chrome' : /Edge/.test(ua) ? 'Edge' : 'Browser');
+  else deviceInfo = 'Desktop';
+
+  document.getElementById('dvDevice').textContent = deviceInfo;
+  try{
+    document.getElementById('dvTz').textContent = Intl.DateTimeFormat().resolvedOptions().timeZone.replace('_',' ');
+  }catch(e){ document.getElementById('dvTz').textContent = 'UTC'; }
+
+  const updateTs = () => {
+    const el = document.getElementById('dvTs');
+    if(el) el.textContent = new Date().toISOString().substring(0,19).replace('T',' ') + ' UTC';
+  };
+  updateTs();
+  setInterval(updateTs, 1000);
+}
+
+function validateForm(){
+  const n = document.getElementById('idName').value.trim();
+  const o = document.getElementById('idOrg').value.trim();
+  const r = document.getElementById('idRole').value.trim();
+  const c = document.getElementById('idCountry').value;
+  const e = document.getElementById('idEmail').value.trim();
+  const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e);
+  const gdpr = document.getElementById('gdprCheck').checked;
+  const allValid = n && o && r && c && emailValid && gdpr;
+  document.getElementById('btnId').disabled = !allValid;
+  return allValid;
+}
+
+function submitId(){
+  if(!validateForm()){
+    document.getElementById('idErr').classList.add('on');
+    setTimeout(()=>document.getElementById('idErr').classList.remove('on'), 3000);
+    return;
+  }
+  userData = {
+    name: document.getElementById('idName').value.trim(),
+    org: document.getElementById('idOrg').value.trim(),
+    role: document.getElementById('idRole').value.trim(),
+    country: document.getElementById('idCountry').value,
+    email: document.getElementById('idEmail').value.trim(),
+    gdprConsent: true,
+    gdprTime: new Date().toISOString()
+  };
+  go(3);
+}
+
+// ═════ Signature pad ═════
+let sigCanvas, sigCtx, isDrawing=false, signatureDone=false, signatureDataUrl=null;
+
+function initSignature(){
+  const now = new Date();
+  document.getElementById('sigDate').textContent = now.toISOString().substring(0,10) + ' · ' + now.toTimeString().substring(0,5);
+
+  const oldCanvas = document.getElementById('sigCanvas');
+  const fresh = oldCanvas.cloneNode(true);
+  oldCanvas.parentNode.replaceChild(fresh, oldCanvas);
+  sigCanvas = fresh;
+  sigCtx = sigCanvas.getContext('2d');
+
+  const rect = sigCanvas.getBoundingClientRect();
+  const dpr = window.devicePixelRatio || 1;
+  sigCanvas.width = rect.width * dpr;
+  sigCanvas.height = 200 * dpr;
+  sigCtx.scale(dpr, dpr);
+  sigCtx.lineWidth = 2;
+  sigCtx.lineCap = 'round';
+  sigCtx.lineJoin = 'round';
+  sigCtx.strokeStyle = '#1C2433';
+  sigCtx.fillStyle = '#fff';
+  sigCtx.fillRect(0, 0, rect.width, 200);
+
+  signatureDone = false;
+  document.getElementById('btnSig').disabled = true;
+  document.getElementById('sigPh').classList.remove('hidden');
+
+  const getPos = (e) => {
+    const r = sigCanvas.getBoundingClientRect();
+    const touch = e.touches && e.touches[0];
+    const cx = touch ? touch.clientX : e.clientX;
+    const cy = touch ? touch.clientY : e.clientY;
+    return {x: cx - r.left, y: cy - r.top};
+  };
+
+  const start = (e) => {
+    e.preventDefault();
+    isDrawing = true;
+    const p = getPos(e);
+    sigCtx.beginPath();
+    sigCtx.moveTo(p.x, p.y);
+    document.getElementById('sigPh').classList.add('hidden');
+  };
+  const draw = (e) => {
+    if(!isDrawing) return;
+    e.preventDefault();
+    const p = getPos(e);
+    sigCtx.lineTo(p.x, p.y);
+    sigCtx.stroke();
+    if(!signatureDone){
+      signatureDone = true;
+      document.getElementById('btnSig').disabled = false;
+    }
+  };
+  const stop = () => {
+    isDrawing = false;
+    if(signatureDone) signatureDataUrl = sigCanvas.toDataURL('image/png');
+  };
+
+  sigCanvas.addEventListener('mousedown', start);
+  sigCanvas.addEventListener('mousemove', draw);
+  sigCanvas.addEventListener('mouseup', stop);
+  sigCanvas.addEventListener('mouseleave', stop);
+  sigCanvas.addEventListener('touchstart', start, {passive:false});
+  sigCanvas.addEventListener('touchmove', draw, {passive:false});
+  sigCanvas.addEventListener('touchend', stop);
+}
+
+function clearSig(){
+  if(!sigCtx) return;
+  const rect = sigCanvas.getBoundingClientRect();
+  sigCtx.fillStyle = '#fff';
+  sigCtx.fillRect(0, 0, rect.width, 200);
+  signatureDone = false;
+  signatureDataUrl = null;
+  document.getElementById('btnSig').disabled = true;
+  document.getElementById('sigPh').classList.remove('hidden');
+}
+
+// ═════ Biometric ═════
+function resetBio(){
+  document.getElementById('fpScanner').style.display = 'flex';
+  document.getElementById('fpLine').classList.remove('on');
+  document.getElementById('fpCheck').classList.remove('on');
+  document.querySelectorAll('.fp-ridge').forEach(r => r.classList.remove('scanned'));
+  document.getElementById('fpPct').textContent = '0%';
+  userData.biometricMethod = 'Fingerprint';
+  // Auto-start after brief delay
+  setTimeout(() => runFingerprint(), 600);
+}
+
+function runFingerprint(){
+  const status = document.getElementById('fpStatus');
+  const pct = document.getElementById('fpPct');
+  const line = document.getElementById('fpLine');
+  const ridges = document.querySelectorAll('.fp-ridge');
+  const check = document.getElementById('fpCheck');
+  const lang = document.body.dataset.lang;
+  const s = lang === 'fr'
+    ? ['Posez votre doigt','Analyse en cours…','Lecture des crêtes…','Vérification…','Empreinte confirmée']
+    : ['Place your finger','Scanning…','Reading ridges…','Verifying…','Fingerprint confirmed'];
+
+  setTimeout(() => {
+    status.textContent = s[1];
+    line.classList.add('on');
+    let p = 0;
+    const iv = setInterval(() => {
+      p += 3 + Math.random() * 3;
+      if(p >= 100){
+        p = 100; clearInterval(iv);
+        pct.textContent = '100%'; status.textContent = s[4];
+        check.classList.add('on');
+        setTimeout(() => go(5), 1400);
+      } else {
+        pct.textContent = Math.floor(p) + '%';
+        if(p > 30 && p < 35) status.textContent = s[2];
+        if(p > 65 && p < 70) status.textContent = s[3];
+        const idx = Math.floor((p / 100) * ridges.length);
+        for(let i = 0; i < idx; i++) ridges[i].classList.add('scanned');
+      }
+    }, 80);
+  }, 500);
+}
+
+// ═════ Processing + Supabase submission ═════
+function randomHex(n){
+  let s = '';
+  const chars = '0123456789ABCDEF';
+  for(let i = 0; i < n; i++) s += chars[Math.floor(Math.random() * 16)];
+  return s;
+}
+
+async function submitNDAToSupabase(){
+  try {
+    const payload = {
+      nda_reference: certData.ref,
+      session_id: certData.session,
+      signature_hash: certData.hash,
+      full_name: userData.name,
+      organisation: userData.org,
+      position: userData.role,
+      country: userData.country,
+      email: userData.email,
+      ip_address: ipAddress || null,
+      device_info: deviceInfo,
+      user_agent: navigator.userAgent,
+      locale: navigator.language,
+      timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+      biometric_method: 'Fingerprint',
+      signature_png: signatureDataUrl || null,
+      gdpr_consent: true,
+      gdpr_consent_timestamp: userData.gdprTime,
+    };
+
+    const response = await fetch(NDA_ENDPOINT, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + SUPABASE_ANON_KEY,
+        'apikey': SUPABASE_ANON_KEY,
+      },
+      body: JSON.stringify(payload),
+    });
+    const result = await response.json();
+    return result.success === true;
+  } catch(error){
+    console.error('Supabase NDA submission failed:', error);
+    return false;
+  }
+}
+
+async function runProcessing(){
+  // Generate certificate data early so email has it
+  const now = new Date();
+  const expiry = new Date(now.getTime() + 24 * 60 * 60 * 1000);
+  certData = {
+    ref: 'NDA-2026-' + randomHex(6),
+    hash: '0x' + randomHex(8) + '…' + randomHex(4),
+    time: now.toISOString().substring(0,19).replace('T',' ') + ' UTC',
+    session: 'SC-' + randomHex(4) + '-' + randomHex(4),
+    expiry: expiry.toISOString().substring(0,10) + ' · ' + expiry.toTimeString().substring(0,5) + ' UTC'
+  };
+
+  const items = document.querySelectorAll('.proc-item');
+  const fill = document.getElementById('procFill');
+  items.forEach(i => i.classList.remove('active', 'done'));
+  fill.style.width = '0%';
+
+  // Fire Supabase submission in parallel (non-blocking)
+  const submitPromise = submitNDAToSupabase();
+
+  for(let step = 0; step < items.length; step++){
+    if(step > 0) items[step-1].classList.remove('active');
+    if(step > 0) items[step-1].classList.add('done');
+    items[step].classList.add('active');
+    fill.style.width = ((step + 1) / items.length * 100) + '%';
+
+    // On the "send to vault" step, wait for Supabase
+    if(step === 3){
+      try {
+        emailSent = await Promise.race([
+          submitPromise,
+          new Promise(resolve => setTimeout(() => resolve(false), 5000))
+        ]);
+      } catch(e){ emailSent = false; }
+      await new Promise(r => setTimeout(r, 500));
+    } else {
+      await new Promise(r => setTimeout(r, 900 + Math.random() * 300));
+    }
+  }
+
+  items[items.length-1].classList.remove('active');
+  items[items.length-1].classList.add('done');
+  fill.style.width = '100%';
+  setTimeout(() => go(6), 500);
+}
+
+function showCertificate(){
+  document.getElementById('confName').textContent = userData.name;
+  document.getElementById('certRef').textContent = certData.ref;
+  document.getElementById('certHash').textContent = certData.hash;
+  document.getElementById('certTime').textContent = certData.time;
+  document.getElementById('certSession').textContent = certData.session;
+  document.getElementById('certExpiry').textContent = certData.expiry;
+
+  const emailEl = document.getElementById('certEmail');
+  const infoEl = document.getElementById('emailInfo');
+  const lang = document.body.dataset.lang;
+  if(emailSent){
+    emailEl.textContent = lang === 'fr' ? '✓ Enregistré · Paris' : '✓ Stored · Paris';
+    infoEl.innerHTML = '<span class="check">✓</span>' + (lang === 'fr'
+      ? 'NDA enregistré dans le coffre-fort Supabase (eu-west-3 Paris)'
+      : 'NDA stored in Supabase vault (eu-west-3 Paris)');
+  } else {
+    emailEl.textContent = lang === 'fr' ? 'En attente' : 'Pending';
+    infoEl.textContent = lang === 'fr'
+      ? 'Enregistrement en cours. Veuillez patienter.'
+      : 'Recording in progress. Please wait.';
+  }
+}
+
+// ═════ Enter doc ═════
+function enterDoc(){
+  document.getElementById('stage-wrap').classList.add('gone');
+  document.getElementById('doc').classList.add('on');
+  document.getElementById('topSess').textContent = userData.name.toUpperCase() + ' · ' + certData.session;
+  document.getElementById('wm').textContent = 'CONFIDENTIAL · ' + userData.name.toUpperCase() + ' · ' + certData.ref;
+  window.scrollTo(0, 0);
+}
+
+// ═════ Language ═════
+function sl(l, b){
+  document.body.dataset.lang = l;
+  document.querySelectorAll('.lsw button').forEach(x => x.classList.remove('on'));
+  if(b) b.classList.add('on');
+}
+if(navigator.language && navigator.language.startsWith('en')){
+  document.body.dataset.lang = 'en';
+}
+</script>
+
+</body>
+</html>
