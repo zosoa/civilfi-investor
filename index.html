@@ -150,8 +150,6 @@ select.form-input:invalid,select.form-input option[value=""]{color:var(--ink5)}
 .fp-svg{width:100%;height:100%;display:block}
 .fp-ridge{stroke:var(--ink5);stroke-width:1.2;fill:none;stroke-linecap:round;transition:stroke .3s}
 .fp-ridge.scanned{stroke:var(--terra)}
-.fp-scanline{position:absolute;left:0;right:0;height:2px;background:linear-gradient(to right,transparent,var(--terra),transparent);box-shadow:0 0 12px var(--terra);top:100%;transition:top 3s linear;opacity:0}
-.fp-scanline.on{opacity:1;top:-4px}
 .fp-check{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(244,241,234,.95);opacity:0;transition:opacity .5s}
 .fp-check.on{opacity:1}
 .fp-check svg{width:50px;height:50px}
@@ -172,6 +170,17 @@ select.form-input:invalid,select.form-input option[value=""]{color:var(--ink5)}
 .bio-progress{text-align:center;margin-top:12px}
 .bio-percent{font-family:'EB Garamond',serif;font-size:32px;font-weight:700;color:var(--terra);line-height:1}
 .bio-status{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--ink4);margin-top:6px;min-height:12px}
+
+/* Engagement gesture (press-and-hold) */
+.fp-wrap{touch-action:none;-webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent;cursor:pointer;transition:border-color .25s,transform .15s,box-shadow .25s}
+.fp-wrap.holding{border-color:var(--terra);transform:scale(.98);box-shadow:0 0 0 3px rgba(139,58,42,.08)}
+.fp-wrap.done{border-color:var(--forest);box-shadow:0 0 0 3px rgba(45,95,62,.08)}
+.fp-hint{position:absolute;bottom:8px;left:0;right:0;text-align:center;font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:3px;color:var(--ink5);text-transform:uppercase;pointer-events:none;transition:opacity .3s}
+.fp-wrap.holding .fp-hint,.fp-wrap.done .fp-hint{opacity:0}
+.fp-bar{width:180px;height:3px;background:var(--rule);margin:14px auto 0;overflow:hidden;position:relative}
+.fp-bar-fill{height:100%;background:var(--terra);width:0%;box-shadow:0 0 6px rgba(139,58,42,.35)}
+.fp-bar-fill.reset{transition:width .4s ease,background-color .3s ease;background:var(--err)}
+.fp-bar-fill.done{background:var(--forest);box-shadow:0 0 6px rgba(45,95,62,.4)}
 
 /* Processing */
 .proc-wrap{text-align:center;padding:40px 20px}
@@ -525,7 +534,7 @@ select.form-input:invalid,select.form-input option[value=""]{color:var(--ink5)}
 <p><span class="fr">Le présent Accord est régi par le droit français. Tout litige relève de la compétence exclusive du Tribunal de Commerce de Lyon.</span><span class="en">This Agreement is governed by French law. Any dispute falls under the exclusive jurisdiction of the Commercial Court of Lyon.</span></p>
 
 <h4><span class="fr">7. Signature électronique (eIDAS)</span><span class="en">7. Electronic Signature (eIDAS)</span></h4>
-<p><span class="fr">Les parties conviennent que la signature électronique, la vérification biométrique et l'horodatage associés ont la même force juridique qu'une signature manuscrite, conformément au Règlement UE 910/2014 (eIDAS).</span><span class="en">The parties agree that electronic signature, biometric verification and associated timestamping shall have the same legal force as a handwritten signature, pursuant to EU Regulation 910/2014 (eIDAS).</span></p>
+<p><span class="fr">Les parties conviennent que la signature électronique manuscrite, le geste d'engagement intentionnel et l'horodatage associés ont la même force juridique qu'une signature manuscrite, conformément au Règlement UE 910/2014 (eIDAS).</span><span class="en">The parties agree that the electronic handwritten signature, intentional commitment gesture and associated timestamping shall have the same legal force as a handwritten signature, pursuant to EU Regulation 910/2014 (eIDAS).</span></p>
 </div>
 
 <div class="nda-scroll-hint" id="scrollHint">↓ <span class="fr">Faites défiler pour lire l'intégralité</span><span class="en">Scroll to read in full</span> ↓</div>
@@ -638,8 +647,8 @@ select.form-input:invalid,select.form-input option[value=""]{color:var(--ink5)}
 <div class="stage-head">
 <div class="crest"><span>CF</span></div>
 <div class="stage-progress"><span class="fr">Étape <span>4</span> sur 6</span><span class="en">Step <span>4</span> of 6</span></div>
-<div class="stage-title"><span class="fr">Confirmation <em>biométrique</em></span><span class="en">Biometric <em>confirmation</em></span></div>
-<div class="stage-sub" id="bioSub"><span class="fr">Posez votre doigt sur le capteur pour confirmer votre identité.</span><span class="en">Place your finger on the sensor to confirm your identity.</span></div>
+<div class="stage-title"><span class="fr">Empreinte <em>d'engagement</em></span><span class="en">Commitment <em>imprint</em></span></div>
+<div class="stage-sub" id="bioSub"><span class="fr">Appuyez votre doigt sur le capteur et maintenez pendant 4 secondes pour sceller votre engagement.</span><span class="en">Press your finger on the sensor and hold for 4 seconds to seal your commitment.</span></div>
 </div>
 
 <div class="bio-scanner" id="fpScanner" style="display:flex">
@@ -663,10 +672,11 @@ select.form-input:invalid,select.form-input option[value=""]{color:var(--ink5)}
 <path class="fp-ridge" d="M125 185 L 115 180"/>
 </g>
 </svg>
-<div class="fp-scanline" id="fpLine"></div>
+<div class="fp-hint" id="fpHint"><span class="fr">Appuyez ici</span><span class="en">Press here</span></div>
 <div class="fp-check" id="fpCheck"><svg viewBox="0 0 50 50"><path class="stroke" d="M 10 25 L 22 37 L 42 15"/></svg></div>
 </div>
-<div class="bio-progress"><div class="bio-percent" id="fpPct">0%</div><div class="bio-status" id="fpStatus"><span class="fr">Posez votre doigt</span><span class="en">Place your finger</span></div></div>
+<div class="fp-bar"><div class="fp-bar-fill" id="fpFill"></div></div>
+<div class="bio-progress"><div class="bio-percent" id="fpPct">0%</div><div class="bio-status" id="fpStatus"><span class="fr">Appuyez et maintenez (4 s)</span><span class="en">Press and hold (4 s)</span></div></div>
 </div>
 
 </div>
@@ -680,7 +690,7 @@ select.form-input:invalid,select.form-input option[value=""]{color:var(--ink5)}
 <div class="proc-title"><span class="fr">Authentification en cours</span><span class="en">Authenticating</span></div>
 <div class="proc-list" id="procList">
 <div class="proc-item" data-step="0"><div class="proc-dot"></div><span class="fr">Vérification de la signature…</span><span class="en">Verifying signature…</span></div>
-<div class="proc-item" data-step="1"><div class="proc-dot"></div><span class="fr">Calcul du hash biométrique…</span><span class="en">Computing biometric hash…</span></div>
+<div class="proc-item" data-step="1"><div class="proc-dot"></div><span class="fr">Calcul du hash d'engagement…</span><span class="en">Computing commitment hash…</span></div>
 <div class="proc-item" data-step="2"><div class="proc-dot"></div><span class="fr">Ancrage de l'horodatage…</span><span class="en">Anchoring timestamp…</span></div>
 <div class="proc-item" data-step="3"><div class="proc-dot"></div><span class="fr">Enregistrement au coffre-fort sécurisé…</span><span class="en">Recording to secure vault…</span></div>
 <div class="proc-item" data-step="4"><div class="proc-dot"></div><span class="fr">Génération du certificat…</span><span class="en">Generating certificate…</span></div>
@@ -1432,49 +1442,118 @@ function clearSig(){
   document.getElementById('sigPh').classList.remove('hidden');
 }
 
-// ═════ Biometric ═════
+// ═════ Engagement gesture (press-and-hold) ═════
+const HOLD_TARGET_MS = 4000;
+let holdState = { active: false, startTime: 0, elapsedMs: 0, rafId: null, duration: 0 };
+let holdListenersAttached = false;
+
 function resetBio(){
   document.getElementById('fpScanner').style.display = 'flex';
-  document.getElementById('fpLine').classList.remove('on');
   document.getElementById('fpCheck').classList.remove('on');
+  const wrap = document.getElementById('fpWrap');
+  wrap.classList.remove('holding', 'done');
   document.querySelectorAll('.fp-ridge').forEach(r => r.classList.remove('scanned'));
   document.getElementById('fpPct').textContent = '0%';
-  userData.biometricMethod = 'Fingerprint';
-  // Auto-start after brief delay
-  setTimeout(() => runFingerprint(), 600);
+  const fill = document.getElementById('fpFill');
+  fill.style.width = '0%';
+  fill.classList.remove('done', 'reset');
+  const status = document.getElementById('fpStatus');
+  status.innerHTML = '<span class="fr">Appuyez et maintenez (4 s)</span><span class="en">Press and hold (4 s)</span>';
+  holdState = { active: false, startTime: 0, elapsedMs: 0, rafId: null, duration: 0 };
+  userData.biometricMethod = 'Gesture Hold';
+  userData.holdDurationMs = 0;
+  if(!holdListenersAttached){ attachHoldListeners(); holdListenersAttached = true; }
 }
 
-function runFingerprint(){
-  const status = document.getElementById('fpStatus');
-  const pct = document.getElementById('fpPct');
-  const line = document.getElementById('fpLine');
-  const ridges = document.querySelectorAll('.fp-ridge');
-  const check = document.getElementById('fpCheck');
-  const lang = document.body.dataset.lang;
-  const s = lang === 'fr'
-    ? ['Posez votre doigt','Analyse en cours…','Lecture des crêtes…','Vérification…','Empreinte confirmée']
-    : ['Place your finger','Scanning…','Reading ridges…','Verifying…','Fingerprint confirmed'];
+function attachHoldListeners(){
+  const wrap = document.getElementById('fpWrap');
+  wrap.addEventListener('pointerdown', onHoldStart);
+  wrap.addEventListener('pointerup', onHoldEnd);
+  wrap.addEventListener('pointercancel', onHoldEnd);
+  wrap.addEventListener('pointerleave', onHoldEnd);
+  wrap.addEventListener('contextmenu', e => e.preventDefault());
+  wrap.addEventListener('touchstart', e => e.preventDefault(), { passive: false });
+}
 
+function onHoldStart(e){
+  const wrap = document.getElementById('fpWrap');
+  if(holdState.active || wrap.classList.contains('done')) return;
+  e.preventDefault();
+  try { e.target.setPointerCapture(e.pointerId); } catch(err){}
+  holdState.active = true;
+  holdState.startTime = performance.now();
+  wrap.classList.add('holding');
+  const fill = document.getElementById('fpFill');
+  fill.classList.remove('reset');
+  fill.style.transition = 'none';
+  tickHold();
+}
+
+function tickHold(){
+  if(!holdState.active){ holdState.rafId = null; return; }
+  const elapsed = performance.now() - holdState.startTime;
+  holdState.elapsedMs = elapsed;
+  const pct = Math.min(100, (elapsed / HOLD_TARGET_MS) * 100);
+
+  document.getElementById('fpPct').textContent = Math.floor(pct) + '%';
+  document.getElementById('fpFill').style.width = pct + '%';
+
+  const ridges = document.querySelectorAll('.fp-ridge');
+  const idx = Math.floor((pct / 100) * ridges.length);
+  ridges.forEach((r, i) => { if(i < idx) r.classList.add('scanned'); else r.classList.remove('scanned'); });
+
+  const status = document.getElementById('fpStatus');
+  if(pct >= 100){ completeHold(); return; }
+  else if(pct >= 75){ status.innerHTML = '<span class="fr">Presque…</span><span class="en">Almost…</span>'; }
+  else if(pct >= 25){ status.innerHTML = '<span class="fr">Maintenez appuyé…</span><span class="en">Keep pressing…</span>'; }
+
+  holdState.rafId = requestAnimationFrame(tickHold);
+}
+
+function onHoldEnd(e){
+  if(!holdState.active) return;
+  const elapsed = performance.now() - holdState.startTime;
+  holdState.active = false;
+  if(holdState.rafId){ cancelAnimationFrame(holdState.rafId); holdState.rafId = null; }
+  if(elapsed >= HOLD_TARGET_MS) return; // success already handled
+
+  const wrap = document.getElementById('fpWrap');
+  wrap.classList.remove('holding');
+  const fill = document.getElementById('fpFill');
+  fill.classList.add('reset');
+  fill.style.transition = '';
+  fill.style.width = '0%';
+  document.getElementById('fpPct').textContent = '0%';
+  document.querySelectorAll('.fp-ridge').forEach(r => r.classList.remove('scanned'));
+  const status = document.getElementById('fpStatus');
+  status.innerHTML = '<span class="fr">Relâché trop tôt — réessayez</span><span class="en">Released too soon — try again</span>';
   setTimeout(() => {
-    status.textContent = s[1];
-    line.classList.add('on');
-    let p = 0;
-    const iv = setInterval(() => {
-      p += 3 + Math.random() * 3;
-      if(p >= 100){
-        p = 100; clearInterval(iv);
-        pct.textContent = '100%'; status.textContent = s[4];
-        check.classList.add('on');
-        setTimeout(() => go(5), 1400);
-      } else {
-        pct.textContent = Math.floor(p) + '%';
-        if(p > 30 && p < 35) status.textContent = s[2];
-        if(p > 65 && p < 70) status.textContent = s[3];
-        const idx = Math.floor((p / 100) * ridges.length);
-        for(let i = 0; i < idx; i++) ridges[i].classList.add('scanned');
-      }
-    }, 80);
-  }, 500);
+    if(!holdState.active && !document.getElementById('fpWrap').classList.contains('done')){
+      document.getElementById('fpFill').classList.remove('reset');
+      status.innerHTML = '<span class="fr">Appuyez et maintenez (4 s)</span><span class="en">Press and hold (4 s)</span>';
+    }
+  }, 1800);
+}
+
+function completeHold(){
+  holdState.active = false;
+  if(holdState.rafId){ cancelAnimationFrame(holdState.rafId); holdState.rafId = null; }
+  const finalDuration = Math.round(holdState.elapsedMs);
+  holdState.duration = finalDuration;
+  userData.holdDurationMs = finalDuration;
+  userData.biometricMethod = 'Gesture Hold';
+
+  const wrap = document.getElementById('fpWrap');
+  wrap.classList.remove('holding');
+  wrap.classList.add('done');
+  document.getElementById('fpPct').textContent = '100%';
+  const fill = document.getElementById('fpFill');
+  fill.style.width = '100%';
+  fill.classList.add('done');
+  document.querySelectorAll('.fp-ridge').forEach(r => r.classList.add('scanned'));
+  document.getElementById('fpStatus').innerHTML = '<span class="fr">Engagement confirmé</span><span class="en">Commitment confirmed</span>';
+  document.getElementById('fpCheck').classList.add('on');
+  setTimeout(() => go(5), 1400);
 }
 
 // ═════ Processing + Supabase submission ═════
@@ -1501,7 +1580,7 @@ async function submitNDAToSupabase(){
       user_agent: navigator.userAgent,
       locale: navigator.language,
       timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
-      biometric_method: 'Fingerprint',
+      biometric_method: 'Gesture Hold · ' + (userData.holdDurationMs || 0) + 'ms',
       signature_png: signatureDataUrl || null,
       gdpr_consent: true,
       gdpr_consent_timestamp: userData.gdprTime,
