@@ -327,6 +327,14 @@ select.form-input:invalid,select.form-input option[value=""]{color:var(--ink5)}
 .hdr-map-cap{text-align:center;margin-top:16px;font-family:'EB Garamond',serif;font-size:11.5px;font-style:italic;color:var(--ink4);letter-spacing:1.5px}
 .hdr-map-cap em{color:var(--terra);font-style:italic}
 @media(max-width:720px){.hdr-map{margin-left:-8px;margin-right:-8px;max-width:calc(100% + 16px)}}
+
+/* Returning-user verification splash */
+#verifying-splash{position:fixed;inset:0;background:var(--ivory);display:flex;align-items:center;justify-content:center;z-index:999}
+.vs-inner{text-align:center;max-width:360px;padding:30px 20px}
+.vs-dot{width:8px;height:8px;border-radius:50%;background:var(--terra);margin:0 auto 22px;animation:vspulse 1.4s ease-in-out infinite}
+@keyframes vspulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(1.6)}}
+.vs-t{font-family:'EB Garamond',serif;font-size:20px;font-style:italic;color:var(--ink);margin-bottom:10px}
+.vs-s{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--terra)}
 .lead{font-size:16px!important;font-weight:400;color:var(--ink)!important;line-height:1.75!important}
 .strong{font-weight:600;color:var(--ink)}
 .em-t{font-style:italic;color:var(--terra)}
@@ -2005,6 +2013,7 @@ select.form-input:invalid,select.form-input option[value=""]{color:var(--ink5)}
 const SUPABASE_URL = 'https://jnjicknziqrnpuystooa.supabase.co';
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Impuamlja256aXFybnB1eXN0b29hIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY0MDUxNDksImV4cCI6MjA5MTk4MTE0OX0.HQCXoimAMyqkDLWU7waRlPpIo4n01XfNhk7hWbSVCXE';
 const NDA_ENDPOINT = SUPABASE_URL + '/functions/v1/submit-nda';
+const VERIFY_ENDPOINT = SUPABASE_URL + '/functions/v1/verify-access';
 const CALENDLY_URL = 'https://calendly.com/zosoa-rasoa';
 
 /* ═══════════════════════════════════════════════════════════════════════════ */
@@ -2018,6 +2027,72 @@ let certData = {};
 let ipAddress = null;
 let deviceInfo = '';
 let emailSent = false;
+
+// ═════ Returning-user frictionless re-entry ═════
+// If the user has a valid localStorage token from a previous NDA,
+// verify it server-side and skip directly to the memorandum.
+(async function checkReturningUser(){
+  let stored;
+  try {
+    stored = JSON.parse(localStorage.getItem('civilfi_access') || 'null');
+  } catch(e){ stored = null; }
+  
+  if(!stored || !stored.nda_reference || !stored.session_id || !stored.signature_hash){
+    return; // No token → normal NDA flow
+  }
+  
+  // Hide NDA flow immediately, show verification splash
+  const stageWrap = document.getElementById('stage-wrap');
+  stageWrap.style.display = 'none';
+  const splash = document.createElement('div');
+  splash.id = 'verifying-splash';
+  splash.innerHTML = '<div class="vs-inner"><div class="vs-dot"></div><div class="vs-t"><span class="fr">Vérification de l\'accès…</span><span class="en">Verifying access…</span></div><div class="vs-s"><span class="fr">Reconnaissance de votre signature enregistrée</span><span class="en">Recognising your registered signature</span></div></div>';
+  document.body.appendChild(splash);
+  
+  try {
+    const resp = await fetch(VERIFY_ENDPOINT, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + SUPABASE_ANON_KEY,
+        'apikey': SUPABASE_ANON_KEY,
+      },
+      body: JSON.stringify({
+        nda_reference: stored.nda_reference,
+        session_id: stored.session_id,
+        signature_hash: stored.signature_hash,
+      }),
+    });
+    const result = await resp.json();
+    
+    if(result.valid === true){
+      // Populate state as if user had just completed the NDA
+      userData = { name: result.full_name, email: result.email };
+      certData = {
+        ref: result.nda_reference,
+        session: result.session_id,
+        hash: stored.signature_hash,
+        time: result.signed_at ? String(result.signed_at).replace('T',' ').substring(0,19) + ' UTC' : '',
+        expiry: ''
+      };
+      // Skip all stages, show memorandum directly
+      splash.remove();
+      document.getElementById('doc').classList.add('on');
+      document.getElementById('topSess').textContent = userData.name.toUpperCase() + ' · ' + certData.session;
+      document.getElementById('wm').textContent = 'CONFIDENTIAL · ' + userData.name.toUpperCase() + ' · ' + certData.ref;
+      window.scrollTo(0, 0);
+    } else {
+      // Token no longer valid (revoked/expired/mismatched) → clear and show NDA flow
+      localStorage.removeItem('civilfi_access');
+      splash.remove();
+      stageWrap.style.display = '';
+    }
+  } catch(err){
+    // Network error → fall back to normal flow, keep token for next attempt
+    splash.remove();
+    stageWrap.style.display = '';
+  }
+})();
 
 // Populate country dropdown
 const countrySelect = document.getElementById('idCountry');
@@ -2355,7 +2430,20 @@ async function submitNDAToSupabase(){
       body: JSON.stringify(payload),
     });
     const result = await response.json();
-    return result.success === true;
+    if(result.success === true){
+      // Store return-access token in localStorage for frictionless re-entry
+      try {
+        localStorage.setItem('civilfi_access', JSON.stringify({
+          nda_reference: certData.ref,
+          session_id: certData.session,
+          signature_hash: certData.hash,
+          full_name: userData.name,
+          stored_at: new Date().toISOString(),
+        }));
+      } catch(e){ /* localStorage unavailable — user re-signs next visit */ }
+      return true;
+    }
+    return false;
   } catch(error){
     console.error('Supabase NDA submission failed:', error);
     return false;
