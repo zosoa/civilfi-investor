@@ -284,6 +284,8 @@ select.form-input:invalid,select.form-input option[value=""]{color:var(--ink5)}
 .uc-i{padding:0 0 24px 48px}
 .uc-lbl{font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--terra);margin-bottom:4px}
 .uc-lbl.sol{color:var(--forest)}
+.uc-lbl.b2b{color:var(--ink);background:linear-gradient(to right, rgba(192,128,48,.18), transparent);padding:3px 8px;display:inline-block;margin-left:-8px;letter-spacing:2.5px}
+.uc-chan{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:7.5px;letter-spacing:2px;text-transform:uppercase;color:#8B6A2A;border:.5px solid rgba(192,128,48,.3);padding:2px 7px;margin-right:6px;background:rgba(192,128,48,.06)}
 .uc-p{font-size:13.5px;color:var(--ink2);line-height:1.75;margin-bottom:14px}
 .uc-r{background:var(--forest2);border-left:2px solid var(--forest);padding:12px 16px;font-size:13.5px;color:var(--forest);font-weight:500;line-height:1.6}
 
@@ -484,6 +486,58 @@ select.form-input:invalid,select.form-input option[value=""]{color:var(--ink5)}
 .wmap-cap{text-align:center;margin-top:14px;font-family:'EB Garamond',serif;font-size:11.5px;font-style:italic;color:var(--ink4);letter-spacing:1px;line-height:1.5}
 .wmap-cap em{color:var(--terra);font-style:italic}
 @media(max-width:720px){.wmap-wrap{margin-left:-10px;margin-right:-10px;max-width:calc(100% + 20px)}}
+
+/* Institutional triad block (Civil-Fi · PAFC® · L'Institut) */
+.triad{display:grid;grid-template-columns:1fr;gap:14px;margin:30px 0;max-width:680px}
+@media(min-width:640px){.triad{grid-template-columns:1fr 1fr 1fr;gap:10px}}
+.triad-c{background:var(--ivory);border:.5px solid var(--rule);padding:18px 18px 16px;position:relative}
+.triad-c::before{content:'';position:absolute;top:-1px;left:-1px;right:-1px;height:2px;background:var(--terra);opacity:.6}
+.triad-glyph{font-family:'EB Garamond',serif;font-size:24px;color:var(--terra);font-style:italic;margin-bottom:6px;line-height:1}
+.triad-l{font-family:'JetBrains Mono',monospace;font-size:7.5px;letter-spacing:2.5px;text-transform:uppercase;color:var(--ink4);margin-bottom:6px}
+.triad-t{font-family:'EB Garamond',serif;font-size:18px;font-weight:600;color:var(--ink);margin-bottom:8px;letter-spacing:.5px}
+.triad-d{font-size:11.5px;color:var(--ink3);line-height:1.6;margin-bottom:10px}
+.triad-anal{font-family:'EB Garamond',serif;font-size:11.5px;font-style:italic;color:var(--terra);border-top:.5px dotted var(--rule);padding-top:8px;margin-top:auto}
+.triad-anal strong{font-weight:600;color:var(--ink)}
+
+/* Institutional comp block (AFNOR / IFRS / ISO …) */
+.comp{display:flex;flex-wrap:wrap;gap:14px;margin:18px 0 28px;justify-content:flex-start;max-width:680px}
+.comp-i{flex:1 1 140px;background:var(--ivory);padding:14px 14px;border:.5px solid var(--rule)}
+.comp-i-name{font-family:'EB Garamond',serif;font-size:13px;font-weight:600;color:var(--ink);margin-bottom:4px}
+.comp-i-d{font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink4);line-height:1.5}
+
+/* Three-way comparison table — Old / Foreign / Civil-Fi */
+.threeway-wrap{margin:24px 0 30px;max-width:720px}
+.threeway-lead{font-family:'EB Garamond',serif;font-size:18.5px;line-height:1.55;color:var(--ink);margin-bottom:18px;font-style:italic}
+.threeway-lead em{color:var(--terra);font-style:italic;font-weight:500}
+.threeway{width:100%;border-collapse:collapse;background:var(--ivory);border:.5px solid var(--rule);font-size:11.5px}
+.threeway thead th{background:var(--parch);padding:13px 10px 11px;text-align:left;border-bottom:.5px solid var(--rule);vertical-align:bottom}
+.threeway thead .tw-mk{display:block;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0;margin-bottom:5px}
+.threeway thead .tw-mk.x{color:#A04030}
+.threeway thead .tw-mk.w{color:#B07020}
+.threeway thead .tw-mk.v{color:var(--forest)}
+.threeway thead .tw-h{font-family:'EB Garamond',serif;font-size:14px;font-weight:600;color:var(--ink);font-style:italic;letter-spacing:.3px;line-height:1.25}
+.threeway thead .tw-sub{display:block;font-family:'JetBrains Mono',monospace;font-size:7.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink4);font-weight:400;margin-top:5px;font-style:normal}
+.threeway thead th.col-dim{width:18%;background:transparent;border-bottom-color:var(--ink4)}
+.threeway thead th.col-old{width:27%}
+.threeway thead th.col-fgn{width:27%;background:#F2EBE0}
+.threeway thead th.col-cf{width:28%;background:#EAF0EB;border-bottom-color:var(--forest)}
+.threeway tbody td{padding:11px 10px;border-bottom:.5px dotted rgba(60,40,15,.18);vertical-align:top;line-height:1.5}
+.threeway tbody tr:last-child td{border-bottom:none}
+.threeway tbody td.dim{font-family:'JetBrains Mono',monospace;font-size:8.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink3);font-weight:500}
+.threeway tbody td.col-cf{background:rgba(45,95,62,.04);color:var(--ink);font-weight:500}
+.threeway tbody td.col-fgn{background:rgba(192,128,48,.04);color:var(--ink2)}
+.threeway tbody td.col-old{color:var(--ink3)}
+.threeway tbody td .tw-em{color:var(--forest);font-weight:600}
+.threeway-close{font-family:'EB Garamond',serif;font-size:18px;font-style:italic;color:var(--ink);margin-top:20px;padding:16px 22px;border-left:2px solid var(--terra);background:linear-gradient(to right, rgba(139,58,42,.05), transparent)}
+.threeway-close strong{font-weight:600;color:var(--terra);font-style:normal}
+@media(max-width:640px){
+  .threeway{font-size:10.5px}
+  .threeway thead th{padding:10px 7px 8px}
+  .threeway tbody td{padding:9px 7px}
+  .threeway thead .tw-h{font-size:12.5px}
+  .threeway thead .tw-sub{font-size:7px;letter-spacing:1.2px}
+  .threeway tbody td.dim{font-size:7.5px;letter-spacing:1.2px}
+}
 
 </style>
 </head>
@@ -775,7 +829,7 @@ select.form-input:invalid,select.form-input option[value=""]{color:var(--ink5)}
 <div class="hdr-invite-dot"></div>
 <span class="hdr-invite-text"><span class="fr">Invitation privée · Distribution limitée</span><span class="en">Private invitation · Limited distribution</span></span>
 </div>
-<div class="hdr-conf"><span class="fr">Mémorandum confidentiel V3 — Avril 2026</span><span class="en">Confidential Memorandum V3 — April 2026</span></div>
+<div class="hdr-conf"><span class="fr">Mémorandum confidentiel V4 — Mai 2026 · doctrine v4.1 (intègre extension DFI)</span><span class="en">Confidential Memorandum V4 — May 2026 · doctrine v4.1 (incl. DFI extension)</span></div>
 
 <div class="hdr-map">
 <div class="hdr-map-frame">
@@ -1313,9 +1367,9 @@ select.form-input:invalid,select.form-input option[value=""]{color:var(--ink5)}
 <div class="hdr-map-cap"><em>— Carta Incognita Civilia —</em> · <span class="fr">Le continent juridique, de la main des fondateurs, anno MMXXVI</span><span class="en">The legal continent, in the founders' hand, anno MMXXVI</span></div>
 </div>
 
-<h1 class="hdr-t"><span class="fr">L'infrastructure juridique qui <em>redéfinit</em> la propriété collective</span><span class="en">The legal infrastructure that <em>redefines</em> collective ownership</span></h1>
-<p class="hdr-s"><span class="fr">Vous avez été <em>personnellement identifié</em> pour recevoir ce document. Premier système d'exploitation juridique au monde pour la propriété collective d'actifs réels. Un marché de plus de mille milliards, un seul acteur : nous.</span><span class="en">You have been <em>personally selected</em> to receive this document. The world's first legal operating system for collective ownership of real assets. A trillion-dollar market, one player: us.</span></p>
-<div class="hdr-meta">Clément Éric Dijoux · Zosoa Rasoarahona · Me Pierre-Alain Ravot · Avril 2026</div>
+<h1 class="hdr-t"><span class="fr">L'<em>internet</em> de la propriété collective</span><span class="en">The <em>internet</em> of collective ownership</span></h1>
+<p class="hdr-s"><span class="fr">Avant le web, partager une information à travers le monde demandait téléphone, fax, courrier — chacun avec ses gardiens et ses péages. Le web a tout bypassé. <span class="strong">Civil-Fi PAFC® fait pareil — pour posséder ensemble des choses réelles.</span> Vous avez été <em>personnellement identifié</em> pour recevoir ce document.</span><span class="en">Before the internet, sharing information across the world required phones, faxes, postal services — each with their gatekeepers and tolls. The web bypassed all of that. <span class="strong">Civil-Fi PAFC® does the same — for owning real things together.</span> You have been <em>personally selected</em> to receive this document.</span></p>
+<div class="hdr-meta">Clément Éric Dijoux · Zosoa Rasoarahona · Me Pierre-Alain Ravot (AARPI Fiducie Legal · CCFP-0001) · Mai 2026 · <a href="https://www.civil-fi.org" target="_blank" rel="noopener" style="color:var(--terra);text-decoration:none;border-bottom:.5px dotted var(--terra)">civil-fi.org</a></div>
 </div>
 
 <!-- § 01 -->
@@ -1325,12 +1379,12 @@ select.form-input:invalid,select.form-input option[value=""]{color:var(--ink5)}
 <h2><span class="fr">L'essentiel en <em>60 secondes</em></span><span class="en">The essential in <em>60 seconds</em></span></h2>
 <div class="srule"></div>
 
-<p class="lead"><span class="fr">Civil-Fi PAFC® est le <span class="strong">premier système d'exploitation juridique au monde</span> pour la propriété collective d'actifs réels. Un OS civil, fiduciaire, non-financier<a class="ast" href="#disc1">*</a> — conçu pour opérer là où ni SCI, ni SCPI, ni crowdfunding ne peuvent.</span><span class="en">Civil-Fi PAFC® is the <span class="strong">world's first legal operating system</span> for collective ownership of real assets. A civil, fiduciary, non-financial OS<a class="ast" href="#disc1">*</a> — designed to operate where neither SCI, SCPI, nor crowdfunding can.</span></p>
+<p class="lead"><span class="fr">Civil-Fi PAFC® est le <span class="strong">premier standard institutionnel</span> pour la propriété collective d'actifs réels en droit civil français — édité, versionné et publié par un Institut dédié, comme l'AFNOR publie les normes NF ou l'IFRS Foundation publie les IFRS. Pas une plateforme financière, pas une fintech opératrice : <span class="em-t">une infrastructure normative</span> déployée par des cabinets licenciés<a class="ast" href="#disc1">*</a>.</span><span class="en">Civil-Fi PAFC® is the <span class="strong">first institutional standard</span> for collective ownership of real assets under French civil law — edited, versioned, published by a dedicated Institute, just as AFNOR publishes NF standards or the IFRS Foundation publishes IFRS. Not a financial platform, not an operating fintech: <span class="em-t">a normative infrastructure</span> deployed by licensed cabinets<a class="ast" href="#disc1">*</a>.</span></p>
 
 <div class="stats">
-<div class="stat"><div class="stat-v">€1,2T+</div><div class="stat-l"><span class="fr">Marché adressable</span><span class="en">Addressable market</span></div><div class="stat-d"><span class="fr">9 verticales</span><span class="en">9 verticals</span></div></div>
+<div class="stat"><div class="stat-v">€2T+</div><div class="stat-l"><span class="fr">Marché adressable</span><span class="en">Addressable market</span></div><div class="stat-d"><span class="fr">10 verticales · DFI cross-border</span><span class="en">10 verticals · DFI cross-border</span></div></div>
 <div class="stat"><div class="stat-v">€2,5M</div><div class="stat-l"><span class="fr">Levée · 25% max</span><span class="en">Raise · 25% max</span></div><div class="stat-d">3 tranches · 24 mois</div></div>
-<div class="stat"><div class="stat-v">40–80×</div><div class="stat-l"><span class="fr">Multiple investisseur</span><span class="en">Investor multiple</span></div><div class="stat-d">M48–M72</div></div>
+<div class="stat"><div class="stat-v">40–80×</div><div class="stat-l"><span class="fr">Multiple investisseur</span><span class="en">Investor multiple</span></div><div class="stat-d"><span class="fr">M48–M72 · multiple standards 15-22×</span><span class="en">M48–M72 · standards multiple 15-22×</span></div></div>
 </div>
 
 <div class="kp" style="border-left-color:var(--terra);background:var(--terra3)">
@@ -1338,9 +1392,9 @@ select.form-input:invalid,select.form-input option[value=""]{color:var(--ink5)}
 <p><span class="fr">L'<span class="em-t">Opinion Juridique Préventive (OJP)</span> et le <span class="em-t">rescrit fiscal DGFiP</span> sont désormais <span class="strong">obtenus</span>. Ce ne sont plus des promesses — ce sont deux actifs doctrinaux en main qui sécurisent fondamentalement le modèle et réduisent le risque réglementaire d'ÉLEVÉ à MAÎTRISÉ.</span><span class="en">The <span class="em-t">Preventive Legal Opinion (OJP)</span> and the <span class="em-t">DGFiP tax ruling</span> are now <span class="strong">obtained</span>. No longer promises — two doctrinal assets in hand that fundamentally secure the model and reduce regulatory risk from HIGH to MANAGED.</span></p>
 </div>
 
-<p><span class="fr"><span class="strong">Ce qui est déjà acquis :</span> 3 marques INPI, 3 dépôts Soleau, brevet en cours sur 3 inventions techniques, OJP obtenue, rescrit fiscal obtenu, ~€1M de capital fondateur déployé, convention de fiducie pilote Tenay rédigée par Me Ravot.</span><span class="en"><span class="strong">Already secured:</span> 3 INPI trademarks, 3 Soleau deposits, patent pending on 3 technical inventions, OJP obtained, tax ruling obtained, ~€1M founder capital deployed, Tenay pilot trust agreement drafted by Me Ravot.</span></p>
+<p><span class="fr"><span class="strong">Ce qui est déjà acquis :</span> 3 marques INPI, 4 dépôts Soleau, brevet en cours sur <span class="strong">4 inventions techniques (RFC-HCB, JCI Soulbound, PAMP, PHCI/DFI)</span>, OJP obtenue, rescrit fiscal obtenu, ~€1M de capital fondateur déployé, FAC-Fille pilote Tenay (FM-001-V1) avec ACC apposé, Me Pierre-Alain Ravot (Président AARPI Fiducie Legal) certifié CCFP-0001.</span><span class="en"><span class="strong">Already secured:</span> 3 INPI trademarks, 4 Soleau deposits, patent pending on <span class="strong">4 technical inventions (RFC-HCB, JCI Soulbound, PAMP, PHCI/DFI)</span>, OJP obtained, tax ruling obtained, ~€1M founder capital deployed, Tenay pilot FAC-Fille (FM-001-V1) with ACC sealed, Me Pierre-Alain Ravot (President AARPI Fiducie Legal) certified CCFP-0001.</span></p>
 
-<div class="pq"><p><span class="fr">Nous n'avons pas trouvé une faille. Nous avons construit une route juridique entièrement nouvelle, parallèle à l'autoroute financière.</span><span class="en">We did not find a loophole. We built a completely new legal road, running parallel to the financial highway.</span></p></div>
+<div class="pq"><p><span class="fr">Nous n'avons pas trouvé une faille. Nous avons construit une route juridique entièrement nouvelle, parallèle à l'autoroute financière — et nous en sommes l'autorité publiante.</span><span class="en">We did not find a loophole. We built a completely new legal road parallel to the financial highway — and we are its publishing authority.</span></p></div>
 
 <div class="disc" id="disc1"><span class="mark">*</span><span class="fr">Architecture conçue pour opérer en dehors des mécanismes classiques de l'offre financière réglementée du pays de destination, sous réserve d'analyse au cas par cas selon la structuration, la commercialisation et la juridiction concernée. L'OJP et les rescrits fiscaux obtenus ne constituent pas une garantie absolue d'immunité réglementaire — ils forment la preuve doctrinale et la base d'une défense contentieuse.</span><span class="en">Architecture designed to operate outside the conventional mechanisms of regulated financial offerings in the destination country, subject to case-by-case analysis depending on structuring, commercialisation and jurisdiction concerned. The OJP and obtained tax rulings do not constitute an absolute guarantee of regulatory immunity — they form the doctrinal proof and basis for contentious defence.</span></div>
 </div>
@@ -1349,7 +1403,7 @@ select.form-input:invalid,select.form-input option[value=""]{color:var(--ink5)}
 <div class="section">
 <div class="sn">02</div>
 <div class="stag"><span class="fr">Fondations</span><span class="en">Foundations</span></div>
-<h2><span class="fr">Les 8 fondations sont <em>posées</em></span><span class="en">The 8 foundations are <em>laid</em></span></h2>
+<h2><span class="fr">Les 9 fondations sont <em>posées</em></span><span class="en">The 9 foundations are <em>laid</em></span></h2>
 <div class="srule"></div>
 
 <p><span class="fr">Une startup qui lève à ce stade a rarement autant d'acquis. Nous ne vous demandons pas de croire en une idée — nous vous demandons de financer le déploiement d'une infrastructure déjà construite.</span><span class="en">A startup raising at this stage rarely has this many foundations. We're not asking you to believe in an idea — we're asking you to fund the deployment of an already-built infrastructure.</span></p>
@@ -1368,10 +1422,10 @@ select.form-input:invalid,select.form-input option[value=""]{color:var(--ink5)}
 <div class="acquis-m"><span class="fr">Valeur opposable · Sécurité juridique acquise</span><span class="en">Enforceable value · Legal certainty secured</span></div>
 </div></div>
 
-<div class="acquis-i"><div class="acquis-c">✓</div><div class="acquis-body">
-<div class="acquis-t"><span class="fr">Doctrine PAFC® complète — 3 versions</span><span class="en">Complete PAFC® doctrine — 3 versions</span></div>
-<div class="acquis-d"><span class="fr">v1 + v2 Game-Changer + v3 Addendum. Plus de 250 termes définis. Le plus grand corpus doctrinal jamais produit sur la fiducie française moderne.</span><span class="en">v1 + v2 Game-Changer + v3 Addendum. Over 250 defined terms. Largest doctrinal corpus ever produced on modern French trust law.</span></div>
-<div class="acquis-m"><span class="fr">Protégée par droit d'auteur et secret de fabrique</span><span class="en">Protected by copyright and trade secret</span></div>
+<div class="acquis-i"><div class="acquis-c new">✓</div><div class="acquis-body">
+<div class="acquis-t"><span class="fr">Doctrine PAFC® v4.1 — 280+ pages</span><span class="en">PAFC® doctrine v4.1 — 280+ pages</span><span class="acquis-tag">v4.1</span></div>
+<div class="acquis-d"><span class="fr">v1 + v2 Game-Changer + v3 Addendum + v4.0 (F1-F6 / D1-D6 / E1-E6) + <span class="strong">v4.1 ajoute D7 / F7 / E7 — extension Détention Fiduciaire Indirecte (DFI)</span> ouvrant trois verticales cross-border. Plus de 280 termes définis.</span><span class="en">v1 + v2 Game-Changer + v3 Addendum + v4.0 (F1-F6 / D1-D6 / E1-E6) + <span class="strong">v4.1 adds D7 / F7 / E7 — Indirect Fiduciary Holding (DFI) extension</span> unlocking three cross-border verticals. 280+ defined terms.</span></div>
+<div class="acquis-m"><span class="fr">Protégée par droit d'auteur, secret de fabrique, 4 dépôts Soleau</span><span class="en">Protected by copyright, trade secret, 4 Soleau deposits</span></div>
 </div></div>
 
 <div class="acquis-i"><div class="acquis-c">✓</div><div class="acquis-body">
@@ -1381,13 +1435,14 @@ select.form-input:invalid,select.form-input option[value=""]{color:var(--ink5)}
 </div></div>
 
 <div class="acquis-i"><div class="acquis-c">✓</div><div class="acquis-body">
-<div class="acquis-t"><span class="fr">3 dépôts Soleau INPI horodatés</span><span class="en">3 timestamped INPI Soleau deposits</span></div>
-<div class="acquis-d"><span class="fr">v1 (17/11/2025) · v2 (Mars 2026) · v3 (Avril 2026). Preuve d'antériorité opposable à tout tiers.</span><span class="en">v1 (17/11/2025) · v2 (March 2026) · v3 (April 2026). Enforceable proof of prior art.</span></div>
+<div class="acquis-t"><span class="fr">4 dépôts Soleau INPI horodatés</span><span class="en">4 timestamped INPI Soleau deposits</span></div>
+<div class="acquis-d"><span class="fr">v1 (17/11/2025) · v2 (Mars 2026) · v3 (Avril 2026) · v3.1 (18/04/2026 — couvre v4.0 + v4.1 DFI). Preuve d'antériorité opposable à tout tiers.</span><span class="en">v1 (17/11/2025) · v2 (March 2026) · v3 (April 2026) · v3.1 (18/04/2026 — covers v4.0 + v4.1 DFI). Enforceable proof of prior art.</span></div>
 </div></div>
 
-<div class="acquis-i"><div class="acquis-c">✓</div><div class="acquis-body">
-<div class="acquis-t"><span class="fr">Projet de brevet INPI/OEB en cours</span><span class="en">INPI/EPO patent project in progress</span></div>
-<div class="acquis-d"><span class="fr">3 inventions techniques : Registre Fiduciaire Central (RFC), Jeton Civil d'Identité (JCI), Protocole d'Affectation Multi-Palier (PAMP). Protection 20 ans.</span><span class="en">3 technical inventions: RFC, JCI, PAMP. 20-year protection.</span></div>
+<div class="acquis-i"><div class="acquis-c new">✓</div><div class="acquis-body">
+<div class="acquis-t"><span class="fr">Projet de brevet INPI/OEB — 4 inventions</span><span class="en">INPI/EPO patent project — 4 inventions</span><span class="acquis-tag">v4.1</span></div>
+<div class="acquis-d"><span class="fr">RFC-HCB (registre hybride), JCI Soulbound Civil (jeton non-transférable), PAMP (déblocage multi-palier), <span class="strong">PHCI (Protocole de Holding Civil Intermédié — invention 4 ajoutée v4.1, couvre la détention multi-juridictionnelle DFI)</span>. Protection 20 ans.</span><span class="en">RFC-HCB (hybrid registry), JCI Soulbound Civil (non-transferable token), PAMP (multi-stage release), <span class="strong">PHCI (Civil Intermediated Holding Protocol — invention 4 added v4.1, covers cross-border DFI holding)</span>. 20-year protection.</span></div>
+<div class="acquis-m"><span class="fr">Effet IP ×1,8 à ×2,3 sur la valorisation portefeuille</span><span class="en">×1.8-×2.3 IP portfolio valuation effect</span></div>
 </div></div>
 
 <div class="acquis-i"><div class="acquis-c">✓</div><div class="acquis-body">
@@ -1396,8 +1451,14 @@ select.form-input:invalid,select.form-input option[value=""]{color:var(--ink5)}
 </div></div>
 
 <div class="acquis-i"><div class="acquis-c">✓</div><div class="acquis-body">
-<div class="acquis-t"><span class="fr">Convention de fiducie Tenay rédigée</span><span class="en">Tenay trust agreement drafted</span></div>
-<div class="acquis-d"><span class="fr">Projet pilote (60 rue Centrale, Ain, €800K). Acte notarié prêt. Me Pierre-Alain Ravot, AARPI Fiducie Legal.</span><span class="en">Pilot project (60 rue Centrale, Ain, €800K). Notarised deed ready. Me Pierre-Alain Ravot, AARPI Fiducie Legal.</span></div>
+<div class="acquis-t"><span class="fr">FAC-Fille pilote Tenay — FM-001-V1 · ACC apposé</span><span class="en">Tenay pilot FAC-Fille — FM-001-V1 · ACC sealed</span></div>
+<div class="acquis-d"><span class="fr">Projet pilote (60 rue Centrale, Ain, €800K). Acte fiduciaire prêt. Praticien certifié <span class="strong">CCFP-0001 = Me Pierre-Alain Ravot</span> (AARPI Fiducie Legal · Président). ACC apposé le 18/04/2026, valide jusqu'au 18/04/2028. Premier projet inscrit au Registre Fiduciaire Central.</span><span class="en">Pilot project (60 rue Centrale, Ain, €800K). Fiduciary deed ready. Certified practitioner <span class="strong">CCFP-0001 = Me Pierre-Alain Ravot</span> (AARPI Fiducie Legal · President). ACC sealed 18/04/2026, valid until 18/04/2028. First project on the Central Fiduciary Registry.</span></div>
+</div></div>
+
+<div class="acquis-i"><div class="acquis-c new">✓</div><div class="acquis-body">
+<div class="acquis-t"><span class="fr">Institut Civil-Fi PAFC® — site institutionnel public</span><span class="en">Civil-Fi PAFC® Institute — public institutional site</span><span class="acquis-tag">v4.1</span></div>
+<div class="acquis-d"><span class="fr">L'autorité publiante du standard est constituée et publique : <a href="https://www.civil-fi.org" target="_blank" rel="noopener" style="color:var(--terra);text-decoration:none;border-bottom:.5px dotted var(--terra)">civil-fi.org</a>. Académie (CCA), Comité de Surveillance (CCS), Registre Fiduciaire Central (RFC). Catégorie « organisme normatif » revendiquée publiquement, avec analogie explicite AFNOR / IFRS / ISO.</span><span class="en">The publishing authority of the standard is constituted and public: <a href="https://www.civil-fi.org" target="_blank" rel="noopener" style="color:var(--terra);text-decoration:none;border-bottom:.5px dotted var(--terra)">civil-fi.org</a>. Academy (CCA), Surveillance Committee (CCS), Central Fiduciary Registry (RFC). "Normative body" category publicly claimed, with explicit AFNOR / IFRS / ISO analogy.</span></div>
+<div class="acquis-m"><span class="fr">Repositionnement vers comparables Bloomberg / S&amp;P / Moody's</span><span class="en">Repositioning toward Bloomberg / S&amp;P / Moody's comps</span></div>
 </div></div>
 
 </div>
@@ -1471,16 +1532,144 @@ select.form-input:invalid,select.form-input option[value=""]{color:var(--ink5)}
 <h4><span class="fr">Ce qui rend PAFC® unique</span><span class="en">What makes PAFC® unique</span></h4>
 <p><span class="fr">Pas de dette · Pas de titre financier · Pas de rendement promis · Pas de fonds collectif · Anti-Ponzi mécanique via PAMP · Scalabilité multi-projets native · Compatibilité finance islamique certifiable · Intégration Web3 probatoire (pas financière).</span><span class="en">No debt · No financial instrument · No promised yield · No collective fund · Mechanical anti-Ponzi via PAMP · Native multi-project scalability · Certifiable Islamic finance compatibility · Evidentiary (not financial) Web3 integration.</span></p>
 </div>
+
+<h3 style="font-family:'EB Garamond',serif;font-size:21px;font-weight:500;color:var(--ink);margin:38px 0 14px;font-style:italic"><span class="fr">Pas un produit. <em style="color:var(--terra)">Un standard institutionnel.</em></span><span class="en">Not a product. <em style="color:var(--terra)">An institutional standard.</em></span></h3>
+
+<p><span class="fr">Civil-Fi PAFC® n'est pas une plateforme financière. C'est un <span class="strong">standard normatif</span> publié et tenu par une autorité dédiée — exactement comme l'AFNOR publie les normes NF ou comme l'IFRS Foundation publie les normes IFRS. Trois rôles distincts, trois niveaux de norme :</span><span class="en">Civil-Fi PAFC® is not a financial platform. It is a <span class="strong">normative standard</span> published and maintained by a dedicated authority — exactly as AFNOR publishes NF standards or the IFRS Foundation publishes IFRS standards. Three distinct roles, three levels of norm:</span></p>
+
+<div class="triad">
+<div class="triad-c">
+<div class="triad-glyph">🌱</div>
+<div class="triad-l"><span class="fr">La catégorie normative</span><span class="en">The normative category</span></div>
+<div class="triad-t">Civil-Fi</div>
+<div class="triad-d"><span class="fr">Genre de finance nouvelle, fondé sur le droit civil français — la <em>Finance Fiduciaire Civile</em>. Patrimoines d'affectation, droits civils nommés, opposabilité erga omnes.</span><span class="en">A new genre of finance, grounded in French civil law — <em>Civil Fiduciary Finance</em>. Affectation estates, named civil rights, erga omnes enforceability.</span></div>
+<div class="triad-anal"><span class="fr">Comme <strong>« .com »</strong> nomme un genre d'objets sur Internet.</span><span class="en">Like <strong>".com"</strong> names a genre of internet objects.</span></div>
+</div>
+
+<div class="triad-c">
+<div class="triad-glyph">⚙️</div>
+<div class="triad-l"><span class="fr">Le premier protocole publié</span><span class="en">The first published protocol</span></div>
+<div class="triad-t">PAFC®</div>
+<div class="triad-d"><span class="fr">Protocole d'Architecture Fiduciaire Compartimentée — doctrine v4.1, 280+ pages, addenda F1-F7 / D1-D7 / E1-E7. Versionné, daté, opposable. D'autres protocoles pourront émerger.</span><span class="en">Compartmentalised Fiduciary Architecture Protocol — doctrine v4.1, 280+ pages, addenda F1-F7 / D1-D7 / E1-E7. Versioned, dated, enforceable. Other protocols may emerge.</span></div>
+<div class="triad-anal"><span class="fr">Comme <strong>HTTP</strong> est l'un des protocoles d'Internet — aux côtés de FTP, SMTP, SSH.</span><span class="en">Like <strong>HTTP</strong> is one of the internet's protocols — alongside FTP, SMTP, SSH.</span></div>
+</div>
+
+<div class="triad-c">
+<div class="triad-glyph">🏛️</div>
+<div class="triad-l"><span class="fr">L'autorité publiante</span><span class="en">The publishing authority</span></div>
+<div class="triad-t"><span class="fr">L'Institut</span><span class="en">The Institute</span></div>
+<div class="triad-d"><span class="fr">Personne morale publiante. Trois organes : <strong>Académie</strong> (CCA — formation, certifications CCFP/CCFS), <strong>Comité de Surveillance</strong> (CCS — label ACC), <strong>Registre Fiduciaire Central</strong> (RFC — publication horodatée).</span><span class="en">Publishing legal entity. Three organs: <strong>Academy</strong> (CCA — training, CCFP/CCFS certifications), <strong>Surveillance Committee</strong> (CCS — ACC label), <strong>Central Fiduciary Registry</strong> (RFC — timestamped publication).</span></div>
+<div class="triad-anal"><span class="fr">Comme <strong>l'AFNOR</strong> publie les normes NF ; comme l'<strong>IFRS Foundation</strong> publie les IFRS.</span><span class="en">Like <strong>AFNOR</strong> publishes NF standards; like the <strong>IFRS Foundation</strong> publishes IFRS.</span></div>
+</div>
+</div>
+
+<p style="font-style:italic;color:var(--ink3);font-size:13.5px;margin-top:8px"><span class="fr">Ce repositionnement est le verrou commercial le plus important : un <em>standard</em> ne se vend pas comme un produit, il se déploie via des cabinets licenciés. Banques, études notariales, cabinets d'avocats, family offices — chacun obtient une licence d'usage et déploie le protocole sous sa propre marque, en payant licence d'entrée + redevance annuelle + royalty par FAC-Fille.</span><span class="en">This positioning is the most important commercial lock: a <em>standard</em> is not sold like a product, it deploys via licensed cabinets. Banks, notarial offices, law firms, family offices — each obtains a usage licence and deploys the protocol under their own brand, paying entry licence + annual royalty + per-FAC-Fille royalty.</span></p>
+
+<p style="font-size:13.5px;color:var(--ink3);margin-top:6px"><span class="fr">Site institutionnel public : <a href="https://www.civil-fi.org" target="_blank" rel="noopener" style="color:var(--terra);text-decoration:none;border-bottom:.5px dotted var(--terra)">civil-fi.org</a></span><span class="en">Public institutional website: <a href="https://www.civil-fi.org" target="_blank" rel="noopener" style="color:var(--terra);text-decoration:none;border-bottom:.5px dotted var(--terra)">civil-fi.org</a></span></p>
+
+<h3 style="font-family:'EB Garamond',serif;font-size:21px;font-weight:500;color:var(--ink);margin:42px 0 12px;font-style:italic"><span class="fr">Trois routes juridiques. <em style="color:var(--terra)">Une seule est la vôtre.</em></span><span class="en">Three legal roads. <em style="color:var(--terra)">Only one is yours.</em></span></h3>
+
+<div class="threeway-wrap">
+<p class="threeway-lead"><span class="fr">Si vous, votre famille ou votre communauté voulez posséder ensemble quelque chose de réel, le droit ne vous laisse que <em>trois routes</em>. Deux ont été tracées il y a des décennies pour résoudre les problèmes de quelqu'un d'autre. La troisième est <em>Civil-Fi</em>.</span><span class="en">If you, your family or your community want to own something real together, the law gives you only <em>three roads</em>. Two were laid down decades ago to solve someone else's problem. The third is <em>Civil-Fi</em>.</span></p>
+
+<table class="threeway">
+<thead>
+<tr>
+<th class="col-dim"></th>
+<th class="col-old">
+<span class="tw-mk x">✗</span>
+<span class="tw-h"><span class="fr">L'ancienne route</span><span class="en">The old road</span></span>
+<span class="tw-sub"><span class="fr">Société · SCI / SCPI / SAS</span><span class="en">Company · SCI / SCPI / SAS</span></span>
+</th>
+<th class="col-fgn">
+<span class="tw-mk w">⚠</span>
+<span class="tw-h"><span class="fr">La route étrangère</span><span class="en">The foreign road</span></span>
+<span class="tw-sub"><span class="fr">Trust anglo · Jersey · Cayman · Liechtenstein</span><span class="en">Anglo trust · Jersey · Cayman · Liechtenstein</span></span>
+</th>
+<th class="col-cf">
+<span class="tw-mk v">✓</span>
+<span class="tw-h">Civil-Fi PAFC®</span>
+<span class="tw-sub"><span class="fr">Fiducie civile française · droit civil · Institut Civil-Fi</span><span class="en">French civil fiducie · civil law · Civil-Fi Institute</span></span>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="dim"><span class="fr">Votre statut</span><span class="en">Your status</span></td>
+<td class="col-old"><span class="fr">Actionnaire</span><span class="en">Shareholder</span></td>
+<td class="col-fgn"><span class="fr">Bénéficiaire d'un trust étranger</span><span class="en">Beneficiary of a foreign trust</span></td>
+<td class="col-cf"><span class="fr"><span class="tw-em">Adhérent civil</span> — comme un membre de club</span><span class="en"><span class="tw-em">Civil adherent</span> — like a club member</span></td>
+</tr>
+<tr>
+<td class="dim"><span class="fr">Votre argent est</span><span class="en">Your money is</span></td>
+<td class="col-old"><span class="fr">Un investissement financier</span><span class="en">A financial investment</span></td>
+<td class="col-fgn"><span class="fr">Un intérêt bénéficiaire offshore</span><span class="en">An offshore beneficial interest</span></td>
+<td class="col-cf"><span class="fr">Une <span class="tw-em">contribution civile</span> — pas un placement</span><span class="en">A <span class="tw-em">civil contribution</span> — not an investment</span></td>
+</tr>
+<tr>
+<td class="dim"><span class="fr">Régulateur</span><span class="en">Regulator</span></td>
+<td class="col-old"><span class="fr">AMF + fisc surveillant chaque euro</span><span class="en">AMF + tax authority watching every euro</span></td>
+<td class="col-fgn"><span class="fr">Autorité étrangère + reporting CRS / ATAD</span><span class="en">Foreign trust authority + CRS / ATAD reporting</span></td>
+<td class="col-cf"><span class="fr"><span class="tw-em">Hors champ de la régulation financière</span></span><span class="en"><span class="tw-em">Outside financial regulation entirely</span></span></td>
+</tr>
+<tr>
+<td class="dim"><span class="fr">Coût de mise en place</span><span class="en">Setup cost</span></td>
+<td class="col-old">€50K – €200K</td>
+<td class="col-fgn">€30K – €150K + 1-3% <span class="fr">trustee/an</span><span class="en">trustee/year</span></td>
+<td class="col-cf"><span class="tw-em">€5K – €20K</span></td>
+</tr>
+<tr>
+<td class="dim"><span class="fr">Délai</span><span class="en">Timeline</span></td>
+<td class="col-old"><span class="fr">Des mois de paperasse</span><span class="en">Months of paperwork</span></td>
+<td class="col-fgn"><span class="fr">6-12 semaines + admin offshore continue</span><span class="en">6-12 weeks + ongoing offshore admin</span></td>
+<td class="col-cf"><span class="fr"><span class="tw-em">Semaines</span> — contrats standardisés</span><span class="en"><span class="tw-em">Weeks</span> — standardised contracts</span></td>
+</tr>
+<tr>
+<td class="dim"><span class="fr">Traitement fiscal</span><span class="en">Tax treatment</span></td>
+<td class="col-old"><span class="fr">Surveillance euro par euro</span><span class="en">Watched euro by euro</span></td>
+<td class="col-fgn"><span class="fr">Complexe — risque art. 209 B / ATAD</span><span class="en">Complex — risk of art. 209 B / ATAD requalification</span></td>
+<td class="col-cf"><span class="fr"><span class="tw-em">Confirmé par rescrit DGFiP</span></span><span class="en"><span class="tw-em">Confirmed by DGFiP tax ruling</span></span></td>
+</tr>
+<tr>
+<td class="dim"><span class="fr">Foyer juridique</span><span class="en">Legal home</span></td>
+<td class="col-old"><span class="fr">Droit commercial français</span><span class="en">French commercial law</span></td>
+<td class="col-fgn"><span class="fr">Une juridiction où vous n'irez peut-être jamais</span><span class="en">A jurisdiction you may never visit</span></td>
+<td class="col-cf"><span class="fr"><span class="tw-em">Droit civil français</span> — celui que vous habitez déjà</span><span class="en"><span class="tw-em">French civil law</span> — the law you already live under</span></td>
+</tr>
+<tr>
+<td class="dim"><span class="fr">Si un projet échoue</span><span class="en">If one project fails</span></td>
+<td class="col-old"><span class="fr">Peut entraîner tout le monde</span><span class="en">Can drag everyone down</span></td>
+<td class="col-fgn"><span class="fr">Actifs du trust exposés à des créanciers communs</span><span class="en">Trust assets can be exposed to common creditors</span></td>
+<td class="col-cf"><span class="fr">Chaque projet <span class="tw-em">hermétiquement scellé</span> — aucune contamination</span><span class="en">Each project <span class="tw-em">hermetically sealed</span> — no contamination</span></td>
+</tr>
+<tr>
+<td class="dim"><span class="fr">Votre protection</span><span class="en">Your protection</span></td>
+<td class="col-old"><span class="fr">Tribunaux français — lents mais les vôtres</span><span class="en">French courts — slow but yours</span></td>
+<td class="col-fgn"><span class="fr">Tribunaux étrangers, juges étrangers</span><span class="en">Foreign courts under foreign judges</span></td>
+<td class="col-cf"><span class="fr"><span class="tw-em">Droit civil français</span> — votre tribunal de proximité</span><span class="en"><span class="tw-em">French civil law</span> — your home court</span></td>
+</tr>
+<tr>
+<td class="dim"><span class="fr">Transmission</span><span class="en">Inheritance</span></td>
+<td class="col-old"><span class="fr">Soumise aux batailles successorales</span><span class="en">Subject to French succession battles</span></td>
+<td class="col-fgn"><span class="fr">Forced heirship étranger + exposition CRS</span><span class="en">Foreign forced-heirship + CRS exposure</span></td>
+<td class="col-cf"><span class="fr"><span class="tw-em">Transmission programmée</span> sur plusieurs générations</span><span class="en"><span class="tw-em">Multi-generational programmable</span> transmission</span></td>
+</tr>
+</tbody>
+</table>
+
+<div class="threeway-close"><span class="fr">Civil-Fi PAFC® n'a pas trouvé une faille. Nous avons cartographié, nommé, breveté et fait valider par le fisc une route juridique que le droit français autorisait depuis toujours mais que personne n'avait jamais tracée. <strong>Même protection. Même prévisibilité. Sans quitter chez vous.</strong></span><span class="en">Civil-Fi PAFC® did not find a loophole. We mapped, named, patented and tax-validated a legal road that French law always permitted but nobody had ever charted. <strong>Same protection. Same predictability. Without leaving home.</strong></span></div>
+</div>
+
 </div>
 
 <!-- § 04 -->
 <div class="section">
 <div class="sn">04</div>
 <div class="stag"><span class="fr">Marché mondial</span><span class="en">Global market</span></div>
-<h2><span class="fr">Plus de <em>$1,2 trillion</em> adressable</span><span class="en"><em>$1.2 trillion+</em> addressable</span></h2>
+<h2><span class="fr">Plus de <em>$2 trillions</em> adressables</span><span class="en"><em>$2 trillion+</em> addressable</span></h2>
 <div class="srule"></div>
 
-<p><span class="fr">Civil-Fi PAFC® est applicable dans <span class="strong">neuf zones de marché distinctes</span>, représentant au total plus de $1,2 trillion de valeur adressable.</span><span class="en">Civil-Fi PAFC® applies across <span class="strong">nine distinct market zones</span>, representing over $1.2 trillion in addressable value.</span></p>
+<p><span class="fr">Civil-Fi PAFC® est applicable dans <span class="strong">neuf zones de marché distinctes</span>, représentant au total plus de $1,2 trillion de valeur adressable côté domestique et UE — <span class="strong">étendu à plus de $2 trillions</span> avec l'extension <span class="em-t">DFI (Détention Fiduciaire Indirecte)</span> qui débloque la détention transfrontalière hors UE et la diaspora opérationnelle.</span><span class="en">Civil-Fi PAFC® applies across <span class="strong">nine distinct market zones</span>, representing over $1.2 trillion in addressable value domestically and within the EU — <span class="strong">extended beyond $2 trillion</span> through the <span class="em-t">DFI (Indirect Fiduciary Holding)</span> extension that unlocks cross-border holding outside the EU and operational diaspora.</span></p>
 
 <div class="wmap-wrap">
 <div class="wmap-frame">
@@ -1699,57 +1888,116 @@ select.form-input:invalid,select.form-input option[value=""]{color:var(--ink5)}
 <div class="mkt-r"><div class="mkt-v">$3T/an</div><div class="mkt-i"><h4><span class="fr">Infrastructure mondiale</span><span class="en">Global infrastructure</span></h4><p><span class="fr">Co-financement public-privé — modèle civil applicable aux PPP.</span><span class="en">Public-private co-financing — civil model applicable to PPPs.</span></p></div></div>
 <div class="mkt-r"><div class="mkt-v">€150Md</div><div class="mkt-i"><h4><span class="fr">Art, vin, luxe</span><span class="en">Art, wine, luxury</span></h4><p><span class="fr">Œuvres d'art, caves à vin, yachts, voitures de collection, jets partagés.</span><span class="en">Artworks, wine cellars, yachts, vintage cars, shared jets.</span></p></div></div>
 </div>
+
+<h3 style="font-family:'EB Garamond',serif;font-size:21px;font-weight:500;color:var(--ink);margin:42px 0 12px;font-style:italic"><span class="fr">L'extension <em style="color:var(--terra)">DFI</em> — détenir l'étranger</span><span class="en">The <em style="color:var(--terra)">DFI</em> extension — holding the foreign</span></h3>
+
+<p><span class="fr">La fiducie française n'est pas reconnue comme propriétaire dans les registres fonciers de la plupart des pays hors UE — Maroc, Tunisie, Sénégal, Côte d'Ivoire, Madagascar, Maurice, Liban, et bien d'autres. Pendant 18 ans, ce verrou a empêché la fiducie civile française de servir la diaspora et les actifs internationaux. <span class="strong">L'extension Détention Fiduciaire Indirecte (DFI)</span>, ajoutée à la doctrine v4.1, le résout proprement, dans le respect du droit local de chaque juridiction.</span><span class="en">The French fiducie is not recognised as a property holder in the land registries of most non-EU countries — Morocco, Tunisia, Senegal, Côte d'Ivoire, Madagascar, Mauritius, Lebanon, and many others. For 18 years, this lock has prevented French civil fiducie from serving diasporas and international assets. <span class="strong">The Indirect Fiduciary Holding (DFI) extension</span>, added in doctrine v4.1, resolves it cleanly — in compliance with each jurisdiction's local law.</span></p>
+
+<div class="kp" style="background:var(--terra3);border-left-color:var(--terra)">
+<h4><span class="fr">Le mécanisme DFI en clair</span><span class="en">The DFI mechanism in plain terms</span></h4>
+<p><span class="fr"><span class="strong">La FAC-Fille ne détient pas l'immeuble étranger directement.</span> Elle détient à 100% les parts d'une <span class="em-t">Société Holding Fiduciée (SHF)</span> — typiquement une SARL marocaine, tunisienne, sénégalaise, mauricienne ou luxembourgeoise — qui elle-même détient l'actif dans le registre local. Selon le droit local, l'actif peut être détenu en pleine propriété (Maroc/Tunisie/Maurice pour l'immobilier urbain), en bail emphytéotique long (99 ans, Madagascar et certaines zones), ou via une société d'exploitation. Le contributeur français reçoit toujours un DBA sur la FAC-Fille (jamais une part de la SHF). <span class="strong">Aucune offre de titres au public</span>, aucune négociabilité, aucune requalification AMF possible.</span><span class="en"><span class="strong">The FAC-Fille does not hold the foreign asset directly.</span> It holds 100% of a <span class="em-t">Société Holding Fiduciée (SHF)</span> — typically a Moroccan, Tunisian, Senegalese, Mauritian or Luxembourg SARL — which itself holds the asset in the local registry. Depending on local law, the asset may be held in full ownership (Morocco/Tunisia/Mauritius for urban real estate), under long emphyteutic lease (99 years, Madagascar and certain zones), or via an operating company. The French contributor always receives a DBA on the FAC-Fille (never a share in the SHF). <span class="strong">No offering of securities to the public</span>, no tradability, no possible AMF requalification.</span></p>
+</div>
+
+<p><span class="fr">Cette innovation est elle-même brevetée comme <span class="em-t">Invention 4 — PHCI (Protocole de Holding Civil Intermédié)</span>, en cours de dépôt INPI en parallèle de RFC-HCB, JCI Soulbound et PAMP. Quatre brevets superposés rendent la barrière concurrentielle pratiquement insurmontable pendant 20 ans.</span><span class="en">This innovation is itself patented as <span class="em-t">Invention 4 — PHCI (Civil Intermediated Holding Protocol)</span>, currently being filed at INPI alongside RFC-HCB, JCI Soulbound and PAMP. Four superposed patents make the competitive barrier practically insurmountable for 20 years.</span></p>
+
+<p><span class="fr">DFI débloque trois nouvelles verticales — RWA Cross-Border (V7), Holdings d'Actifs d'Entreprise (V8), Diaspora opérationnelle (V9) — avec un effet multiplicateur estimé entre <span class="strong">×1,8 et ×2,3</span> sur la valorisation des scénarios EU-only et Global du plan stratégique d'avril 2026.</span><span class="en">DFI unlocks three new verticals — Cross-Border RWA (V7), Corporate Asset Holdings (V8), Operational Diaspora (V9) — with an estimated multiplier of <span class="strong">×1.8 to ×2.3</span> on the valuation of the EU-only and Global scenarios of the April 2026 strategic plan.</span></p>
+
 </div>
 
 <!-- § 05 — Use cases + Instagram inline -->
 <div class="section">
 <div class="sn">05</div>
 <div class="stag"><span class="fr">Cas d'usage</span><span class="en">Use cases</span></div>
-<h2><span class="fr">Huit marchés, <em>huit problèmes résolus</em></span><span class="en">Eight markets, <em>eight problems solved</em></span></h2>
+<h2><span class="fr">Dix cas concrets, <em>déployés par cabinets licenciés</em></span><span class="en">Ten concrete cases, <em>deployed by licensed cabinets</em></span></h2>
 <div class="srule"></div>
+
+<p><span class="fr">Chaque cas suit la même logique en trois temps : <span class="strong">le besoin réel</span> d'un end-user (la famille, l'entrepreneur, l'investisseur, le retraité…) — <span class="strong">la solution PAFC®</span> qui le résout — et <span class="strong">le cabinet licencié</span> qui le déploie. Le standard ne se vend pas au public : il se déploie via des notaires, CIF, SGP, PSFP, family offices et cabinets cross-border. Chaque cas indique <span class="em-t">qui touche les revenus côté Civil-Fi</span> et de quel ordre.</span><span class="en">Each case follows the same three-step logic: <span class="strong">the end-user's real need</span> (family, entrepreneur, investor, retiree…) — <span class="strong">the PAFC® solution</span> that resolves it — and <span class="strong">the licensed cabinet</span> that deploys it. The standard isn't sold to the public: it deploys via notaries, CIFs, SGPs, PSFPs, family offices and cross-border cabinets. Each case shows <span class="em-t">who captures the Civil-Fi revenue</span> and at what order of magnitude.</span></p>
 
 <div class="uc open" onclick="this.classList.toggle('open')"><div class="uc-h"><span class="uc-n">01</span><div class="uc-t"><span class="fr">Immobilier — Projet Tenay, €800K</span><span class="en">Real estate — Tenay project, €800K</span></div><span class="uc-arr">+</span></div><div class="uc-b"><div class="uc-i">
 <div class="uc-lbl"><span class="fr">Problème</span><span class="en">Problem</span></div>
 <p class="uc-p"><span class="fr">Bâtiment historique à Tenay (Ain), €800K nécessaires. La communauté locale veut en être co-propriétaire — <span class="strong">40 investisseurs</span>. SCI à 40 associés : €30-40K de montage + 6 mois, gouvernance ingérable (unanimité sur toute cession, responsabilité indéfinie au prorata, parts sociales difficilement cessibles). Crowdfunding immobilier : agrément AMF, statut CIP, interdiction du démarchage direct, €40-60K de mise en conformité.</span><span class="en">Historic building needing €800K. Local community wants co-ownership — <span class="strong">40 investors</span>. 40-associate SCI: €30-40K setup + 6 months, unmanageable governance (unanimity required, unlimited pro-rata liability, shares hard to transfer). Real-estate crowdfunding: AMF licence, CIP status, no direct solicitation, €40-60K in compliance costs.</span></p>
 <div class="uc-lbl sol">Civil-Fi PAFC®</div>
 <p class="uc-p"><span class="fr">Le bâtiment entre dans une FAC-Fille dédiée. 40 participants font une Contribution Directe, reçoivent un DBA, partagent la PCR (revenus locatifs nets). Coût : moins de €15K. Délai : 4 semaines.</span><span class="en">Building enters a dedicated FAC-Fille. 40 participants make a Direct Contribution, receive a DBA, share the PCR (net rental income). Cost: under €15K. Timeline: 4 weeks.</span></p>
+<div class="uc-lbl b2b"><span class="fr">B2B · Cabinet déployant</span><span class="en">B2B · Deploying cabinet</span></div>
+<p class="uc-p"><span class="uc-chan">Notaire · CIF</span><span class="fr">Une étude notariale CCFP locale ou un CIF de réhabilitation patrimoniale agrège les 40 contributeurs (sa clientèle existante), encaisse ses honoraires de structuration habituels, et appose le label ACC. Civil-Fi facture €15K licence FAC-Fille + €2K/an RFC. Sur 1 dossier de cette taille en France : <span class="strong">~600 communes éligibles</span>, ~50 communes/an réalisent un projet patrimonial similaire. <span class="em-t">Captation 10% = 50 dossiers × €15K = €750K ARR setup, plus RFC récurrent</span>.</span><span class="en">A local CCFP-certified notarial office or heritage-rehabilitation CIF aggregates the 40 contributors (its existing client base), bills its usual structuring fees, and applies the ACC label. Civil-Fi bills €15K FAC-Fille licence + €2K/year RFC. On a deal of this size in France: <span class="strong">~600 eligible towns</span>, ~50 towns/year do a similar heritage project. <span class="em-t">10% capture = 50 cases × €15K = €750K ARR setup, plus recurring RFC</span>.</span></p>
 <div class="uc-r"><span class="fr">€800K levés en 4 semaines · 70% moins cher · zéro régulation financière<a class="ast" href="#disc1">*</a></span><span class="en">€800K raised in 4 weeks · 70% cheaper · zero financial regulation<a class="ast" href="#disc1">*</a></span></div>
 </div></div></div>
 
 <div class="uc" onclick="this.classList.toggle('open')"><div class="uc-h"><span class="uc-n">02</span><div class="uc-t"><span class="fr">Finance islamique — 6M de Muslims sans solution</span><span class="en">Islamic finance — 6M Muslims without a solution</span></div><span class="uc-arr">+</span></div><div class="uc-b"><div class="uc-i">
 <div class="uc-lbl"><span class="fr">Cas : Ahmed &amp; Fatima, Lyon</span><span class="en">Case: Ahmed &amp; Fatima, Lyon</span></div>
 <p class="uc-p"><span class="fr">Achat halal d'un appartement. Prêt bancaire à intérêts : religieusement interdit. « Prêt islamique » : 40% plus cher, rarissime, mal certifié. Avec Civil-Fi : FAC-Fille dédiée. Fonds islamique contribue €250K (70%), couple contribue €100K (30%). DU pour habiter. Contribution mensuelle progressive. Zéro intérêt. 100% halal.</span><span class="en">Halal apartment purchase. Interest loan: religiously forbidden. "Islamic loan": 40% more expensive, rare, poorly certified. With Civil-Fi: dedicated FAC-Fille. Islamic fund €250K (70%), couple €100K (30%). DU to live there. Progressive monthly contribution. Zero interest. 100% halal.</span></p>
-<div class="uc-r"><span class="fr">Premier achat halal en droit civil français · €50Md demande · Certification ACERFI en cours</span><span class="en">First halal purchase in French civil law · €50B demand · ACERFI certification in progress</span></div>
+<div class="uc-lbl b2b"><span class="fr">B2B · Cabinet déployant</span><span class="en">B2B · Deploying cabinet</span></div>
+<p class="uc-p"><span class="uc-chan">Banque · CCFS</span><span class="fr">Une grande banque européenne (BNP, CA, SG) licenciée FAC-Mère, ou un fonds Charia spécialisé, structure le wrapper civil français. Un praticien <span class="strong">CCFS (Specialist Charia)</span> certifie la conformité riba/gharar. La banque garde la relation client retail (~26M résidents musulmans UE), facture ses frais bancaires habituels. Civil-Fi facture €15-30K licence FAC-Fille + €5K/an certification Charia + RFC. <span class="em-t">Captation 0,01% du marché halal européen = 5 000 dossiers/an × €15K = €75M/an de chiffre d'affaires écosystème, royalty Civil-Fi ~€11M ARR</span>.</span><span class="en">A major European bank (BNP, CA, SG) licensed as FAC-Mère, or a specialised Sharia fund, structures the French civil wrapper. A <span class="strong">CCFS (Sharia Specialist)</span> practitioner certifies riba/gharar compliance. The bank keeps the retail client relationship (~26M EU Muslim residents), bills its usual banking fees. Civil-Fi bills €15-30K FAC-Fille licence + €5K/year Sharia certification + RFC. <span class="em-t">0.01% capture of EU halal market = 5,000 cases/year × €15K = €75M/year ecosystem revenue, ~€11M ARR Civil-Fi royalty</span>.</span></p>
+<div class="uc-r"><span class="fr">Premier wrapper civil-fiducie halal-compatible en droit français · ~6M résidents musulmans en France · marché européen ~€50Md de demande estimée · validation Charia spécifique en cours via praticiens CCFS</span><span class="en">First halal-compatible civil-fiducie wrapper in French law · ~6M Muslim residents in France · estimated ~€50B European demand · Sharia-specific validation underway via CCFS practitioners</span></div>
 </div></div></div>
 
 <div class="uc" onclick="this.classList.toggle('open')"><div class="uc-h"><span class="uc-n">03</span><div class="uc-t"><span class="fr">Succession — Immeuble Paris 16e, €3,2M</span><span class="en">Succession — Paris 16th, €3.2M</span></div><span class="uc-arr">+</span></div><div class="uc-b"><div class="uc-i">
 <div class="uc-lbl"><span class="fr">Cas : Marie, 74 ans</span><span class="en">Case: Marie, 74</span></div>
 <p class="uc-p"><span class="fr">3 enfants, 7 petits-enfants, immeuble €3,2M. SCI familiale : si un enfant divorce, parts saisissables. Si besoin d'argent, vente forcée. Avec Civil-Fi : FAC-Mère Patrimoniale + 7 petits-enfants adhérents. Donation progressive sur 15 ans. Droits insaisissables. Personne ne peut forcer une vente.</span><span class="en">3 children, 7 grandchildren, €3.2M building. Family SCI: if a child divorces, shares can be seized. If someone needs money, forced sale. With Civil-Fi: FAC-Mère Patrimoniale + 7 grandchildren as adherents. Progressive donation over 15 years. Unseizable rights. No one can force a sale.</span></p>
+<div class="uc-lbl b2b"><span class="fr">B2B · Cabinet déployant</span><span class="en">B2B · Deploying cabinet</span></div>
+<p class="uc-p"><span class="uc-chan">Étude notariale</span><span class="fr">L'étude notariale CCFP de Marie déploie la FAC-Mère Patrimoniale en marque blanche. Le notaire conserve son rôle constitutionnel (acte authentique obligatoire art. 2018), facture ses émoluments classiques de succession (~€8-15K), et appose le label ACC sur le projet. Civil-Fi facture €5-15K licence FAC-Mère + €2-5K/an + RFC. <span class="strong">Périmètre : 3,5M successions/an en France, dont ~150 000 dossiers UHNW (>€1M)</span>. Captation 1% du segment UHNW = 1 500 dossiers/an. <span class="em-t">À €10K royalty moyenne par dossier = €15M ARR sur le canal notarial seul</span>.</span><span class="en">Marie's CCFP-certified notarial office deploys the FAC-Mère Patrimoniale white-label. The notary keeps the constitutional role (mandatory authentic deed under art. 2018), bills standard succession fees (~€8-15K), and applies the ACC label. Civil-Fi bills €5-15K FAC-Mère licence + €2-5K/year + RFC. <span class="strong">Perimeter: 3.5M French successions/year, ~150,000 UHNW cases (>€1M)</span>. 1% UHNW capture = 1,500 cases/year. <span class="em-t">At €10K average royalty per case = €15M ARR on notarial channel alone</span>.</span></p>
 <div class="uc-r"><span class="fr">€3,2M préservés intacts sur 50+ ans · pas de guerre familiale possible</span><span class="en">€3.2M preserved intact for 50+ years · no possible family war</span></div>
 </div></div></div>
 
-<div class="uc" onclick="this.classList.toggle('open')"><div class="uc-h"><span class="uc-n">04</span><div class="uc-t"><span class="fr">Licence White Label — Le modèle McDonald's</span><span class="en">White label — McDonald's model</span></div><span class="uc-arr">+</span></div><div class="uc-b"><div class="uc-i">
-<p class="uc-p"><span class="fr">Un cabinet de 40 avocats signe : €12K setup + €4K/an de redevance. Pour chaque FAC-Fille déployée, €300 à Civil-Fi. Accès templates, RFC, marque. 30 projets/an = €25K par cabinet. × 100 cabinets = €2,5M/an en récurrent <span class="strong">sans gérer un seul projet</span>.</span><span class="en">A firm of 40 lawyers signs: €12K setup + €4K/year royalty. €300 to Civil-Fi per FAC-Fille deployed. Access to templates, RFC, brand. 30 projects/year = €25K per firm. × 100 firms = €2.5M/year recurring <span class="strong">without managing a single project</span>.</span></p>
-<div class="uc-r"><span class="fr">Cible : 1 500 praticiens certifiés CCFP = €3M/an en renouvellements seuls</span><span class="en">Target: 1,500 CCFP-certified practitioners = €3M/year in renewals alone</span></div>
+<div class="uc" onclick="this.classList.toggle('open')"><div class="uc-h"><span class="uc-n">04</span><div class="uc-t"><span class="fr">Licence cabinet — Comment le standard scale</span><span class="en">Cabinet licence — How the standard scales</span></div><span class="uc-arr">+</span></div><div class="uc-b"><div class="uc-i">
+<div class="uc-lbl"><span class="fr">Logique : la norme se déploie, ne se vend pas</span><span class="en">Logic: the norm deploys, doesn't sell</span></div>
+<p class="uc-p"><span class="fr">Comme une norme AFNOR n'est jamais vendue à un particulier mais déployée par des organismes certificateurs, PAFC® n'est jamais vendu à un end-user mais déployé par des cabinets licenciés.</span><span class="en">Just as an AFNOR standard is never sold to an individual but deployed by certification bodies, PAFC® is never sold to an end-user but deployed by licensed cabinets.</span></p>
+<div class="uc-lbl b2b"><span class="fr">B2B · Économie d'un cabinet licencié</span><span class="en">B2B · Licensed cabinet economics</span></div>
+<p class="uc-p"><span class="uc-chan">Notaire · CIF · Avocat · MFO</span><span class="fr">Un cabinet de 40 professionnels signe la licence : <span class="strong">€12K setup + €4K/an de redevance</span>. Pour chaque FAC-Fille déployée, €300-500 à Civil-Fi. Accès complet : modèles FAC-Mère/FAC-Fille, doctrine v4.1 intégrale, RFC API, marque PAFC® en co-branding. Le cabinet capture sa marge habituelle de structuration (€8-25K par dossier) sur sa propre clientèle. 30 dossiers/an = €25K royalty Civil-Fi par cabinet.</span><span class="en">A 40-professional cabinet signs the licence: <span class="strong">€12K setup + €4K/year royalty</span>. €300-500 to Civil-Fi per FAC-Fille deployed. Full access: FAC-Mère/FAC-Fille templates, complete v4.1 doctrine, RFC API, PAFC® co-branding mark. The cabinet captures its usual structuring margin (€8-25K per case) on its own client base. 30 cases/year = €25K Civil-Fi royalty per cabinet.</span></p>
+<p class="uc-p"><span class="uc-chan">CCA · Académie</span><span class="fr">L'Académie (CCA) certifie les praticiens : <span class="strong">CCFP €3-8K + CCFS Charia €2-5K supplémentaire</span>. 40 heures de formation, examen écrit, accréditation horodatée au RFC. <span class="em-t">À 1 500 CCFP certifiés × €1,5K renouvellement triennal = €2,25M ARR récurrent en formation</span>, sans compter les acquisitions initiales.</span><span class="en">The Academy (CCA) certifies practitioners: <span class="strong">CCFP €3-8K + additional CCFS Sharia €2-5K</span>. 40-hour training, written exam, RFC-timestamped accreditation. <span class="em-t">At 1,500 certified CCFPs × €1.5K triennial renewal = €2.25M recurring training ARR</span>, beyond initial acquisitions.</span></p>
+<div class="uc-r"><span class="fr">100 cabinets × €25K royalty = €2,5M ARR · 1 500 CCFP × renouvellement = €2,25M ARR · sans gérer un seul projet</span><span class="en">100 cabinets × €25K royalty = €2.5M ARR · 1,500 CCFPs × renewals = €2.25M ARR · without managing a single project</span></div>
 </div></div></div>
 
-<div class="uc" onclick="this.classList.toggle('open')"><div class="uc-h"><span class="uc-n">05</span><div class="uc-t"><span class="fr">Énergie, IA &amp; Carbone — Actifs productifs</span><span class="en">Energy, AI &amp; Carbon — Productive assets</span></div><span class="uc-arr">+</span></div><div class="uc-b"><div class="uc-i">
-<p class="uc-p"><span class="fr"><span class="strong">Solaire communautaire :</span> 500 kWc, €1,2M, 200 ménages, PCR = ventes d'électricité. <span class="strong">Ferme GPU/IA :</span> €2M, 50 entrepreneurs, €300K/an revenus compute. <span class="strong">Forêt carbone :</span> 500 ha, €150K/an crédits Gold Standard. Tout actif productif peut devenir une FAC-Fille.</span><span class="en"><span class="strong">Community solar:</span> 500 kWc, €1.2M, 200 households, PCR = electricity sales. <span class="strong">GPU/AI farm:</span> €2M, 50 entrepreneurs, €300K/year compute. <span class="strong">Carbon forest:</span> 500 ha, €150K/year Gold Standard credits. Any productive asset can become a FAC-Fille.</span></p>
+<div class="uc" onclick="this.classList.toggle('open')"><div class="uc-h"><span class="uc-n">05</span><div class="uc-t"><span class="fr">Énergie communautaire — Actifs productifs civils</span><span class="en">Community energy — Productive civil assets</span></div><span class="uc-arr">+</span></div><div class="uc-b"><div class="uc-i">
+<div class="uc-lbl"><span class="fr">Cas pivot : autoconsommation collective</span><span class="en">Pivot case: collective self-consumption</span></div>
+<p class="uc-p"><span class="fr"><span class="strong">Solaire communautaire (cas central)</span> — 500 kWc, €1,2M, ~200 ménages d'un quartier ou d'une commune. Cadre juridique : autoconsommation collective (article L.315-2 Code de l'énergie, Décret 2017-676). PCR = ventes d'électricité au réseau et fourniture aux participants. Aujourd'hui structuré en SCIC ou SAS dédiée — 6 à 9 mois de montage, gouvernance lourde, coûts juridiques €40-70K. <span class="strong">Avec PAFC® :</span> FAC-Fille en 6-8 semaines, droits civils différenciés (résident, financeur, collectivité), label ACC, mêmes subventions Ademe/CRE accessibles.</span><span class="en"><span class="strong">Community solar (central case)</span> — 500 kWc, €1.2M, ~200 households in a neighbourhood or town. Legal framework: collective self-consumption (Article L.315-2 Energy Code, Decree 2017-676). PCR = electricity sales to grid and supply to participants. Today structured as SCIC or dedicated SAS — 6 to 9 months setup, heavy governance, €40-70K legal costs. <span class="strong">With PAFC®:</span> FAC-Fille in 6-8 weeks, differentiated civil rights (resident, financier, local authority), ACC label, same Ademe/CRE subsidies accessible.</span></p>
+<p class="uc-p"><span class="fr"><span class="strong">Extensions applicables au même protocole :</span> hydroélectricité communautaire, méthanisation agricole collective, bornes de recharge mutualisées, projets de chaleur urbaine biomasse — partout où plusieurs contributeurs financent un actif productif d'intérêt commun.</span><span class="en"><span class="strong">Extensions applicable under the same protocol:</span> community hydropower, collective agricultural methanisation, shared EV charging stations, biomass urban heating — anywhere multiple contributors finance a productive asset of common interest.</span></p>
+<div class="uc-lbl b2b"><span class="fr">B2B · Cabinet déployant</span><span class="en">B2B · Deploying cabinet</span></div>
+<p class="uc-p"><span class="uc-chan">Avocat énergie · Bureau d'étude</span><span class="fr">Un cabinet d'avocats spécialisé en droit de l'énergie (les ~80-100 cabinets nationaux qui structurent SCIC et SAS d'autoconsommation collective) devient licencié et déploie une fiducie native en 6-8 semaines au lieu de 6-9 mois pour une SCIC — débloquant les fenêtres de subvention Ademe / France 2030. Le cabinet conserve ses honoraires de montage (€20-50K). Civil-Fi facture €15-25K licence FAC-Fille + RFC + label ACC.</span><span class="en">A specialised energy-law firm (the ~80-100 national firms structuring SCICs and collective self-consumption SAS) becomes licensed and deploys a native fiducie in 6-8 weeks instead of 6-9 months for SCIC — unlocking Ademe / France 2030 subsidy windows. The firm keeps its structuring fees (€20-50K). Civil-Fi bills €15-25K FAC-Fille licence + RFC + ACC label.</span></p>
+<div class="uc-r"><span class="fr">~80-100 cabinets énergie cibles · captation 20% = 20 cabinets × 5 dossiers/an = €1,5-2M ARR · plan France 2030 · transition énergétique territoriale</span><span class="en">~80-100 target energy firms · 20% capture = 20 firms × 5 cases/year = €1.5-2M ARR · France 2030 plan · territorial energy transition</span></div>
 </div></div></div>
 
 <div class="uc" onclick="this.classList.toggle('open')"><div class="uc-h"><span class="uc-n">06</span><div class="uc-t"><span class="fr">Patrimoine multi-actifs — L'outil Rothschild</span><span class="en">Multi-asset — Rothschild tool</span></div><span class="uc-arr">+</span></div><div class="uc-b"><div class="uc-i">
 <div class="uc-lbl"><span class="fr">Cas : famille Desroches, €8M</span><span class="en">Case: Desroches family, €8M</span></div>
 <p class="uc-p"><span class="fr">Vignoble bordelais, 2 immeubles parisiens, villa corse, meubles anciens. Une FAC-Mère + 4 FAC-Filles sectorielles. 13 membres de la famille. Un seul fiduciaire. Un portail. Règles de succession personnalisées. Protection 50+ ans contre la dilution, le divorce, le conflit, la saisie.</span><span class="en">Bordeaux vineyard, 2 Paris buildings, Corsican villa, antiques. One FAC-Mère + 4 sector FAC-Filles. 13 family members. One fiduciary. One portal. Custom succession rules. 50+ years of protection against dilution, divorce, conflict, seizure.</span></p>
+<div class="uc-lbl b2b"><span class="fr">B2B · Cabinet déployant</span><span class="en">B2B · Deploying cabinet</span></div>
+<p class="uc-p"><span class="uc-chan">Multi-Family Office · Étude UHNW</span><span class="fr">Un Multi-Family Office (Rothschild & Co MFO, Edmond de Rothschild Family Office, Cèdre Finance, Quintet, Notus Family Office, etc.) ou une étude notariale UHNW devient licencié FAC-Mère et déploie un set de fiducies par dynastie. Le MFO conserve son fee de gestion patrimoniale (~1% AUM/an), facture sa structuration (€30-80K initial). Civil-Fi facture €15-30K licence FAC-Mère par famille + €5-10K/an + RFC pour chaque FAC-Fille sectorielle. <span class="strong">~2 800 family offices en Europe</span> dont ~400 français. Captation 5% = 140 cabinets × 8 familles structurées = 1 120 FAC-Mères dynasty. <span class="em-t">~€16M ARR récurrent sur ce segment seul</span>.</span><span class="en">A Multi-Family Office (Rothschild & Co MFO, Edmond de Rothschild Family Office, Cèdre Finance, Quintet, Notus Family Office, etc.) or UHNW notarial office becomes a licensed FAC-Mère and deploys a per-dynasty fiducie set. The MFO keeps its wealth management fee (~1% AUM/year), bills structuring (€30-80K initial). Civil-Fi bills €15-30K FAC-Mère licence per family + €5-10K/year + RFC for each sector FAC-Fille. <span class="strong">~2,800 European family offices</span> incl. ~400 French. 5% capture = 140 firms × 8 structured families = 1,120 dynasty FAC-Mères. <span class="em-t">~€16M ARR on this segment alone</span>.</span></p>
+<div class="uc-r"><span class="fr">€8M préservés intacts sur 50+ ans · alternative civile française aux trusts Jersey/Cayman/Liechtenstein</span><span class="en">€8M preserved intact for 50+ years · French civil alternative to Jersey/Cayman/Liechtenstein trusts</span></div>
 </div></div></div>
 
-<div class="uc" onclick="this.classList.toggle('open')"><div class="uc-h"><span class="uc-n">07</span><div class="uc-t"><span class="fr">Diaspora — Actifs à l'étranger, protection française</span><span class="en">Diaspora — Overseas assets, French protection</span></div><span class="uc-arr">+</span></div><div class="uc-b"><div class="uc-i">
-<div class="uc-lbl"><span class="fr">Cas : Rakoto, Madagascar</span><span class="en">Case: Rakoto, Madagascar</span></div>
-<p class="uc-p"><span class="fr">Rakoto et 15 membres de sa famille en France veulent co-financer un hôtel à Antananarivo (€400K). Problème classique : corruption locale, dilution, pas de recours. Avec Civil-Fi : FAC-Fille sous droit français, fiduciaire français, RFC en France. Le PAMP ne débloque les fonds qu'aux jalons réels (permis, construction, ouverture). Actif à l'étranger, protection juridique française.</span><span class="en">Rakoto and 15 family members in France want to co-finance a hotel in Antananarivo (€400K). Classic problem: local corruption, dilution, no recourse. With Civil-Fi: FAC-Fille under French law, French fiduciary, RFC in France. PAMP only releases funds at real milestones. Asset abroad, French legal protection.</span></p>
-<div class="uc-r"><span class="fr">Réplicable pour des millions · Particulièrement puissant en zone UEMOA</span><span class="en">Replicable for millions · Particularly powerful in UEMOA zone</span></div>
+<div class="uc" onclick="this.classList.toggle('open')"><div class="uc-h"><span class="uc-n">07</span><div class="uc-t"><span class="fr">Diaspora — DFI · Immeuble locatif Casablanca €600K</span><span class="en">Diaspora — DFI · Casablanca rental building €600K</span></div><span class="uc-arr">+</span></div><div class="uc-b"><div class="uc-i">
+<div class="uc-lbl"><span class="fr">Cas : Karim, diaspora marocaine — déploiement DFI</span><span class="en">Case: Karim, Moroccan diaspora — DFI deployment</span></div>
+<p class="uc-p"><span class="fr">Karim et 12 membres de sa famille résidant en France veulent co-financer un petit immeuble locatif à Casablanca (€600K). Aujourd'hui : achats individuels par procuration, dilution familiale, conflits successoraux entre héritiers en France et au Maroc, transferts informels Western Union. Le registre foncier marocain (Conservation Foncière) <span class="strong">n'inscrit pas la fiducie française</span> comme propriétaire — la fiducie n'a pas la personnalité morale.</span><span class="en">Karim and 12 family members residing in France want to co-finance a small rental building in Casablanca (€600K). Today: individual purchases by power of attorney, family dilution, succession conflicts between heirs in France and Morocco, informal Western Union transfers. The Moroccan land registry (Conservation Foncière) <span class="strong">does not register a French fiducie</span> as owner — the fiducie has no legal personality.</span></p>
+<p class="uc-p"><span class="fr"><span class="strong">Solution DFI :</span> la FAC-Fille acquiert 100% des parts d'une SARL marocaine (la « Société Holding Fiduciée ») qui détient l'immeuble dans le registre local. La SARL marocaine peut être détenue à 100% par un non-résident pour de l'<span class="em-t">immobilier urbain non agricole</span> (Code des investissements marocain, lex generalis). Aucune part ni titre n'est attribué aux 13 contributeurs — ils reçoivent un DBA sur la FAC-Fille (jamais sur la SARL marocaine). Fiduciaire français, RFC en France, droit français entre contributeurs. PAMP ne débloque les fonds qu'aux jalons réels (acte authentifié devant l'adoul, immatriculation à la Conservation Foncière, livraison locataire).</span><span class="en"><span class="strong">DFI solution:</span> the FAC-Fille acquires 100% of a Moroccan SARL (the "Société Holding Fiduciée") which holds the building in the local registry. A Moroccan SARL may be 100% non-resident-owned for <span class="em-t">non-agricultural urban real estate</span> (Moroccan Investment Code, lex generalis). No share or security is allocated to the 13 contributors — they receive a DBA on the FAC-Fille (never on the Moroccan SARL). French fiduciary, RFC in France, French law between contributors. PAMP releases funds only at real milestones (notarised deed before the adoul, registration with Conservation Foncière, tenant handover).</span></p>
+<div class="uc-lbl b2b"><span class="fr">B2B · Cabinet déployant</span><span class="en">B2B · Deploying cabinet</span></div>
+<p class="uc-p"><span class="uc-chan">Cabinet cross-border DFI</span><span class="fr">Un cabinet d'avocats franco-marocain (Gide, Cuatrecasas Maroc, Kettani Law Firm, Bassamat & Laraqui, ou les boutiques franco-Maghreb spécialisées) devient licencié DFI et instrumente les deux couches : la FAC-Fille en France (avec un fiduciaire CCFP) et la SARL marocaine. Honoraires cabinet : <span class="strong">€50-200K par dossier cross-border</span> (acte au Maroc, double enregistrement, fiscalité bilatérale). Civil-Fi facture €25-50K licence FAC-Fille DFI + €5-15K/an + audit RFC trans-couche. <span class="em-t">~50-80 cabinets cibles à terme · 10-20 dossiers/an chacun · €2-4M ARR additionnel à M48</span> sur ce canal seul.</span><span class="en">A franco-Moroccan law firm (Gide, Cuatrecasas Maroc, Kettani Law Firm, Bassamat & Laraqui, or specialised franco-Maghreb boutiques) becomes DFI-licensed and instruments both layers: the FAC-Fille in France (with a CCFP fiduciary) and the Moroccan SARL. Cabinet fees: <span class="strong">€50-200K per cross-border case</span> (Moroccan deed, dual registration, bilateral taxation). Civil-Fi bills €25-50K DFI FAC-Fille licence + €5-15K/year + cross-layer RFC audit. <span class="em-t">~50-80 target cabinets eventually · 10-20 cases/year each · €2-4M additional ARR by M48</span> on this channel alone.</span></p>
+<div class="uc-r"><span class="fr">Réplicable selon le droit local : Maroc, Tunisie, Sénégal (immobilier urbain), Côte d'Ivoire, Maurice, Luxembourg · Étude DFI v4.1 confirme la non-requalification AMF · brevet PHCI en dépôt</span><span class="en">Replicable subject to local law: Morocco, Tunisia, Senegal (urban real estate), Côte d'Ivoire, Mauritius, Luxembourg · DFI study v4.1 confirms no AMF requalification · PHCI patent filing</span></div>
+<p class="uc-p" style="font-size:11px;color:var(--ink4);font-style:italic;margin-top:10px;border-top:.5px dotted var(--rule);padding-top:10px"><span class="fr"><span class="strong">Note d'éligibilité-pays :</span> la DFI s'applique pays par pays. Certaines juridictions réservent la pleine propriété foncière aux nationaux ou interdisent la détention de terres agricoles par des sociétés à capital étranger (par exemple Madagascar — Loi n°2003-029 — où l'accès se fait par bail emphytéotique long ; Sénégal pour les terres rurales ; certaines provinces algériennes). L'OJP DFI préalable à chaque dossier détermine la structure adaptée (pleine propriété SARL locale, bail emphytéotique 99 ans, ou société d'exploitation seulement).</span><span class="en"><span class="strong">Country eligibility note:</span> DFI applies on a country-by-country basis. Some jurisdictions reserve land freehold to nationals or prohibit foreign-capital company ownership of agricultural land (e.g. Madagascar — Law 2003-029 — where access is via long emphyteutic lease; Senegal for rural land; certain Algerian provinces). The DFI OJP preceding each case determines the adapted structure (full ownership via local SARL, 99-year emphyteutic lease, or operating company only).</span></p>
 </div></div></div>
 
 <div class="uc" onclick="this.classList.toggle('open')"><div class="uc-h"><span class="uc-n">08</span><div class="uc-t"><span class="fr">Art, vin &amp; luxe — Actifs d'exception</span><span class="en">Art, wine &amp; luxury — Exceptional assets</span></div><span class="uc-arr">+</span></div><div class="uc-b"><div class="uc-i">
-<p class="uc-p"><span class="fr">Collection d'art contemporain €2M, 10 co-propriétaires civils. DBA + DU (expositions privées tournantes) + PCR (si prêt à musée rémunéré). Applicable aux caves à vin de Bourgogne, yachts méditerranéens, jets partagés, voitures de collection, montres rares. <span class="strong">Aucune structure existante ne permet cela sans produit financier</span><a class="ast" href="#disc1">*</a>.</span><span class="en">€2M contemporary art collection, 10 civil co-owners. DBA + DU (rotating private exhibitions) + PCR (if paid museum loan). Applicable to Burgundy wine cellars, Mediterranean yachts, shared jets, vintage cars, rare watches. <span class="strong">No existing structure allows this without a financial product</span><a class="ast" href="#disc1">*</a>.</span></p>
+<div class="uc-lbl"><span class="fr">Cas : 10 collectionneurs civils · €2M</span><span class="en">Case: 10 civil collectors · €2M</span></div>
+<p class="uc-p"><span class="fr">Collection d'art contemporain €2M, 10 co-propriétaires civils. DBA + DU (jouissance d'expositions privées tournantes) + PCR éventuel (si prêt à musée rémunéré). Applicable aux caves à vin de Bourgogne, yachts méditerranéens, jets partagés, voitures de collection, montres rares. <span class="strong">Aucune structure civile équivalente ne permet ce niveau de granularité sans recourir à un produit financier régulé</span><a class="ast" href="#disc1">*</a>.</span><span class="en">€2M contemporary art collection, 10 civil co-owners. DBA + DU (rotating private exhibition rights) + optional PCR (if paid museum loan). Applicable to Burgundy wine cellars, Mediterranean yachts, shared jets, vintage cars, rare watches. <span class="strong">No equivalent civil structure offers this level of granularity without resorting to a regulated financial product</span><a class="ast" href="#disc1">*</a>.</span></p>
+<p class="uc-p"><span class="fr"><span class="strong">Distinction critique vis-à-vis des « fonds d'art » :</span> aucun titre n'est offert au public, aucun rendement n'est promis, aucune négociabilité des DBA, gouvernance fiduciaire, contributions civiles documentées au RFC. La structure reste hors champ AMF (article L.211-1 CMF) parce que le DBA n'est pas un instrument financier négociable mais un droit civil sur la jouissance partagée d'un bien identifié.</span><span class="en"><span class="strong">Critical distinction from "art funds":</span> no security offered to public, no yield promised, no DBA tradability, fiduciary governance, civil contributions documented at the RFC. The structure remains outside AMF scope (Article L.211-1 CMF) because the DBA is not a tradable financial instrument but a civil right to shared enjoyment of an identified asset.</span></p>
+<div class="uc-lbl b2b"><span class="fr">B2B · Cabinet déployant</span><span class="en">B2B · Deploying cabinet</span></div>
+<p class="uc-p"><span class="uc-chan">Cabinet patrimonial luxe · Galerie · Maison de vente</span><span class="fr">Un cabinet d'avocats spécialisé luxe (Adamas, Bird & Bird Luxury, August Debouzy art law) ou un wealth manager dédié actifs d'exception devient licencié et structure une FAC-Fille par actif d'exception. Les maisons de vente (Christie's, Sotheby's, Artcurial) et galeries marchandes peuvent référencer la solution à leur clientèle UHNW comme alternative civile à l'achat individuel — sans démarchage public. Le cabinet conserve sa marge habituelle de structuration patrimoniale (€10-30K). Civil-Fi facture €15-25K licence FAC-Fille + €3-5K/an + RFC + label ACC. <span class="em-t">Marché art + vin + luxe France ~€150Md · 1‰ adressable = 1 500 dossiers cumulés sur 5 ans · €4-5M ARR récurrent à terme</span>.</span><span class="en">A luxury-specialised law firm (Adamas, Bird & Bird Luxury, August Debouzy art law) or an exceptional-asset wealth manager becomes licensed and structures a FAC-Fille per exceptional asset. Auction houses (Christie's, Sotheby's, Artcurial) and dealer galleries can refer the solution to their UHNW clientele as a civil alternative to individual purchase — without public solicitation. The firm keeps its usual wealth structuring margin (€10-30K). Civil-Fi bills €15-25K FAC-Fille licence + €3-5K/year + RFC + ACC label. <span class="em-t">French art + wine + luxury market ~€150B · 0.1% addressable = 1,500 cumulative cases over 5 years · €4-5M recurring ARR at scale</span>.</span></p>
+<div class="uc-r"><span class="fr">Premier wrapper civil français pour actifs d'exception · alternative aux fonds d'art régulés</span><span class="en">First French civil wrapper for exceptional assets · alternative to regulated art funds</span></div>
+</div></div></div>
+
+<div class="uc" onclick="this.classList.toggle('open')"><div class="uc-h"><span class="uc-n">09</span><div class="uc-t"><span class="fr">SGP — deals sub-€15M refusés par AIFM</span><span class="en">SGP — sub-€15M deals rejected by AIFM</span> <span class="mkt-tag">Nouveau v4</span></div><span class="uc-arr">+</span></div><div class="uc-b"><div class="uc-i">
+<div class="uc-lbl"><span class="fr">Cas : société de gestion de portefeuille licenciée</span><span class="en">Case: licensed portfolio management firm</span></div>
+<p class="uc-p"><span class="fr">Une grande SGP française (Amundi, Primonial, Sofidy, Perial, La Française REM) reçoit chaque mois des dossiers d'actifs entre €4M et €14M — château historique, immeuble de caractère, parc d'activités spécialisé. <span class="strong">L'AIFMD rend ces actifs économiquement non viables en SCPI/OPCI</span> (dépositaire, valorisation NAV, conformité) en dessous de €15M. La SGP les refuse, perd la relation, et le sponsor part chez un concurrent étranger.</span><span class="en">A major French SGP (Amundi, Primonial, Sofidy, Perial, La Française REM) receives monthly deals with assets between €4M and €14M — heritage château, character building, specialised business park. <span class="strong">AIFMD makes these assets economically unviable as SCPI/OPCI</span> (depositary, NAV valuation, compliance) below €15M. The SGP refuses, loses the relationship, and the sponsor goes to a foreign competitor.</span></p>
+<div class="uc-lbl sol">Civil-Fi PAFC®</div>
+<p class="uc-p"><span class="fr">La SGP devient cabinet licencié et structure le deal en FAC-Fille en 4 semaines. Elle conserve la commission de gestion de l'actif. Civil-Fi prend la licence (€15K) + redevance par FAC-Fille. Aucune contrainte AIFMD car la FAC-Fille n'est pas un FIA — c'est un patrimoine fiduciaire civil.</span><span class="en">The SGP becomes a licensed cabinet and structures the deal as FAC-Fille in 4 weeks. It keeps the management fee on the asset. Civil-Fi takes the licence (€15K) + per-FAC-Fille royalty. No AIFMD constraint because the FAC-Fille is not an AIF — it's a civil fiduciary estate.</span></p>
+<div class="uc-r"><span class="fr">~700 SGP en France · Captation 10% = 70 cabinets licenciés · €0 perdus en deals refusés</span><span class="en">~700 SGPs in France · 10% capture = 70 licensed cabinets · €0 lost in rejected deals</span></div>
+</div></div></div>
+
+<div class="uc" onclick="this.classList.toggle('open')"><div class="uc-h"><span class="uc-n">10</span><div class="uc-t"><span class="fr">Family Offices — dynasties retenues en France</span><span class="en">Family Offices — dynasties retained in France</span> <span class="mkt-tag">Nouveau v4</span></div><span class="uc-arr">+</span></div><div class="uc-b"><div class="uc-i">
+<div class="uc-lbl"><span class="fr">Cas : Multi-Family Office parisien · €30M+ AUM par client</span><span class="en">Case: Paris Multi-Family Office · €30M+ AUM per client</span></div>
+<p class="uc-p"><span class="fr">Un Multi-Family Office gère ~80 familles UHNW. <span class="strong">~80% utilisent aujourd'hui des trusts étrangers</span> (Jersey, Cayman, Liechtenstein, Singapour) pour leurs plans dynastiques multi-générationnels. Raison : la SCI familiale française est saisissable, le démembrement complexe, le pacte Dutreil limité. Conséquence : capital qui quitte la France, rapports CRS, ATAD, et un ressentiment croissant face à la complexité offshore.</span><span class="en">A Multi-Family Office manages ~80 UHNW families. <span class="strong">~80% currently use foreign trusts</span> (Jersey, Cayman, Liechtenstein, Singapore) for multi-generational dynasty plans. Reason: French family SCI is seizable, dismemberment complex, Dutreil pact limited. Consequence: capital leaving France, CRS reports, ATAD, and growing resentment of offshore complexity.</span></p>
+<div class="uc-lbl sol">Civil-Fi PAFC®</div>
+<p class="uc-p"><span class="fr">Le family office obtient une licence FAC-Mère blanche et déploie une fiducie civile française par dynastie : étanchéité contre créanciers personnels, transmission programmée sur 50+ ans (CCFC), gouvernance tripolaire (fondateur + fiduciaire + CCS), confidentialité au RFC. <span class="strong">Au lieu d'envoyer le capital à Genève, le family office le retient en France sous protection civile française.</span></span><span class="en">The family office obtains a white-label FAC-Mère licence and deploys a French civil fiducie per dynasty: shielding from personal creditors, programmed transmission over 50+ years (CCFC), tripolar governance (founder + fiduciary + CCS), RFC confidentiality. <span class="strong">Instead of sending capital to Geneva, the family office retains it in France under French civil protection.</span></span></p>
+<div class="uc-r"><span class="fr">~2 800 family offices en Europe · €1 200Md AUM · Captation 5% = 140 cabinets licenciés</span><span class="en">~2,800 family offices in Europe · €1,200B AUM · 5% capture = 140 licensed cabinets</span></div>
 </div></div></div>
 
 <!-- Instagram inline preview -->
@@ -1774,7 +2022,7 @@ select.form-input:invalid,select.form-input option[value=""]{color:var(--ink5)}
 
 <div class="moat-g">
 <div class="moat-c"><div class="moat-n">1</div><div class="moat-lbl"><span class="fr">Premier arrivé légal</span><span class="en">Legal first-mover</span></div><div class="moat-t"><span class="fr">First-Mover Légal</span><span class="en">Legal first-mover</span></div><div class="moat-d"><span class="fr">2+ ans d'avance doctrinale. La doctrine PAFC® définit les termes, les concepts, le lexique. Tout concurrent parle notre langue.</span><span class="en">2+ years doctrinal lead. PAFC® defines terms, concepts, lexicon. Any competitor speaks our language.</span></div></div>
-<div class="moat-c"><div class="moat-n">2</div><div class="moat-lbl"><span class="fr">Portefeuille IP</span><span class="en">IP portfolio</span></div><div class="moat-t"><span class="fr">5 couches de propriété intellectuelle</span><span class="en">5 layers of IP</span></div><div class="moat-d"><span class="fr">Soleau + Marques FR/EU + Brevet RFC/JCI/PAMP (20 ans) + droit d'auteur + secret de fabrique.</span><span class="en">Soleau + FR/EU trademarks + RFC/JCI/PAMP patents (20 years) + copyright + trade secret.</span></div></div>
+<div class="moat-c"><div class="moat-n">2</div><div class="moat-lbl"><span class="fr">Portefeuille IP</span><span class="en">IP portfolio</span></div><div class="moat-t"><span class="fr">5 couches × 4 brevets</span><span class="en">5 layers × 4 patents</span></div><div class="moat-d"><span class="fr">Soleau (4 dépôts) + Marques FR/EU + <span class="strong">4 brevets : RFC-HCB, JCI Soulbound, PAMP, PHCI (DFI)</span> (20 ans) + droit d'auteur + secret de fabrique. Effet IP ×1,8-×2,3 portefeuille.</span><span class="en">Soleau (4 deposits) + FR/EU trademarks + <span class="strong">4 patents: RFC-HCB, JCI Soulbound, PAMP, PHCI (DFI)</span> (20 years) + copyright + trade secret. ×1.8-×2.3 portfolio IP effect.</span></div></div>
 <div class="moat-c"><div class="moat-n">3</div><div class="moat-lbl"><span class="fr">Monopole RFC</span><span class="en">RFC monopoly</span></div><div class="moat-t"><span class="fr">Le SWIFT de la fiducie civile</span><span class="en">SWIFT of civil trust law</span></div><div class="moat-d"><span class="fr">Le Registre Fiduciaire Central est l'infrastructure probatoire. Sans RFC, pas d'opposabilité. Péage incontournable.</span><span class="en">The Central Fiduciary Registry is the evidentiary infrastructure. Without RFC, no enforceability. Unavoidable toll.</span></div></div>
 <div class="moat-c"><div class="moat-n">4</div><div class="moat-lbl"><span class="fr">Lock-in certifiés</span><span class="en">Certified lock-in</span></div><div class="moat-t"><span class="fr">Les praticiens deviennent défenseurs</span><span class="en">Practitioners become defenders</span></div><div class="moat-d"><span class="fr">Les avocats et family offices certifiés CCFP dépendent de PAFC®. Défenseurs naturels contre tout concurrent.</span><span class="en">CCFP-certified lawyers and family offices depend on PAFC®. Natural defenders against any competitor.</span></div></div>
 <div class="moat-c"><div class="moat-n">5</div><div class="moat-lbl"><span class="fr">Moat réglementaire</span><span class="en">Regulatory moat</span></div><div class="moat-t"><span class="fr">OJP + rescrit = 18 mois pour copier</span><span class="en">OJP + ruling = 18 months to copy</span></div><div class="moat-d"><span class="fr">Un concurrent devrait obtenir sa propre OJP et son rescrit — minimum 18 mois. Pendant ce temps, chaque FAC-Fille crée de la jurisprudence favorable.</span><span class="en">A competitor needs own OJP and tax ruling — minimum 18 months. Meanwhile, every FAC-Fille creates favourable jurisprudence.</span></div></div>
@@ -1786,9 +2034,52 @@ select.form-input:invalid,select.form-input option[value=""]{color:var(--ink5)}
 </div>
 </div>
 
-<!-- § 07 — 7 flux de revenus -->
+
+<!-- § 07 — Réseau de distribution réglementé (B2B engine) -->
 <div class="section">
 <div class="sn">07</div>
+<div class="stag"><span class="fr">Réseau de distribution B2B</span><span class="en">B2B distribution network</span></div>
+<h2><span class="fr">22 000 partenaires <em>déjà réglementés</em></span><span class="en">22,000 partners <em>already regulated</em></span></h2>
+<div class="srule"></div>
+
+<p><span class="fr">Civil-Fi PAFC® n'est pas un service grand public. C'est <span class="strong">une norme déployable par des cabinets institutionnels licenciés</span> — exactement comme une norme AFNOR n'est pas vendue au public mais déployée par des organismes certificateurs. Quatre catégories de licences françaises forment ensemble un canal de distribution B2B de plus de <span class="strong">22 000 entités déjà réglementées</span>. Chacune a sa clientèle, sa conformité, ses outils — et un produit complémentaire qui leur manque structurellement.</span><span class="en">Civil-Fi PAFC® is not a consumer service. It's <span class="strong">a norm deployable by licensed institutional cabinets</span> — exactly as an AFNOR standard is not sold to the public but deployed by certification bodies. Four French licence categories together form a B2B distribution channel of over <span class="strong">22,000 already-regulated entities</span>. Each has its client base, its compliance, its tools — and a structurally missing complementary product.</span></p>
+
+<div class="moat-g">
+<div class="moat-c"><div class="moat-n">A</div><div class="moat-lbl"><span class="fr">Notaires</span><span class="en">Notaries</span></div><div class="moat-t"><span class="fr">~16 500 officiers · le canal souverain</span><span class="en">~16,500 officers · the sovereign channel</span></div><div class="moat-d"><span class="fr">Acteurs constitutionnels du droit civil français. L'article 2018 du Code Civil rend l'acte notarié obligatoire pour toute fiducie. Le notaire reste gardien de l'acte ; PAFC® devient l'infrastructure numérique que ses clients utilisent pendant 30 ans. €5-7Md/an de successions transmises forment le périmètre adressable.</span><span class="en">Constitutional actors of French civil law. Article 2018 makes a notarised deed compulsory for every fiducie. The notary remains keeper of the deed; PAFC® becomes the digital infrastructure their clients use for 30 years. €5-7B/year of transmitted successions form the addressable perimeter.</span></div></div>
+
+<div class="moat-c"><div class="moat-n">B</div><div class="moat-lbl"><span class="fr">CIF</span><span class="en">CIF</span></div><div class="moat-t"><span class="fr">~5 000 conseillers en investissements financiers</span><span class="en">~5,000 financial investment advisors</span></div><div class="moat-d"><span class="fr">Multi-Family Offices, gestionnaires de patrimoine indépendants. Cantonnés au conseil sur produits AMF, ils perdent les clients qui demandent : copropriété, art en fiducie, halal, protection patrimoniale, dynastie. PAFC® leur offre un produit complémentaire en marque blanche. Captation 10% = 500 cabinets × 30 dossiers/an × €15K = <span class="strong">€225M ARR potentiel</span>.</span><span class="en">Multi-Family Offices, independent wealth managers. Restricted to AMF-product advice, they lose clients asking for: co-ownership, art in trust, halal, asset protection, dynasty. PAFC® gives them a white-label complementary product. 10% capture = 500 firms × 30 cases/year × €15K = <span class="strong">€225M ARR potential</span>.</span></div></div>
+
+<div class="moat-c"><div class="moat-n">C</div><div class="moat-lbl"><span class="fr">SGP</span><span class="en">SGP</span></div><div class="moat-t"><span class="fr">~700 sociétés de gestion · SCPI, OPCI, AIF</span><span class="en">~700 management firms · SCPI, OPCI, AIF</span></div><div class="moat-d"><span class="fr">Amundi, Primonial, Sofidy, Perial, La Française REM. Les contraintes AIFM rendent les actifs sub-€15M économiquement non viables. PAFC® structure ces deals en FAC-Fille en 4 semaines : la SGP garde la commission de gestion, nous prenons la licence. Rétention de revenus aujourd'hui perdus.</span><span class="en">Amundi, Primonial, Sofidy, Perial, La Française REM. AIFM constraints make sub-€15M assets economically unviable. PAFC® structures these deals as FAC-Fille in 4 weeks: the SGP keeps the management fee, we take the licence. Retention of revenue currently lost.</span></div></div>
+
+<div class="moat-c"><div class="moat-n">D</div><div class="moat-lbl"><span class="fr">PSFP</span><span class="en">PSFP</span></div><div class="moat-t"><span class="fr">~150 plateformes de financement participatif</span><span class="en">~150 crowdfunding platforms</span></div><div class="moat-d"><span class="fr">Anaxago, Homunity, ClubFunding, Wiseed, Raizers. Plafond €5M par projet, démarchage interdit, KIIS obligatoire. PAFC® leur ouvre la voie au-dessus du plafond, à la finance halal, et à la liquidité secondaire — sans sortir du périmètre civil. Captation 50% = 75 plateformes × 20 deals/an = <span class="strong">€90M ARR potentiel</span>.</span><span class="en">Anaxago, Homunity, ClubFunding, Wiseed, Raizers. €5M cap per project, no direct solicitation, mandatory KIIS. PAFC® opens above-cap structuring, halal finance, and secondary liquidity — without leaving the civil perimeter. 50% capture = 75 platforms × 20 deals/year = <span class="strong">€90M ARR potential</span>.</span></div></div>
+</div>
+
+<div class="kp">
+<h4><span class="fr">Le levier : nous sommes leur produit complémentaire, pas leur menace</span><span class="en">The leverage: we are their complementary product, not their threat</span></h4>
+<p><span class="fr">Chacune de ces 22 000 entités a déjà sa clientèle, sa conformité, son équipe technique. Aucune ne change de licence. Aucune ne devient concurrente de l'autre. <span class="strong">Toutes obtiennent un produit complémentaire qui leur manque structurellement</span>, et nous facturons l'infrastructure normative en marque blanche ou co-branding.</span><span class="en">Each of these 22,000 entities already has its client base, compliance, technical team. None changes licence. None competes with the others. <span class="strong">All obtain a structurally missing complementary product</span>, and we bill the normative infrastructure as white-label or co-branding.</span></p>
+</div>
+
+<h3 style="font-family:'EB Garamond',serif;font-size:21px;font-weight:500;color:var(--ink);margin:32px 0 12px;font-style:italic"><span class="fr">L'extension <em style="color:var(--terra)">DFI</em> ouvre un 5e canal — les cabinets cross-border</span><span class="en">The <em style="color:var(--terra)">DFI</em> extension opens a 5th channel — cross-border cabinets</span></h3>
+
+<p><span class="fr">L'invention 4 PHCI (DFI) crée une 5e catégorie de partenaires : les <span class="strong">cabinets juridiques transfrontaliers</span> — Gide, Asafo, Cuatrecasas, John Ffooks, AAA Avocats, et les boutiques franco-marocaines, franco-sénégalaises, franco-malgaches. Chaque dossier DFI génère <span class="strong">€50K-€200K d'honoraires</span>. Avec 50-80 cabinets licenciés à terme, opérant 10-20 dossiers/an au taux de royalty 15%, ce canal seul peut générer <span class="em-t">€2-4M ARR additionnel à M48</span> en plus des 4 catégories AMF. Cibles prioritaires : Maroc, Tunisie, Sénégal, Côte d'Ivoire, Madagascar, Maurice, Luxembourg.</span><span class="en">Invention 4 PHCI (DFI) creates a 5th partner category: <span class="strong">cross-border legal cabinets</span> — Gide, Asafo, Cuatrecasas, John Ffooks, AAA Avocats, and franco-Moroccan / franco-Senegalese / franco-Malagasy boutiques. Each DFI case generates <span class="strong">€50K-€200K in fees</span>. With 50-80 licensed cabinets eventually, operating 10-20 cases/year at a 15% royalty, this channel alone can produce <span class="em-t">€2-4M additional ARR by M48</span> on top of the 4 AMF categories. Priority targets: Morocco, Tunisia, Senegal, Côte d\'Ivoire, Madagascar, Mauritius, Luxembourg.</span></p>
+
+<h3 style="font-family:'EB Garamond',serif;font-size:21px;font-weight:500;color:var(--ink);margin:32px 0 12px;font-style:italic"><span class="fr">Trajectoire <em style="color:var(--terra)">de captation</em> par canal · M0 → M48</span><span class="en">Capture <em style="color:var(--terra)">trajectory</em> by channel · M0 → M48</span></h3>
+
+<div class="mkts">
+<div class="mkt-r"><div class="mkt-v">A</div><div class="mkt-i"><h4><span class="fr">Notaires — pilote → réseau territorial</span><span class="en">Notaries — pilot → territorial network</span></h4><p><span class="fr">M0-M12 : 5 études pilotes (Lyon, Paris, Bordeaux, Marseille, Genève-frontière). M24 : 50 notaires CCFP. M48 : 200 notaires + 1 chambre départementale partenaire.</span><span class="en">M0-M12: 5 pilot offices. M24: 50 CCFP notaries. M48: 200 notaries + 1 departmental chamber partner.</span></p></div></div>
+<div class="mkt-r"><div class="mkt-v">B</div><div class="mkt-i"><h4><span class="fr">CIF — réseau de marque blanche</span><span class="en">CIF — white-label network</span></h4><p><span class="fr">M0-M12 : 10 cabinets pilotes. M24 : 50 cabinets licenciés. M48 : 200 cabinets · 30 dossiers/an chacun · €100M+ ARR.</span><span class="en">M0-M12: 10 pilot firms. M24: 50 licensed firms. M48: 200 firms · 30 cases/year each · €100M+ ARR.</span></p></div></div>
+<div class="mkt-r"><div class="mkt-v">C</div><div class="mkt-i"><h4><span class="fr">SGP — partenariats stratégiques</span><span class="en">SGP — strategic partnerships</span></h4><p><span class="fr">M12 : 1er partenariat top-10. M24 : 5 SGP. M48 : 20-30 SGP · deals refusés repris en FAC-Fille · ticket moyen €8M.</span><span class="en">M12: 1st top-10 partnership. M24: 5 SGPs. M48: 20-30 SGPs · refused deals taken via FAC-Fille · €8M average ticket.</span></p></div></div>
+<div class="mkt-r"><div class="mkt-v">D</div><div class="mkt-i"><h4><span class="fr">PSFP — co-branding au-dessus du plafond</span><span class="en">PSFP — above-cap co-branding</span></h4><p><span class="fr">M12 : 2 PSFP pilotes. M24 : 10 PSFP. M48 : 30-50 plateformes · finance halal · liquidité secondaire civile.</span><span class="en">M12: 2 PSFP pilots. M24: 10 PSFPs. M48: 30-50 platforms · halal finance · civil secondary liquidity.</span></p></div></div>
+<div class="mkt-r"><div class="mkt-v">E</div><div class="mkt-i"><h4><span class="fr">Cabinets cross-border DFI</span><span class="en">DFI cross-border cabinets</span> <span class="mkt-tag">v4.1</span></h4><p><span class="fr">M12 : 3 cabinets pilotes (Maroc, Sénégal, Maurice). M24 : 20 cabinets. M48 : 50-80 cabinets · 10-20 dossiers/an · €2-4M ARR.</span><span class="en">M12: 3 pilot cabinets (Morocco, Senegal, Mauritius). M24: 20 cabinets. M48: 50-80 cabinets · 10-20 cases/year · €2-4M ARR.</span></p></div></div>
+</div>
+
+<p style="font-style:italic;color:var(--ink3);font-size:13.5px;margin-top:20px"><span class="fr">À titre d'illustration : la captation de seulement <span class="strong">10 % des CIF</span> représente 500 cabinets distribuant en moyenne 30 dossiers par an à €15K — soit <span class="strong">€225M de revenus annuels récurrents</span> sur ce seul canal. Et les notaires, qui couvrent l'intégralité des successions françaises (<span class="strong">€5–7Md de transmission par an</span>), constituent un canal d'une magnitude supérieure encore. Ces ordres de grandeur expliquent pourquoi <span class="em-t">Civil-Fi PAFC® est structurellement une infrastructure B2B</span>, pas une plateforme grand public.</span><span class="en">By way of illustration: capturing only <span class="strong">10% of CIF firms</span> represents 500 practices distributing on average 30 cases per year at €15K — i.e. <span class="strong">€225M annual recurring revenue</span> from this single channel. And notaries, covering all French successions (<span class="strong">€5–7B transmitted per year</span>), form a channel of greater magnitude still. These orders of magnitude explain why <span class="em-t">Civil-Fi PAFC® is structurally a B2B infrastructure</span>, not a consumer platform.</span></p>
+
+</div>
+
+<!-- § 08 — 7 flux de revenus -->
+<div class="section">
+<div class="sn">08</div>
 <div class="stag"><span class="fr">Modèle de revenus</span><span class="en">Revenue model</span></div>
 <h2><span class="fr">7 flux récurrents — <em>aucune performance</em></span><span class="en">7 recurring streams — <em>no performance fee</em></span></h2>
 <div class="srule"></div>
@@ -1804,11 +2095,32 @@ select.form-input:invalid,select.form-input option[value=""]{color:var(--ink5)}
 <div class="rev-c"><div class="rev-lbl">06</div><div class="rev-t"><span class="fr">Ingénierie civile &amp; conseil</span><span class="en">Civil engineering &amp; advisory</span></div><div class="rev-r">€5K–€20K / projet</div><div class="rev-d"><span class="fr">Setup FAC-Fille clé en main. Scoring conformité PAFC®. Marges élevées.</span><span class="en">Turnkey FAC-Fille setup. PAFC® compliance scoring. High margins.</span></div></div>
 <div class="rev-c rev-big"><div class="rev-lbl">07 — <span class="fr">Clé de voûte</span><span class="en">Keystone</span></div><div class="rev-t"><span class="fr">Licences Maîtres Internationales</span><span class="en">International Master Licences</span></div><div class="rev-r">€50K–€200K + €20K–€50K/an</div><div class="rev-d"><span class="fr">Licence exclusive par pays. Cibles : Belgique, Maroc, Maurice, Québec, Sénégal (UEMOA). <span class="strong">Chaque licence internationale signée ajoute €50M à €100M à la valeur d'entreprise opposable à un acquéreur stratégique.</span></span><span class="en">Exclusive licence per country. Targets: Belgium, Morocco, Mauritius, Quebec, Senegal (UEMOA). <span class="strong">Each signed international licence adds €50M to €100M in enterprise value enforceable against a strategic acquirer.</span></span></div></div>
 </div>
+
+<h3 style="font-family:'EB Garamond',serif;font-size:21px;font-weight:500;color:var(--ink);margin:36px 0 12px;font-style:italic"><span class="fr">Pourquoi le multiple <em style="color:var(--terra)">standards (15-22×)</em> est défendable</span><span class="en">Why the <em style="color:var(--terra)">standards multiple (15-22×)</em> is defensible</span></h3>
+
+<p><span class="fr">Civil-Fi PAFC® n'est pas une fintech opératrice. C'est un <span class="strong">organisme normatif</span> qui édicte un standard, accrédite des praticiens, appose un label, et tient un registre. Cette catégorie d'entreprise se valorise sur des comparables très différents — non pas la fintech à 6-8× ARR, mais l'infrastructure normative à <span class="strong">15-22× ARR</span>.</span><span class="en">Civil-Fi PAFC® is not an operating fintech. It is a <span class="strong">normative body</span> that issues a standard, accredits practitioners, applies a label, and maintains a registry. This category of company is valued on very different comparables — not fintech at 6-8× ARR, but normative infrastructure at <span class="strong">15-22× ARR</span>.</span></p>
+
+<div class="comp">
+<div class="comp-i"><div class="comp-i-name">Moody's</div><div class="comp-i-d">~16× ARR · normes notation crédit</div></div>
+<div class="comp-i"><div class="comp-i-name">S&amp;P Global</div><div class="comp-i-d">~22× ARR · indices &amp; normes</div></div>
+<div class="comp-i"><div class="comp-i-name">MSCI</div><div class="comp-i-d">~20× ARR · normes ESG, indices</div></div>
+<div class="comp-i"><div class="comp-i-name">Bloomberg</div><div class="comp-i-d">privé · ~18-25× normes financières</div></div>
+<div class="comp-i"><div class="comp-i-name">AFNOR</div><div class="comp-i-d">normes NF · autorité publiante française</div></div>
+<div class="comp-i"><div class="comp-i-name">IFRS Foundation</div><div class="comp-i-d">normes comptables · publiant institutionnel</div></div>
 </div>
 
-<!-- § 08 — Investment structure + valuation trajectory -->
+<div class="kp">
+<h4><span class="fr">Comment nous prouvons appartenir à cette catégorie</span><span class="en">How we prove we belong to this category</span></h4>
+<p><span class="fr">À M48, Civil-Fi doit avoir atteint cinq jalons falsifiables démontrant l'identité « standard institutionnel » plutôt que « plateforme opératrice » : (1) <span class="strong">5+ cabinets non-affiliés licenciés</span> en marque blanche · (2) <span class="strong">1+ licence maître internationale signée</span> · (3) <span class="strong">label ACC apposé sur 50+ projets non-Civil-Fi</span> · (4) <span class="strong">1 000+ praticiens CCFP certifiés</span> dans 3 barreaux · (5) <span class="strong">doctrine PAFC citée dans une décision juridictionnelle</span>. L'atteinte de ces 5 jalons valide le multiple standards.</span><span class="en">By M48, Civil-Fi must have hit five falsifiable milestones demonstrating "institutional standard" identity over "operating platform": (1) <span class="strong">5+ unaffiliated cabinets white-label licensed</span> · (2) <span class="strong">1+ international master licence signed</span> · (3) <span class="strong">ACC label applied to 50+ non-Civil-Fi projects</span> · (4) <span class="strong">1,000+ CCFP-certified practitioners</span> across 3 bars · (5) <span class="strong">PAFC doctrine cited in a court ruling</span>. Hitting these 5 milestones validates the standards multiple.</span></p>
+</div>
+
+<p style="font-style:italic;color:var(--ink3);font-size:13.5px;margin-top:14px"><span class="fr">À ARR €8M (M48 pour mémoire) — multiple fintech 6-8× = €48-64M · multiple standards 15-22× = €120-176M. <span class="strong">L'écart entre les deux modèles de valorisation est le levier principal de la sortie cible €400-800M en M48-M72</span>, conjugué aux licences internationales signées qui ajoutent leur propre prime stratégique.</span><span class="en">At ARR €8M (M48 illustrative) — fintech multiple 6-8× = €48-64M · standards multiple 15-22× = €120-176M. <span class="strong">The gap between the two valuation models is the main lever for the €400-800M target exit in M48-M72</span>, combined with signed international licences adding their own strategic premium.</span></p>
+
+</div>
+
+<!-- § 09 — Investment structure + valuation trajectory -->
 <div class="section">
-<div class="sn">08</div>
+<div class="sn">09</div>
 <div class="stag"><span class="fr">Structure d'investissement</span><span class="en">Investment structure</span></div>
 <h2><span class="fr">€2,5M · 25% max · <em>3 tranches</em></span><span class="en">€2.5M · 25% max · <em>3 tranches</em></span></h2>
 <div class="srule"></div>
@@ -1872,17 +2184,17 @@ select.form-input:invalid,select.form-input option[value=""]{color:var(--ink5)}
 </div>
 </div>
 
-<p style="font-size:12px;color:var(--ink4);font-style:italic;margin-top:10px;max-width:580px"><span class="fr">Les fourchettes reflètent les scénarios conservateur et optimiste à chaque jalon. La croissance de la valeur projet est tirée par : OJP favorable, déploiement du réseau de licenciés, licences maîtres internationales signées, et ARR récurrent sur le RFC et les certifications.</span><span class="en">Ranges reflect conservative and optimistic scenarios at each milestone. Growth driven by favourable OJP, licensee network deployment, signed international master licences, and recurring ARR from RFC and certifications.</span></p>
+<p style="font-size:12px;color:var(--ink4);font-style:italic;margin-top:10px;max-width:580px"><span class="fr">Les fourchettes reflètent les scénarios conservateur et optimiste à chaque jalon. La croissance de la valeur projet est tirée par : OJP favorable, déploiement du réseau de licenciés, licences maîtres internationales signées, ARR récurrent sur le RFC, certifications, ACC labels, et le <span class="em-t">multiplicateur ×1,8 à ×2,3 du portefeuille IP avec l'invention 4 PHCI/DFI</span>. Le passage du multiple « fintech 6-8× » au multiple « standards 15-22× » constitue le levier de valorisation principal.</span><span class="en">Ranges reflect conservative and optimistic scenarios at each milestone. Growth driven by favourable OJP, licensee network deployment, signed international master licences, recurring ARR from RFC, certifications, ACC labels, and the <span class="em-t">×1.8 to ×2.3 IP portfolio multiplier with invention 4 PHCI/DFI</span>. Moving from "fintech 6-8×" to "standards 15-22×" multiple is the main valuation lever.</span></p>
 
 <div class="kp" style="margin-top:28px">
 <h4><span class="fr">Nature de la sortie</span><span class="en">Nature of the exit</span></h4>
-<p><span class="fr">L'événement de liquidité est conçu <span class="strong">principalement pour l'investisseur</span>. Mécanismes envisagés : tour secondaire avec fonds d'infrastructure, rachat stratégique (grand cabinet, banque privée, fintech paneuropéenne), entrée en bourse partielle. <span class="em-t">Les fondateurs restent engagés opérationnellement au-delà de l'exit</span> — Civil-Fi n'est pas un projet à vendre, c'est une infrastructure à bâtir sur plusieurs décennies. L'investisseur obtient sa liquidité ; le véhicule continue.</span><span class="en">The liquidity event is designed <span class="strong">primarily for the investor</span>. Mechanisms: secondary round with infrastructure fund, strategic acquisition (major firm, private bank, pan-European fintech), partial IPO. <span class="em-t">Founders remain operationally engaged beyond exit</span> — Civil-Fi is not a project to sell, it's an infrastructure to build over decades. The investor gets liquidity; the vehicle continues.</span></p>
+<p><span class="fr">L'événement de liquidité est conçu <span class="strong">principalement pour l'investisseur</span>. Mécanismes envisagés : tour secondaire avec fonds d'infrastructure, rachat stratégique, entrée en bourse partielle. Acquéreurs cibles élargis avec DFI : <span class="em-t">acteurs globaux du custody fiduciaire</span> (BNY Mellon, State Street, Northern Trust, JTC Group, Apex Group), banques privées paneuropéennes, fintechs B2B infrastructure, organismes de normalisation cherchant à acquérir un standard sectoriel. <span class="em-t">Les fondateurs restent engagés opérationnellement au-delà de l'exit</span> — Civil-Fi n'est pas un projet à vendre, c'est une infrastructure normative à bâtir sur plusieurs décennies. L'investisseur obtient sa liquidité ; le véhicule continue.</span><span class="en">The liquidity event is designed <span class="strong">primarily for the investor</span>. Mechanisms: secondary round with infrastructure fund, strategic acquisition, partial IPO. Expanded acquirer pool with DFI: <span class="em-t">global fiduciary custody players</span> (BNY Mellon, State Street, Northern Trust, JTC Group, Apex Group), pan-European private banks, B2B infrastructure fintechs, normative bodies seeking to acquire a sector standard. <span class="em-t">Founders remain operationally engaged beyond exit</span> — Civil-Fi is not a project to sell, it's a normative infrastructure to build over decades. The investor gets liquidity; the vehicle continues.</span></p>
 </div>
 </div>
 
-<!-- § 09 — Risk management -->
+<!-- § 10 — Risk management -->
 <div class="section">
-<div class="sn">09</div>
+<div class="sn">10</div>
 <div class="stag"><span class="fr">Gestion des risques</span><span class="en">Risk management</span></div>
 <h2><span class="fr">Risques identifiés &amp; <em>mitigation</em></span><span class="en">Identified risks &amp; <em>mitigation</em></span></h2>
 <div class="srule"></div>
@@ -1900,9 +2212,9 @@ select.form-input:invalid,select.form-input option[value=""]{color:var(--ink5)}
 </div>
 </div>
 
-<!-- § 10 — FAQ -->
+<!-- § 11 — FAQ -->
 <div class="section">
-<div class="sn">10</div>
+<div class="sn">11</div>
 <div class="stag"><span class="fr">FAQ investisseur</span><span class="en">Investor FAQ</span></div>
 <h2><span class="fr">Quatre questions <em>que vous vous posez</em></span><span class="en">Four questions <em>you're asking yourself</em></span></h2>
 <div class="srule"></div>
